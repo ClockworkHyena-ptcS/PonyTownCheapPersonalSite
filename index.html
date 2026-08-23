@@ -1,703 +1,855 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title id="pageTitle">@cheapponytownskins</title>
+    <title>@cheapponytownskins</title>
 
-<style>
-* {
-    box-sizing: border-box;
-}
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-html {
-    scroll-behavior: smooth;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-body {
-    margin: 0;
-    min-height: 100vh;
-    font-family: Arial, sans-serif;
-    color: var(--textColor);
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            color: var(--textColor, #5f5362);
 
-    background: linear-gradient(
-        120deg,
-        #ffdbea,
-        #dff6ff,
-        #eadfff,
-        #ffe0ee,
-        #d8f5ff
-    );
+            background: linear-gradient(
+                120deg,
+                #ffdbea,
+                #dff6ff,
+                #eadfff,
+                #ffe0ee,
+                #d8f5ff
+            );
 
-    background-size: 500% 500%;
-    animation: waterfall 18s ease infinite;
-}
+            background-size: 500% 500%;
+            animation: waterfall 18s ease infinite;
+        }
 
-@keyframes waterfall {
-    0% {
-        background-position: 0% 50%;
-    }
+        @keyframes waterfall {
+            0% {
+                background-position: 0% 50%;
+            }
 
-    50% {
-        background-position: 100% 50%;
-    }
+            50% {
+                background-position: 100% 50%;
+            }
 
-    100% {
-        background-position: 0% 50%;
-    }
-}
+            100% {
+                background-position: 0% 50%;
+            }
+        }
 
-.page {
-    width: min(1000px, 92%);
-    margin: auto;
-    padding: 25px 0 50px;
-}
+        .page {
+            width: min(1000px, 92%);
+            margin: auto;
+            padding: 25px 0 50px;
+        }
 
-header {
-    text-align: center;
-    padding: 35px 20px;
-    margin-bottom: 20px;
+        header {
+            text-align: center;
+            padding: 35px 20px;
+            margin-bottom: 20px;
 
-    background: rgba(255, 255, 255, 0.55);
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    border-radius: 30px;
+            background: rgba(255, 255, 255, 0.55);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 30px;
 
-    box-shadow:
-        0 10px 35px rgba(160, 120, 160, 0.15);
+            box-shadow:
+                0 10px 35px rgba(160, 120, 160, 0.15);
 
-    backdrop-filter: blur(15px);
-}
+            backdrop-filter: blur(15px);
+        }
 
-.logo {
-    font-size: 32px;
-    font-weight: bold;
-    color: var(--primaryColor);
-    margin-bottom: 8px;
-}
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--primaryColor, #d17fa2);
+            margin-bottom: 8px;
+        }
 
-.subtitle {
-    color: var(--secondaryColor);
-    font-size: 15px;
-}
+        .subtitle {
+            color: var(--secondaryColor, #8f8192);
+            font-size: 15px;
+        }
 
-nav {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 20px 0;
-}
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
 
-nav a {
-    text-decoration: none;
-    color: #876b7d;
+        nav a {
+            text-decoration: none;
+            color: #876b7d;
 
-    background: rgba(255, 255, 255, 0.65);
+            background: rgba(255, 255, 255, 0.65);
 
-    padding: 12px 20px;
-    border-radius: 20px;
+            padding: 12px 20px;
+            border-radius: 20px;
 
-    transition: 0.25s;
+            transition: 0.25s;
 
-    box-shadow:
-        0 5px 15px rgba(150, 120, 150, 0.1);
-}
+            box-shadow:
+                0 5px 15px rgba(150, 120, 150, 0.1);
+        }
 
-nav a:hover {
-    transform: translateY(-3px);
-    background: white;
-    color: var(--primaryColor);
-}
+        nav a:hover {
+            transform: translateY(-3px);
+            background: white;
+            color: var(--primaryColor, #d47fa5);
+        }
 
-section {
-    margin-top: 25px;
-    padding: 30px;
+        section {
+            margin-top: 25px;
+            padding: 30px;
 
-    background: rgba(255, 255, 255, 0.62);
+            background: rgba(255, 255, 255, 0.62);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 30px;
 
-    border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow:
+                0 10px 35px rgba(160, 120, 160, 0.13);
 
-    border-radius: 30px;
+            backdrop-filter: blur(15px);
+        }
 
-    box-shadow:
-        0 10px 35px rgba(160, 120, 160, 0.13);
+        h2 {
+            margin-top: 0;
+            color: var(--primaryColor, #d17fa2);
+        }
 
-    backdrop-filter: blur(15px);
-}
+        .welcome {
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.7;
+            white-space: normal;
+        }
 
-h2 {
-    margin-top: 0;
-    color: var(--primaryColor);
-}
+        .cards {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
 
-.welcome {
-    text-align: center;
-    font-size: 18px;
-    line-height: 1.7;
-}
+            gap: 15px;
+        }
 
-.cards {
-    display: grid;
-    grid-template-columns:
-        repeat(auto-fit, minmax(220px, 1fr));
+        .card {
+            padding: 22px;
 
-    gap: 15px;
-}
+            background: rgba(255, 255, 255, 0.7);
 
-.card {
-    padding: 22px;
+            border-radius: 22px;
 
-    background: rgba(255, 255, 255, 0.7);
+            transition: 0.25s;
+        }
 
-    border-radius: 22px;
+        .card:hover {
+            transform: translateY(-5px);
 
-    transition: 0.25s;
-}
+            box-shadow:
+                0 10px 25px rgba(180, 130, 170, 0.15);
+        }
 
-.card:hover {
-    transform: translateY(-5px);
+        .card h3 {
+            margin-top: 0;
+            color: var(--primaryColor, #d47fa5);
+        }
 
-    box-shadow:
-        0 10px 25px rgba(180, 130, 170, 0.15);
-}
+        .admin {
+            text-align: center;
+        }
 
-.card h3 {
-    margin-top: 0;
-    color: var(--primaryColor);
-}
+        .admin-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--primaryColor, #d17fa2);
+        }
 
-.admin {
-    text-align: center;
-}
+        .position {
+            margin-top: 5px;
+            color: var(--secondaryColor, #8f8192);
+        }
 
-.admin-name {
-    font-size: 20px;
-    font-weight: bold;
-    color: var(--primaryColor);
-}
+        footer {
+            text-align: center;
+            padding: 30px 10px 0;
 
-.position {
-    margin-top: 5px;
-    color: var(--secondaryColor);
-}
+            color: var(--secondaryColor, #8f8192);
 
-footer {
-    text-align: center;
-    padding: 30px 10px 0;
+            font-size: 13px;
+        }
 
-    color: var(--secondaryColor);
+        @media (max-width: 600px) {
 
-    font-size: 13px;
-}
+            .page {
+                width: 94%;
+            }
 
-@media (max-width: 600px) {
+            .logo {
+                font-size: 25px;
+            }
 
-    .page {
-        width: 94%;
-    }
+            section {
+                padding: 22px;
+                border-radius: 24px;
+            }
 
-    .logo {
-        font-size: 25px;
-    }
-
-    section {
-        padding: 22px;
-        border-radius: 24px;
-    }
-
-    nav a {
-        padding: 10px 15px;
-    }
-
-}
-</style>
+            nav a {
+                padding: 10px 15px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
 <div class="page">
 
-<header>
+    <!-- HEADER -->
 
-    <div
-        class="logo"
-        id="siteName">
-        @cheapponytownskins
-    </div>
+    <header>
 
-    <div
-        class="subtitle"
-        id="subtitle">
-        личное пространство канала ♡
-    </div>
+        <div
+            class="logo"
+            id="siteName">
+            @cheapponytownskins
+        </div>
 
-</header>
+        <div
+            class="subtitle"
+            id="subtitle">
+            личное пространство канала ♡
+        </div>
 
-
-<nav>
-
-    <a id="nav1" href="#home">
-        Главное
-    </a>
-
-    <a id="nav2" href="#posts">
-        Записи
-    </a>
-
-    <a id="nav3" href="#admins">
-        Администрация
-    </a>
-
-</nav>
+    </header>
 
 
-<section id="home">
+    <!-- NAVIGATION -->
 
-    <h2 id="homeTitle">
-        Главное ♡
-    </h2>
+    <nav>
 
-    <div
-        class="welcome"
-        id="homeText">
-        Добро пожаловать на официальный сайт
-        <b>@cheapponytownskins</b>!
+        <a
+            id="nav1"
+            href="#home">
+            Главное
+        </a>
 
-        <br><br>
+        <a
+            id="nav2"
+            href="#posts">
+            Записи
+        </a>
 
-        Здесь будут собраны полезная информация,
-        новости, правила, инструкции и другие материалы
-        нашего канала.
+        <a
+            id="nav3"
+            href="#admins">
+            Администрация
+        </a>
 
-        <br><br>
-
-        ✦ Создано с любовью ✦
-    </div>
-
-</section>
+    </nav>
 
 
-<section id="posts">
+    <!-- HOME -->
 
-    <h2>
-        Записи 📖
-    </h2>
+    <section id="home">
 
-    <div class="cards">
+        <h2 id="homeTitle">
+            Главное ♡
+        </h2>
 
-        <div class="card">
+        <div
+            class="welcome"
+            id="homeText">
 
-            <h3 id="card1Title">
-                📜 Правила
-            </h3>
+            Добро пожаловать на официальный сайт
+            <b>@cheapponytownskins</b>!
 
-            <p id="card1Text">
-                Здесь будут находиться правила канала
-                и другая важная информация.
-            </p>
+            <br><br>
+
+            Здесь будут собраны полезная информация,
+            новости, правила, инструкции и другие материалы
+            нашего канала.
+
+            <br><br>
+
+            ✦ Создано с любовью ✦
 
         </div>
 
-
-        <div class="card">
-
-            <h3 id="card2Title">
-                📰 Новости
-            </h3>
-
-            <p id="card2Text">
-                Здесь можно публиковать новости,
-                объявления и обновления.
-            </p>
-
-        </div>
+    </section>
 
 
-        <div class="card">
+    <!-- POSTS -->
 
-            <h3 id="card3Title">
-                🤖 Боты
-            </h3>
+    <section id="posts">
 
-            <p id="card3Text">
-                Здесь будут инструкции по использованию
-                ботов и полезные команды.
-            </p>
+        <h2>
+            Записи 📖
+        </h2>
 
-        </div>
+        <div class="cards">
 
 
-        <div class="card">
+            <!-- CARD 1 -->
 
-            <h3 id="card4Title">
-                🎨 Скины
-            </h3>
+            <div class="card">
 
-            <p id="card4Text">
-                Здесь можно разместить инструкции,
-                советы и информацию о скинах.
-            </p>
+                <h3 id="card1Title">
+                    📜 Правила
+                </h3>
 
-        </div>
+                <p id="card1Text">
+                    Здесь будут находиться правила канала
+                    и другая важная информация.
+                </p>
 
-    </div>
-
-</section>
-
-
-<section id="admins">
-
-    <h2>
-        Администрация ♡
-    </h2>
-
-    <div class="cards">
-
-        <div class="card admin">
-
-            <div
-                class="admin-name"
-                id="admin1Name">
-                Имя администратора
             </div>
 
-            <div
-                class="position"
-                id="admin1Position">
-                Владелец
+
+            <!-- CARD 2 -->
+
+            <div class="card">
+
+                <h3 id="card2Title">
+                    📰 Новости
+                </h3>
+
+                <p id="card2Text">
+                    Здесь можно публиковать новости,
+                    объявления и обновления.
+                </p>
+
             </div>
 
-            <p id="admin1Description">
-                Здесь можно написать информацию
-                об этом человеке.
-            </p>
+
+            <!-- CARD 3 -->
+
+            <div class="card">
+
+                <h3 id="card3Title">
+                    🤖 Боты
+                </h3>
+
+                <p id="card3Text">
+                    Здесь будут инструкции по использованию
+                    ботов и полезные команды.
+                </p>
+
+            </div>
+
+
+            <!-- CARD 4 -->
+
+            <div class="card">
+
+                <h3 id="card4Title">
+                    🎨 Скины
+                </h3>
+
+                <p id="card4Text">
+                    Здесь можно разместить инструкции,
+                    советы и информацию о скинах.
+                </p>
+
+            </div>
 
         </div>
 
+    </section>
 
-        <div class="card admin">
 
-            <div
-                class="admin-name"
-                id="admin2Name">
-                Имя администратора
+    <!-- ADMINS -->
+
+    <section id="admins">
+
+        <h2>
+            Администрация ♡
+        </h2>
+
+        <div class="cards">
+
+
+            <!-- ADMIN 1 -->
+
+            <div class="card admin">
+
+                <div
+                    class="admin-name"
+                    id="admin1Name">
+
+                    Гиена
+
+                </div>
+
+                <div
+                    class="position"
+                    id="admin1Position">
+
+                    Владелец
+
+                </div>
+
+                <p id="admin1Text">
+
+                    Здесь можно написать информацию
+                    об этом человеке.
+
+                </p>
+
             </div>
 
-            <div
-                class="position"
-                id="admin2Position">
-                Администратор
-            </div>
 
-            <p id="admin2Description">
-                Здесь можно написать должность
-                и обязанности.
-            </p>
+            <!-- ADMIN 2 -->
+
+            <div class="card admin">
+
+                <div
+                    class="admin-name"
+                    id="admin2Name">
+
+                    Имя администратора
+
+                </div>
+
+                <div
+                    class="position"
+                    id="admin2Position">
+
+                    Администратор
+
+                </div>
+
+                <p id="admin2Text">
+
+                    Здесь можно написать должность
+                    и обязанности.
+
+                </p>
+
+            </div>
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
-<footer id="footer">
-    @cheapponytownskins · 2026 ♡
-</footer>
+    <!-- FOOTER -->
+
+    <footer id="footer">
+
+        @cheapponytownskins · 2026 ♡
+
+    </footer>
 
 </div>
 
 
 <script>
 
-const defaults = {
+/*
+====================================================
+ НАСТРОЙКИ ПО УМОЛЧАНИЮ
+====================================================
+*/
 
-    siteName: "@cheapponytownskins",
+const defaultSettings = {
+
+    siteName:
+        "@cheapponytownskins",
 
     subtitle:
-    "личное пространство канала ♡",
+        "личное пространство канала ♡",
 
     homeTitle:
-    "Главное ♡",
+        "Главное ♡",
 
     homeText:
-    `Добро пожаловать на официальный сайт @cheapponytownskins!
-
-Здесь будут собраны полезная информация,
-новости, правила, инструкции и другие материалы
-нашего канала.
-
-✦ Создано с любовью ✦`,
+        "Добро пожаловать на официальный сайт @cheapponytownskins!\n\nЗдесь будут собраны полезная информация, новости, правила, инструкции и другие материалы нашего канала.\n\n✦ Создано с любовью ✦",
 
     footer:
-    "@cheapponytownskins · 2026 ♡",
+        "@cheapponytownskins · 2026 ♡",
 
-    nav1Text:
-    "Главное",
 
-    nav1Link:
-    "#home",
+    nav1:
+        "Главное",
 
-    nav2Text:
-    "Записи",
+    nav2:
+        "Записи",
 
-    nav2Link:
-    "#posts",
-
-    nav3Text:
-    "Администрация",
-
-    nav3Link:
-    "#admins",
+    nav3:
+        "Администрация",
 
 
     card1Title:
-    "📜 Правила",
+        "📜 Правила",
 
     card1Text:
-    "Здесь будут находиться правила канала и другая важная информация.",
+        "Здесь будут находиться правила канала и другая важная информация.",
 
 
     card2Title:
-    "📰 Новости",
+        "📰 Новости",
 
     card2Text:
-    "Здесь можно публиковать новости, объявления и обновления.",
+        "Здесь можно публиковать новости, объявления и обновления.",
 
 
     card3Title:
-    "🤖 Боты",
+        "🤖 Боты",
 
     card3Text:
-    "Здесь будут инструкции по использованию ботов и полезные команды.",
+        "Здесь будут инструкции по использованию ботов и полезные команды.",
 
 
     card4Title:
-    "🎨 Скины",
+        "🎨 Скины",
 
     card4Text:
-    "Здесь можно разместить инструкции, советы и информацию о скинах.",
+        "Здесь можно разместить инструкции, советы и информацию о скинах.",
 
 
     admin1Name:
-    "Имя администратора",
+        "Имя администратора",
 
     admin1Position:
-    "Владелец",
+        "Владелец",
 
-    admin1Description:
-    "Здесь можно написать информацию об этом человеке.",
+    admin1Text:
+        "Здесь можно написать информацию об этом человеке.",
 
 
     admin2Name:
-    "Имя администратора",
+        "Имя администратора",
 
     admin2Position:
-    "Администратор",
+        "Администратор",
 
-    admin2Description:
-    "Здесь можно написать должность и обязанности.",
+    admin2Text:
+        "Здесь можно написать должность и обязанности.",
 
 
     primaryColor:
-    "#d17fa2",
+        "#d17fa2",
 
     textColor:
-    "#5f5362",
+        "#5f5362",
 
     secondaryColor:
-    "#8f8192"
+        "#8f8192"
 
 };
 
+
+/*
+====================================================
+ ПОЛУЧЕНИЕ НАСТРОЕК
+====================================================
+*/
 
 function getSettings() {
 
     try {
 
         const saved =
-            localStorage.getItem("siteSettings");
+            localStorage.getItem("adminSettings");
 
         if (!saved) {
-            return defaults;
+
+            return {
+                ...defaultSettings
+            };
+
         }
 
         return {
-            ...defaults,
+            ...defaultSettings,
             ...JSON.parse(saved)
         };
 
-    } catch {
+    }
 
-        return defaults;
+    catch (error) {
+
+        console.log(
+            "Настройки не найдены."
+        );
+
+        return {
+            ...defaultSettings
+        };
 
     }
 
 }
 
 
+/*
+====================================================
+ ПРИМЕНЕНИЕ НАСТРОЕК
+====================================================
+*/
+
 function applySettings() {
 
-    const s = getSettings();
-
-
-    document.title =
-        s.siteName;
-
-
-    document.getElementById("siteName")
-        .textContent =
-        s.siteName;
-
-
-    document.getElementById("subtitle")
-        .textContent =
-        s.subtitle;
-
-
-    document.getElementById("homeTitle")
-        .textContent =
-        s.homeTitle;
+    const settings =
+        getSettings();
 
 
     /*
-       Разрешаем переносы строк
-       в главном тексте
+    Название страницы
     */
 
-    document.getElementById("homeText")
-        .innerHTML =
-        s.homeText
-        .replace(/\n/g, "<br>");
+    document.title =
+        settings.siteName;
 
 
-    document.getElementById("footer")
-        .textContent =
-        s.footer;
+    /*
+    Верх сайта
+    */
+
+    document.getElementById(
+        "siteName"
+    ).textContent =
+        settings.siteName;
 
 
-    const nav1 =
-        document.getElementById("nav1");
-
-    nav1.textContent =
-        s.nav1Text;
-
-    nav1.href =
-        s.nav1Link;
+    document.getElementById(
+        "subtitle"
+    ).textContent =
+        settings.subtitle;
 
 
-    const nav2 =
-        document.getElementById("nav2");
+    /*
+    Главное
+    */
 
-    nav2.textContent =
-        s.nav2Text;
-
-    nav2.href =
-        s.nav2Link;
-
-
-    const nav3 =
-        document.getElementById("nav3");
-
-    nav3.textContent =
-        s.nav3Text;
-
-    nav3.href =
-        s.nav3Link;
+    document.getElementById(
+        "homeTitle"
+    ).textContent =
+        settings.homeTitle;
 
 
-    document.getElementById("card1Title")
-        .textContent =
-        s.card1Title;
+    /*
+    Главный текст
+    */
 
-    document.getElementById("card1Text")
-        .textContent =
-        s.card1Text;
-
-
-    document.getElementById("card2Title")
-        .textContent =
-        s.card2Title;
-
-    document.getElementById("card2Text")
-        .textContent =
-        s.card2Text;
+    document.getElementById(
+        "homeText"
+    ).innerHTML =
+        escapeHTML(
+            settings.homeText
+        ).replace(
+            /\n/g,
+            "<br>"
+        );
 
 
-    document.getElementById("card3Title")
-        .textContent =
-        s.card3Title;
+    /*
+    Меню
+    */
 
-    document.getElementById("card3Text")
-        .textContent =
-        s.card3Text;
-
-
-    document.getElementById("card4Title")
-        .textContent =
-        s.card4Title;
-
-    document.getElementById("card4Text")
-        .textContent =
-        s.card4Text;
+    document.getElementById(
+        "nav1"
+    ).textContent =
+        settings.nav1;
 
 
-    document.getElementById("admin1Name")
-        .textContent =
-        s.admin1Name;
-
-    document.getElementById("admin1Position")
-        .textContent =
-        s.admin1Position;
-
-    document.getElementById("admin1Description")
-        .textContent =
-        s.admin1Description;
+    document.getElementById(
+        "nav2"
+    ).textContent =
+        settings.nav2;
 
 
-    document.getElementById("admin2Name")
-        .textContent =
-        s.admin2Name;
-
-    document.getElementById("admin2Position")
-        .textContent =
-        s.admin2Position;
-
-    document.getElementById("admin2Description")
-        .textContent =
-        s.admin2Description;
+    document.getElementById(
+        "nav3"
+    ).textContent =
+        settings.nav3;
 
 
-    document.documentElement
-        .style
+    /*
+    Карточка 1
+    */
+
+    document.getElementById(
+        "card1Title"
+    ).textContent =
+        settings.card1Title;
+
+
+    document.getElementById(
+        "card1Text"
+    ).textContent =
+        settings.card1Text;
+
+
+    /*
+    Карточка 2
+    */
+
+    document.getElementById(
+        "card2Title"
+    ).textContent =
+        settings.card2Title;
+
+
+    document.getElementById(
+        "card2Text"
+    ).textContent =
+        settings.card2Text;
+
+
+    /*
+    Карточка 3
+    */
+
+    document.getElementById(
+        "card3Title"
+    ).textContent =
+        settings.card3Title;
+
+
+    document.getElementById(
+        "card3Text"
+    ).textContent =
+        settings.card3Text;
+
+
+    /*
+    Карточка 4
+    */
+
+    document.getElementById(
+        "card4Title"
+    ).textContent =
+        settings.card4Title;
+
+
+    document.getElementById(
+        "card4Text"
+    ).textContent =
+        settings.card4Text;
+
+
+    /*
+    Администратор 1
+    */
+
+    document.getElementById(
+        "admin1Name"
+    ).textContent =
+        settings.admin1Name;
+
+
+    document.getElementById(
+        "admin1Position"
+    ).textContent =
+        settings.admin1Position;
+
+
+    document.getElementById(
+        "admin1Text"
+    ).textContent =
+        settings.admin1Text;
+
+
+    /*
+    Администратор 2
+    */
+
+    document.getElementById(
+        "admin2Name"
+    ).textContent =
+        settings.admin2Name;
+
+
+    document.getElementById(
+        "admin2Position"
+    ).textContent =
+        settings.admin2Position;
+
+
+    document.getElementById(
+        "admin2Text"
+    ).textContent =
+        settings.admin2Text;
+
+
+    /*
+    Футер
+    */
+
+    document.getElementById(
+        "footer"
+    ).textContent =
+        settings.footer;
+
+
+    /*
+    Цвета
+    */
+
+    document.documentElement.style
         .setProperty(
             "--primaryColor",
-            s.primaryColor
+            settings.primaryColor
         );
 
 
-    document.documentElement
-        .style
+    document.documentElement.style
         .setProperty(
             "--textColor",
-            s.textColor
+            settings.textColor
         );
 
 
-    document.documentElement
-        .style
+    document.documentElement.style
         .setProperty(
             "--secondaryColor",
-            s.secondaryColor
+            settings.secondaryColor
         );
 
 }
 
+
+/*
+====================================================
+ ЗАЩИТА ТЕКСТА
+====================================================
+*/
+
+function escapeHTML(text) {
+
+    const div =
+        document.createElement("div");
+
+    div.textContent =
+        text;
+
+    return div.innerHTML;
+
+}
+
+
+/*
+====================================================
+ ЗАПУСК
+====================================================
+*/
 
 applySettings();
 
 </script>
 
 </body>
-    </html>
+                    </html>
