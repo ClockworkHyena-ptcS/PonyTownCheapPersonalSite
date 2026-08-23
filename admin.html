@@ -4,704 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Админ-панель</title>
-
-<style>
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background:
-        linear-gradient(
-            120deg,
-            #ffdbea,
-            #dff6ff,
-            #eadfff,
-            #ffe0ee
-        );
-
-    min-height: 100vh;
-    color: #5f5362;
-}
-
-.container {
-    width: min(1000px, 94%);
-    margin: auto;
-    padding: 20px 0 50px;
-}
-
-header {
-    background: rgba(255,255,255,.7);
-    backdrop-filter: blur(15px);
-    padding: 25px;
-    border-radius: 25px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-header h1 {
-    margin: 0;
-    color: #d17fa2;
-}
-
-header p {
-    color: #8f8192;
-}
-
-.panel {
-    background: rgba(255,255,255,.7);
-    backdrop-filter: blur(15px);
-    padding: 25px;
-    border-radius: 25px;
-    margin-bottom: 20px;
-}
-
-.panel h2 {
-    color: #d17fa2;
-    margin-top: 0;
-}
-
-label {
-    display: block;
-    margin-top: 15px;
-    margin-bottom: 6px;
-    font-weight: bold;
-}
-
-input,
-textarea {
-    width: 100%;
-    padding: 13px;
-    border-radius: 14px;
-    border: 1px solid #e2cbd9;
-    background: white;
-    font-size: 15px;
-    color: #5f5362;
-}
-
-textarea {
-    min-height: 100px;
-    resize: vertical;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns:
-        repeat(auto-fit, minmax(230px, 1fr));
-
-    gap: 15px;
-}
-
-.editor-card {
-    background: rgba(255,255,255,.55);
-    padding: 18px;
-    border-radius: 20px;
-}
-
-button {
-    border: none;
-    padding: 14px 20px;
-    border-radius: 18px;
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: bold;
-    margin: 5px;
-}
-
-.save {
-    background: #d98aad;
-    color: white;
-}
-
-.preview {
-    background: #dff3ff;
-    color: #557080;
-}
-
-.download {
-    background: #d9f5df;
-    color: #54735c;
-}
-
-.reset {
-    background: #eee;
-    color: #666;
-}
-
-#message {
-    margin-top: 15px;
-    padding: 12px;
-    border-radius: 15px;
-    background: rgba(255,255,255,.8);
-    display: none;
-}
-
-.preview-box {
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    margin-top: 20px;
-}
-
-iframe {
-    width: 100%;
-    height: 650px;
-    border: none;
-}
-
-.color {
-    height: 50px;
-    padding: 3px;
-}
-
-</style>
-</head>
-
-<body>
-
-<div class="container">
-
-<header>
-
-<h1>⚙️ Админ-панель</h1>
-
-<p>
-Редактор сайта @cheapponytownskins
-</p>
-
-</header>
-
-
-<!-- ОСНОВНОЕ -->
-
-<div class="panel">
-
-<h2>🏠 Основное</h2>
-
-<label>Название сайта</label>
-<input id="siteName">
-
-<label>Подзаголовок</label>
-<input id="subtitle">
-
-<label>Заголовок главного раздела</label>
-<input id="homeTitle">
-
-<label>Текст главного раздела</label>
-<textarea id="homeText"></textarea>
-
-<label>Текст внизу сайта</label>
-<input id="footer">
-
-</div>
-
-
-<!-- МЕНЮ -->
-
-<div class="panel">
-
-<h2>🧭 Меню</h2>
-
-<div class="grid">
-
-<div>
-
-<label>Кнопка 1</label>
-<input id="nav1">
-
-</div>
-
-<div>
-
-<label>Кнопка 2</label>
-<input id="nav2">
-
-</div>
-
-<div>
-
-<label>Кнопка 3</label>
-<input id="nav3">
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- КАРТОЧКИ -->
-
-<div class="panel">
-
-<h2>📖 Записи</h2>
-
-<div class="grid">
-
-<div class="editor-card">
-
-<h3>Карточка 1</h3>
-
-<label>Название</label>
-<input id="card1Title">
-
-<label>Описание</label>
-<textarea id="card1Text"></textarea>
-
-</div>
-
-
-<div class="editor-card">
-
-<h3>Карточка 2</h3>
-
-<label>Название</label>
-<input id="card2Title">
-
-<label>Описание</label>
-<textarea id="card2Text"></textarea>
-
-</div>
-
-
-<div class="editor-card">
-
-<h3>Карточка 3</h3>
-
-<label>Название</label>
-<input id="card3Title">
-
-<label>Описание</label>
-<textarea id="card3Text"></textarea>
-
-</div>
-
-
-<div class="editor-card">
-
-<h3>Карточка 4</h3>
-
-<label>Название</label>
-<input id="card4Title">
-
-<label>Описание</label>
-<textarea id="card4Text"></textarea>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- АДМИНЫ -->
-
-<div class="panel">
-
-<h2>👥 Администрация</h2>
-
-<div class="grid">
-
-<div class="editor-card">
-
-<h3>Администратор 1</h3>
-
-<label>Имя</label>
-<input id="admin1Name">
-
-<label>Должность</label>
-<input id="admin1Position">
-
-<label>Описание</label>
-<textarea id="admin1Text"></textarea>
-
-</div>
-
-
-<div class="editor-card">
-
-<h3>Администратор 2</h3>
-
-<label>Имя</label>
-<input id="admin2Name">
-
-<label>Должность</label>
-<input id="admin2Position">
-
-<label>Описание</label>
-<textarea id="admin2Text"></textarea>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- ЦВЕТА -->
-
-<div class="panel">
-
-<h2>🎨 Цвета</h2>
-
-<div class="grid">
-
-<div>
-
-<label>Основной цвет</label>
-
-<input
-type="color"
-class="color"
-id="primaryColor">
-
-</div>
-
-
-<div>
-
-<label>Цвет текста</label>
-
-<input
-type="color"
-class="color"
-id="textColor">
-
-</div>
-
-
-<div>
-
-<label>Дополнительный цвет</label>
-
-<input
-type="color"
-class="color"
-id="secondaryColor">
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- УПРАВЛЕНИЕ -->
-
-<div class="panel">
-
-<h2>💾 Управление</h2>
-
-<button
-class="save"
-onclick="saveSettings()">
-
-💾 Сохранить настройки
-
-</button>
-
-
-<button
-class="preview"
-onclick="updatePreview()">
-
-👁️ Обновить предпросмотр
-
-</button>
-
-
-<button
-class="download"
-onclick="downloadHTML()">
-
-📥 Получить готовый index.html
-
-</button>
-
-
-<button
-class="reset"
-onclick="resetSettings()">
-
-↩️ Сбросить
-
-</button>
-
-
-<div id="message"></div>
-
-</div>
-
-
-<!-- ПРЕДПРОСМОТР -->
-
-<div class="panel">
-
-<h2>👁️ Предпросмотр</h2>
-
-<div class="preview-box">
-
-<iframe id="preview"></iframe>
-
-</div>
-
-</div>
-
-
-</div>
-
-
-<script>
-
-
-const defaults = {
-
-siteName:
-"@cheapponytownskins",
-
-subtitle:
-"личное пространство канала ♡",
-
-homeTitle:
-"Главное ♡",
-
-homeText:
-"Добро пожаловать на официальный сайт @cheapponytownskins!\n\nЗдесь будут собраны полезная информация, новости, правила, инструкции и другие материалы нашего канала.\n\n✦ Создано с любовью ✦",
-
-footer:
-"@cheapponytownskins · 2026 ♡",
-
-nav1:
-"Главное",
-
-nav2:
-"Записи",
-
-nav3:
-"Администрация",
-
-
-card1Title:
-"📜 Правила",
-
-card1Text:
-"Здесь будут находиться правила канала и другая важная информация.",
-
-
-card2Title:
-"📰 Новости",
-
-card2Text:
-"Здесь можно публиковать новости, объявления и обновления.",
-
-
-card3Title:
-"🤖 Боты",
-
-card3Text:
-"Здесь будут инструкции по использованию ботов и полезные команды.",
-
-
-card4Title:
-"🎨 Скины",
-
-card4Text:
-"Здесь можно разместить инструкции, советы и информацию о скинах.",
-
-
-admin1Name:
-"Имя администратора",
-
-admin1Position:
-"Владелец",
-
-admin1Text:
-"Здесь можно написать информацию об этом человеке.",
-
-
-admin2Name:
-"Имя администратора",
-
-admin2Position:
-"Администратор",
-
-admin2Text:
-"Здесь можно написать должность и обязанности.",
-
-
-primaryColor:
-"#d17fa2",
-
-textColor:
-"#5f5362",
-
-secondaryColor:
-"#8f8192"
-
-};
-
-
-function getSettings() {
-
-    const saved =
-        localStorage.getItem("adminSettings");
-
-    if (!saved) {
-
-        return {
-            ...defaults
-        };
-
-    }
-
-    return {
-        ...defaults,
-        ...JSON.parse(saved)
-    };
-
-}
-
-
-function loadSettings() {
-
-    const settings =
-        getSettings();
-
-    Object.keys(settings).forEach(key => {
-
-        const element =
-            document.getElementById(key);
-
-        if (element) {
-
-            element.value =
-                settings[key];
-
-        }
-
-    });
-
-}
-
-
-function getCurrentSettings() {
-
-    const settings = {};
-
-    Object.keys(defaults).forEach(key => {
-
-        const element =
-            document.getElementById(key);
-
-        if (element) {
-
-            settings[key] =
-                element.value;
-
-        }
-
-    });
-
-    return settings;
-
-}
-
-
-function saveSettings() {
-
-    const settings =
-        getCurrentSettings();
-
-    localStorage.setItem(
-        "adminSettings",
-        JSON.stringify(settings)
-    );
-
-    updatePreview();
-
-    showMessage(
-        "✅ Настройки сохранены!"
-    );
-
-}
-
-
-function resetSettings() {
-
-    if (
-        !confirm(
-            "Сбросить все изменения?"
-        )
-    ) {
-        return;
-    }
-
-    localStorage.removeItem(
-        "adminSettings"
-    );
-
-    loadSettings();
-
-    updatePreview();
-
-    showMessage(
-        "↩️ Настройки сброшены."
-    );
-
-}
-
-
-function showMessage(text) {
-
-    const box =
-        document.getElementById("message");
-
-    box.textContent =
-        text;
-
-    box.style.display =
-        "block";
-
-    setTimeout(() => {
-
-        box.style.display =
-            "none";
-
-    }, 3000);
-
-}
-
-
-function escapeHTML(text) {
-
-    return text
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;");
-
-}
-
-
-function generateHTML(settings) {
-
-return `<!DOCTYPE html>
-
-<html lang="ru">
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>${escapeHTML(settings.siteName)}</title>
+<title>@cheapponytownskins</title>
 
 <style>
 
@@ -713,234 +16,780 @@ html {
     scroll-behavior: smooth;
 }
 
+:root {
+
+    --bg1: #ffdbea;
+    --bg2: #dff6ff;
+    --bg3: #eadfff;
+    --bg4: #ffe0ee;
+    --bg5: #d8f5ff;
+
+    --text: #5f5362;
+    --primary: #d17fa2;
+    --secondary: #8f8192;
+
+    --glass: rgba(255,255,255,.62);
+    --glass-strong: rgba(255,255,255,.75);
+
+    --card: rgba(255,255,255,.72);
+
+    --nav: rgba(255,255,255,.65);
+
+    --shadow:
+        rgba(160,120,160,.15);
+
+    --popup:
+        rgba(255,255,255,.90);
+
+    --border:
+        rgba(255,255,255,.8);
+}
+
+
+/* ================= DARK THEME ================= */
+
+body.dark {
+
+    --bg1: #130708;
+    --bg2: #21090d;
+    --bg3: #2d0b10;
+    --bg4: #180608;
+    --bg5: #090909;
+
+    --text: #dedede;
+
+    --primary: #d65362;
+
+    --secondary: #a9a9a9;
+
+    --glass:
+        rgba(25,25,25,.78);
+
+    --glass-strong:
+        rgba(35,35,35,.90);
+
+    --card:
+        rgba(75,75,75,.85);
+
+    --nav:
+        rgba(45,45,45,.90);
+
+    --shadow:
+        rgba(0,0,0,.45);
+
+    --popup:
+        rgba(28,28,28,.96);
+
+    --border:
+        rgba(110,110,110,.35);
+}
+
+
+/* ================= BODY ================= */
+
 body {
 
     margin: 0;
 
     min-height: 100vh;
 
-    font-family: Arial, sans-serif;
+    font-family:
+        Arial,
+        sans-serif;
 
-    color: ${settings.textColor};
+    color:
+        var(--text);
 
     background:
 
-    linear-gradient(
-        120deg,
-        #ffdbea,
-        #dff6ff,
-        #eadfff,
-        #ffe0ee,
-        #d8f5ff
-    );
+        linear-gradient(
+            120deg,
+            var(--bg1),
+            var(--bg2),
+            var(--bg3),
+            var(--bg4),
+            var(--bg5)
+        );
 
-    background-size: 500% 500%;
+    background-size:
+        500% 500%;
 
     animation:
-    waterfall 18s ease infinite;
+        waterfall 18s ease infinite;
 
+    transition:
+        background .5s,
+        color .5s;
 }
+
 
 @keyframes waterfall {
 
-0% {
-    background-position: 0% 50%;
+    0% {
+        background-position:
+            0% 50%;
+    }
+
+    50% {
+        background-position:
+            100% 50%;
+    }
+
+    100% {
+        background-position:
+            0% 50%;
+    }
+
 }
 
-50% {
-    background-position: 100% 50%;
+
+/* ================= THEME BUTTON ================= */
+
+.theme-button {
+
+    position:
+        fixed;
+
+    top:
+        18px;
+
+    right:
+        18px;
+
+    z-index:
+        10000;
+
+    width:
+        48px;
+
+    height:
+        48px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        50%;
+
+    background:
+        var(--glass-strong);
+
+    backdrop-filter:
+        blur(15px);
+
+    box-shadow:
+        0 8px 25px var(--shadow);
+
+    cursor:
+        pointer;
+
+    font-size:
+        21px;
+
+    transition:
+        .3s;
+
 }
 
-100% {
-    background-position: 0% 50%;
-}
+
+.theme-button:hover {
+
+    transform:
+        rotate(15deg)
+        scale(1.08);
 
 }
+
+
+/* ================= PAGE ================= */
 
 .page {
 
     width:
-    min(1000px, 92%);
+        min(1000px,92%);
 
-    margin: auto;
+    margin:
+        auto;
 
     padding:
-    25px 0 50px;
-
+        25px 0 50px;
 }
+
+
+/* ================= HEADER ================= */
 
 header {
 
-    text-align: center;
+    text-align:
+        center;
 
-    padding: 35px 20px;
+    padding:
+        35px 20px;
 
-    margin-bottom: 20px;
+    margin-bottom:
+        20px;
 
     background:
-    rgba(255,255,255,.55);
+        var(--glass);
 
     border:
-    1px solid
-    rgba(255,255,255,.8);
+        1px solid var(--border);
 
-    border-radius: 30px;
+    border-radius:
+        30px;
 
     box-shadow:
-    0 10px 35px
-    rgba(160,120,160,.15);
+        0 10px 35px var(--shadow);
 
     backdrop-filter:
-    blur(15px);
+        blur(15px);
 
+    transition:
+        .5s;
 }
+
 
 .logo {
 
-    font-size: 32px;
+    font-size:
+        32px;
 
-    font-weight: bold;
+    font-weight:
+        bold;
 
     color:
-    ${settings.primaryColor};
+        var(--primary);
 
-    margin-bottom: 8px;
-
+    margin-bottom:
+        8px;
 }
+
 
 .subtitle {
 
     color:
-    ${settings.secondaryColor};
+        var(--secondary);
 
+    font-size:
+        15px;
 }
+
+
+/* ================= NAV ================= */
 
 nav {
 
-    display: flex;
+    display:
+        flex;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    flex-wrap: wrap;
+    flex-wrap:
+        wrap;
 
-    gap: 10px;
+    gap:
+        10px;
 
-    margin: 20px 0;
-
+    margin:
+        20px 0;
 }
+
 
 nav a {
 
-    text-decoration: none;
+    text-decoration:
+        none;
 
-    color: #876b7d;
+    color:
+        var(--text);
 
     background:
-    rgba(255,255,255,.65);
+        var(--nav);
 
     padding:
-    12px 20px;
+        12px 20px;
 
-    border-radius: 20px;
+    border-radius:
+        20px;
 
+    transition:
+        .25s;
+
+    box-shadow:
+        0 5px 15px var(--shadow);
+
+    backdrop-filter:
+        blur(10px);
 }
+
+
+nav a:hover {
+
+    transform:
+        translateY(-3px);
+
+    background:
+        var(--glass-strong);
+
+    color:
+        var(--primary);
+}
+
+
+/* ================= SECTION ================= */
 
 section {
 
-    margin-top: 25px;
+    margin-top:
+        25px;
 
-    padding: 30px;
+    padding:
+        30px;
 
     background:
-    rgba(255,255,255,.62);
+        var(--glass);
 
-    border-radius: 30px;
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        30px;
+
+    box-shadow:
+        0 10px 35px var(--shadow);
 
     backdrop-filter:
-    blur(15px);
+        blur(15px);
 
+    transition:
+        .5s;
 }
+
 
 h2 {
 
-    color:
-    ${settings.primaryColor};
+    margin-top:
+        0;
 
+    color:
+        var(--primary);
 }
+
 
 .welcome {
 
-    text-align: center;
+    text-align:
+        center;
 
-    font-size: 18px;
+    font-size:
+        18px;
 
-    line-height: 1.7;
-
+    line-height:
+        1.7;
 }
+
+
+/* ================= CARDS ================= */
 
 .cards {
 
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
-    repeat(auto-fit,minmax(220px,1fr));
+        repeat(
+            auto-fit,
+            minmax(220px,1fr)
+        );
 
-    gap: 15px;
-
+    gap:
+        15px;
 }
+
 
 .card {
 
-    padding: 22px;
+    padding:
+        22px;
 
     background:
-    rgba(255,255,255,.7);
+        var(--card);
 
-    border-radius: 22px;
+    border-radius:
+        22px;
 
+    transition:
+        .3s;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        0 5px 18px var(--shadow);
 }
+
+
+.card:hover {
+
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 12px 28px var(--shadow);
+}
+
 
 .card h3 {
 
-    color:
-    ${settings.primaryColor};
+    margin-top:
+        0;
 
+    color:
+        var(--primary);
 }
+
+
+.card::after {
+
+    content:
+        "Нажмите, чтобы открыть";
+
+    display:
+        block;
+
+    margin-top:
+        15px;
+
+    font-size:
+        12px;
+
+    color:
+        var(--secondary);
+
+    opacity:
+        .8;
+}
+
+
+/* ================= ADMIN ================= */
 
 .admin {
 
-    text-align: center;
-
+    text-align:
+        center;
 }
+
 
 .admin-name {
 
-    font-size: 20px;
+    font-size:
+        20px;
 
-    font-weight: bold;
+    font-weight:
+        bold;
 
     color:
-    ${settings.primaryColor};
-
+        var(--primary);
 }
+
 
 .position {
 
+    margin-top:
+        5px;
+
     color:
-    ${settings.secondaryColor};
+        var(--secondary);
+}
+
+
+/* ================= POPUP ================= */
+
+.popup {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    display:
+        none;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        20px;
+
+    z-index:
+        9999;
+
+    background:
+        rgba(0,0,0,.28);
+
+    backdrop-filter:
+        blur(12px);
+}
+
+
+.popup.active {
+
+    display:
+        flex;
+}
+
+
+.popup-window {
+
+    width:
+        min(750px,100%);
+
+    max-height:
+        85vh;
+
+    overflow:
+        hidden;
+
+    background:
+        var(--popup);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        30px;
+
+    box-shadow:
+        0 20px 70px var(--shadow);
+
+    backdrop-filter:
+        blur(25px);
+
+    animation:
+        popupOpen .25s ease;
+}
+
+
+@keyframes popupOpen {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            scale(.9)
+            translateY(20px);
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            scale(1)
+            translateY(0);
+
+    }
 
 }
 
-footer {
 
-    text-align: center;
+.popup-header {
 
-    padding: 30px 10px 0;
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    padding:
+        20px 25px;
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+
+.popup-title {
+
+    margin:
+        0;
 
     color:
-    ${settings.secondaryColor};
+        var(--primary);
 
-    font-size: 13px;
+    font-size:
+        22px;
+}
+
+
+.close {
+
+    width:
+        38px;
+
+    height:
+        38px;
+
+    border:
+        none;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--card);
+
+    color:
+        var(--text);
+
+    font-size:
+        20px;
+
+    cursor:
+        pointer;
+
+    transition:
+        .2s;
+}
+
+
+.close:hover {
+
+    background:
+        var(--primary);
+
+    color:
+        white;
+
+    transform:
+        rotate(90deg);
+}
+
+
+.popup-content {
+
+    padding:
+        25px;
+
+    overflow-y:
+        auto;
+
+    max-height:
+        calc(85vh - 85px);
+
+    line-height:
+        1.75;
+
+    font-size:
+        15px;
+
+    color:
+        var(--text);
+}
+
+
+.rules h4 {
+
+    color:
+        var(--primary);
+
+    margin-bottom:
+        5px;
+}
+
+
+.rules p {
+
+    margin-top:
+        5px;
+}
+
+
+.rule-number {
+
+    color:
+        var(--primary);
+
+    font-weight:
+        bold;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+
+    text-align:
+        center;
+
+    padding:
+        30px 10px 0;
+
+    color:
+        var(--secondary);
+
+    font-size:
+        13px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px) {
+
+    .page {
+        width:94%;
+    }
+
+    .logo {
+        font-size:25px;
+    }
+
+    section {
+        padding:22px;
+        border-radius:24px;
+    }
+
+    nav a {
+        padding:10px 15px;
+    }
+
+    .theme-button {
+
+        top:12px;
+
+        right:12px;
+
+        width:44px;
+
+        height:44px;
+
+    }
+
+    .popup {
+        padding:10px;
+    }
+
+    .popup-window {
+        border-radius:24px;
+    }
+
+    .popup-content {
+        padding:20px;
+        font-size:14px;
+    }
 
 }
 
@@ -950,53 +799,90 @@ footer {
 
 <body>
 
+
+<!-- КНОПКА ТЕМЫ -->
+
+<button
+    class="theme-button"
+    id="themeButton"
+    onclick="toggleTheme()"
+    aria-label="Сменить тему">
+
+    🌙
+
+</button>
+
+
+
 <div class="page">
+
+
+<!-- HEADER -->
 
 <header>
 
 <div class="logo">
-${escapeHTML(settings.siteName)}
+@cheapponytownskins
 </div>
 
 <div class="subtitle">
-${escapeHTML(settings.subtitle)}
+личное пространство канала ♡
 </div>
 
 </header>
 
 
+
+<!-- NAVIGATION -->
+
 <nav>
 
 <a href="#home">
-${escapeHTML(settings.nav1)}
+Главное
 </a>
 
 <a href="#posts">
-${escapeHTML(settings.nav2)}
+Записи
 </a>
 
 <a href="#admins">
-${escapeHTML(settings.nav3)}
+Администрация
 </a>
 
 </nav>
 
 
+
+<!-- HOME -->
+
 <section id="home">
 
 <h2>
-${escapeHTML(settings.homeTitle)}
+Главное ♡
 </h2>
 
 <div class="welcome">
 
-${escapeHTML(settings.homeText)
-.replace(/\n/g,"<br>")}
+Добро пожаловать на официальный сайт
+<b>@cheapponytownskins</b>!
+
+<br><br>
+
+Здесь будут собраны полезная информация,
+новости, правила, инструкции и другие материалы
+нашего канала.
+
+<br><br>
+
+✦ Создано с любовью ✦
 
 </div>
 
 </section>
 
+
+
+<!-- POSTS -->
 
 <section id="posts">
 
@@ -1006,61 +892,77 @@ ${escapeHTML(settings.homeText)
 
 <div class="cards">
 
-<div class="card">
+
+<div
+    class="card"
+    onclick="openPopup('rules')">
 
 <h3>
-${escapeHTML(settings.card1Title)}
+📜 Правила
 </h3>
 
 <p>
-${escapeHTML(settings.card1Text)}
+Основные правила канала.
 </p>
 
 </div>
 
 
-<div class="card">
+
+<div
+    class="card"
+    onclick="openPopup('news')">
 
 <h3>
-${escapeHTML(settings.card2Title)}
+📰 Новости
 </h3>
 
 <p>
-${escapeHTML(settings.card2Text)}
+Новости и важные объявления.
 </p>
 
 </div>
 
 
-<div class="card">
+
+<div
+    class="card"
+    onclick="openPopup('bots')">
 
 <h3>
-${escapeHTML(settings.card3Title)}
+🤖 Боты
 </h3>
 
 <p>
-${escapeHTML(settings.card3Text)}
+Полезные боты и инструкции.
 </p>
 
 </div>
 
 
-<div class="card">
+
+<div
+    class="card"
+    onclick="openPopup('skins')">
 
 <h3>
-${escapeHTML(settings.card4Title)}
+🎨 Скины
 </h3>
 
 <p>
-${escapeHTML(settings.card4Text)}
+Информация о скинах.
 </p>
 
 </div>
+
 
 </div>
 
 </section>
 
+
+
+<!-- ADMINS -->
 
 <section id="admins">
 
@@ -1070,135 +972,472 @@ ${escapeHTML(settings.card4Text)}
 
 <div class="cards">
 
+
 <div class="card admin">
 
 <div class="admin-name">
-
-${escapeHTML(settings.admin1Name)}
-
+Имя администратора
 </div>
 
 <div class="position">
-
-${escapeHTML(settings.admin1Position)}
-
+Владелец
 </div>
 
 <p>
-
-${escapeHTML(settings.admin1Text)}
-
+Здесь можно написать информацию
+об этом человеке.
 </p>
 
 </div>
 
 
+
 <div class="card admin">
 
 <div class="admin-name">
-
-${escapeHTML(settings.admin2Name)}
-
+Имя администратора
 </div>
 
 <div class="position">
-
-${escapeHTML(settings.admin2Position)}
-
+Администратор
 </div>
 
 <p>
-
-${escapeHTML(settings.admin2Text)}
-
+Здесь можно написать должность
+и обязанности.
 </p>
 
 </div>
+
 
 </div>
 
 </section>
 
 
+
 <footer>
 
-${escapeHTML(settings.footer)}
+@cheapponytownskins · 2026 ♡
 
 </footer>
 
+
 </div>
 
-</body>
-
-</html>`;
-
-}
 
 
-function updatePreview() {
+<!-- ================= POPUP ================= -->
 
-    const settings =
-        getCurrentSettings();
+<div
+    class="popup"
+    id="popup"
+    onclick="closeOutside(event)">
 
-    const html =
-        generateHTML(settings);
-
-    const frame =
-        document.getElementById(
-            "preview"
-        );
-
-    frame.srcdoc =
-        html;
-
-}
+<div class="popup-window">
 
 
-function downloadHTML() {
+<div class="popup-header">
 
-    const settings =
-        getCurrentSettings();
+<h3
+    class="popup-title"
+    id="popupTitle">
+</h3>
 
-    const html =
-        generateHTML(settings);
+<button
+    class="close"
+    onclick="closePopup()">
 
-    const blob =
-        new Blob(
-            [html],
-            {
-                type:
-                "text/html"
-            }
-        );
+×
 
-    const url =
-        URL.createObjectURL(blob);
+</button>
 
-    const link =
-        document.createElement("a");
+</div>
 
-    link.href =
-        url;
 
-    link.download =
-        "index.html";
+<div
+    class="popup-content"
+    id="popupContent">
+</div>
 
-    link.click();
 
-    URL.revokeObjectURL(url);
+</div>
 
-    showMessage(
-        "📥 Готовый index.html создан!"
+</div>
+
+
+
+<script>
+
+
+/* ================= THEME ================= */
+
+function setTheme(dark) {
+
+    document.body.classList.toggle(
+        "dark",
+        dark
     );
 
+    const button =
+        document.getElementById(
+            "themeButton"
+        );
+
+    button.textContent =
+        dark ? "☀️" : "🌙";
+
+    localStorage.setItem(
+        "siteTheme",
+        dark ? "dark" : "light"
+    );
 }
 
 
-loadSettings();
+function toggleTheme() {
 
-updatePreview();
+    const isDark =
+        document.body.classList.contains(
+            "dark"
+        );
+
+    setTheme(!isDark);
+
+}
+
+
+const savedTheme =
+    localStorage.getItem(
+        "siteTheme"
+    );
+
+setTheme(
+    savedTheme === "dark"
+);
+
+
+
+/* ================= POPUP ================= */
+
+const popup =
+    document.getElementById(
+        "popup"
+    );
+
+const popupTitle =
+    document.getElementById(
+        "popupTitle"
+    );
+
+const popupContent =
+    document.getElementById(
+        "popupContent"
+    );
+
+
+
+function openPopup(type) {
+
+
+    if (type === "rules") {
+
+        popupTitle.textContent =
+            "📜 Правила канала";
+
+
+        popupContent.innerHTML = `
+
+        <div class="rules">
+
+        <h4>
+        1. Уважение
+        </h4>
+
+        <p>
+        <span class="rule-number">01.</span>
+        Относитесь уважительно ко всем участникам
+        канала. Оскорбления, унижение и намеренная
+        провокация других пользователей не приветствуются.
+        </p>
+
+
+        <h4>
+        2. Запрещённый контент
+        </h4>
+
+        <p>
+        <span class="rule-number">02.</span>
+        Не публикуйте материалы, которые нарушают
+        правила Telegram, Pony Town или действующее
+        законодательство.
+        </p>
+
+
+        <h4>
+        3. Спам
+        </h4>
+
+        <p>
+        <span class="rule-number">03.</span>
+        Не отправляйте большое количество одинаковых
+        сообщений, рекламы или бессмысленных сообщений.
+        </p>
+
+
+        <h4>
+        4. Реклама
+        </h4>
+
+        <p>
+        <span class="rule-number">04.</span>
+        Реклама сторонних каналов, чатов, ботов
+        и проектов разрешена только с согласия
+        администрации.
+        </p>
+
+
+        <h4>
+        5. Конфликты
+        </h4>
+
+        <p>
+        <span class="rule-number">05.</span>
+        Не устраивайте публичные конфликты.
+        Если возникла проблема, обратитесь
+        к администрации.
+        </p>
+
+
+        <h4>
+        6. Обсуждения
+        </h4>
+
+        <p>
+        <span class="rule-number">06.</span>
+        Старайтесь придерживаться темы канала
+        и не превращать обсуждения в бессмысленные
+        споры.
+        </p>
+
+
+        <h4>
+        7. Боты
+        </h4>
+
+        <p>
+        <span class="rule-number">07.</span>
+        Используйте команды ботов по назначению.
+        Не пытайтесь намеренно мешать их работе.
+        </p>
+
+
+        <h4>
+        8. Администрация
+        </h4>
+
+        <p>
+        <span class="rule-number">08.</span>
+        Решения администрации необходимо уважать.
+        Если вы считаете решение ошибочным,
+        спокойно обратитесь к администрации.
+        </p>
+
+
+        <h4>
+        9. Личные данные
+        </h4>
+
+        <p>
+        <span class="rule-number">09.</span>
+        Не публикуйте чужие личные данные без разрешения.
+        Также не просите участников раскрывать
+        личную информацию.
+        </p>
+
+
+        <h4>
+        10. Ответственность
+        </h4>
+
+        <p>
+        <span class="rule-number">10.</span>
+        Незнание правил не освобождает от необходимости
+        их соблюдать. За нарушения администрация может
+        выдать предупреждение или применить другие меры.
+        </p>
+
+
+        <h4>
+        11. Изменение правил
+        </h4>
+
+        <p>
+        <span class="rule-number">11.</span>
+        Администрация может изменять и дополнять правила.
+        Обновлённые правила вступают в силу после
+        публикации соответствующего объявления.
+        </p>
+
+
+        <h4>
+        12. Главное правило ♡
+        </h4>
+
+        <p>
+        <span class="rule-number">12.</span>
+        Будьте адекватными, уважайте других участников
+        и получайте удовольствие от общения и контента
+        @cheapponytownskins.
+        </p>
+
+        </div>
+
+        `;
+
+    }
+
+
+
+    if (type === "news") {
+
+        popupTitle.textContent =
+            "📰 Новости";
+
+
+        popupContent.innerHTML = `
+
+        <h4>
+        Новости канала
+        </h4>
+
+        <p>
+        Здесь будут появляться важные новости,
+        обновления, объявления и другая информация
+        для подписчиков @cheapponytownskins.
+        </p>
+
+        <p>
+        Следите за обновлениями, чтобы ничего
+        не пропустить ♡
+        </p>
+
+        `;
+
+    }
+
+
+
+    if (type === "bots") {
+
+        popupTitle.textContent =
+            "🤖 Боты";
+
+
+        popupContent.innerHTML = `
+
+        <h4>
+        Полезные боты
+        </h4>
+
+        <p>
+        В этом разделе можно разместить список ботов,
+        их команды и подробные инструкции.
+        </p>
+
+        <p>
+        Например: команда бота → описание команды →
+        результат использования.
+        </p>
+
+        `;
+
+    }
+
+
+
+    if (type === "skins") {
+
+        popupTitle.textContent =
+            "🎨 Скины";
+
+
+        popupContent.innerHTML = `
+
+        <h4>
+        Информация о скинах
+        </h4>
+
+        <p>
+        Здесь можно размещать коды скинов,
+        подборки, инструкции и другую информацию
+        по Pony Town.
+        </p>
+
+        <p>
+        Каждый материал можно оформить отдельной
+        записью.
+        </p>
+
+        `;
+
+    }
+
+
+    popup.classList.add(
+        "active"
+    );
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+
+function closePopup() {
+
+    popup.classList.remove(
+        "active"
+    );
+
+    document.body.style.overflow =
+        "";
+
+}
+
+
+
+function closeOutside(event) {
+
+    if (
+        event.target === popup
+    ) {
+
+        closePopup();
+
+    }
+
+}
+
+
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            closePopup();
+
+        }
+
+    }
+);
 
 </script>
 
+
 </body>
-                                     </html>
+    </html>
