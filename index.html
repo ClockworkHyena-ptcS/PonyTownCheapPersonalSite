@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>@cheapponytownskins</title>
 
 <style>
+
+/* =========================
+   ОСНОВНЫЕ ПЕРЕМЕННЫЕ
+========================= */
 
 * {
     box-sizing: border-box;
@@ -17,6 +23,7 @@ html {
 }
 
 :root {
+
     --bg1: #ffdbea;
     --bg2: #dff6ff;
     --bg3: #eadfff;
@@ -29,18 +36,25 @@ html {
 
     --glass: rgba(255,255,255,.62);
     --glass-strong: rgba(255,255,255,.75);
+
     --card: rgba(255,255,255,.72);
+
     --nav: rgba(255,255,255,.65);
 
-    --shadow: rgba(160,120,160,.15);
-    --popup: rgba(255,255,255,.90);
+    --popup: rgba(255,255,255,.92);
+
     --border: rgba(255,255,255,.8);
+
+    --shadow: rgba(160,120,160,.15);
 }
 
 
-/* ===== DARK THEME ===== */
+/* =========================
+   ТЁМНАЯ ТЕМА
+========================= */
 
 body.dark {
+
     --bg1: #130708;
     --bg2: #21090d;
     --bg3: #2d0b10;
@@ -48,24 +62,35 @@ body.dark {
     --bg5: #090909;
 
     --text: #dedede;
+
     --primary: #d65362;
+
     --secondary: #a9a9a9;
 
     --glass: rgba(25,25,25,.78);
+
     --glass-strong: rgba(35,35,35,.90);
+
     --card: rgba(75,75,75,.85);
+
     --nav: rgba(45,45,45,.90);
 
-    --shadow: rgba(0,0,0,.45);
     --popup: rgba(28,28,28,.96);
+
     --border: rgba(110,110,110,.35);
+
+    --shadow: rgba(0,0,0,.45);
 }
 
 
-/* ===== BODY ===== */
+/* =========================
+   BODY
+========================= */
 
 body {
+
     margin: 0;
+
     min-height: 100vh;
 
     font-family: Arial, sans-serif;
@@ -109,7 +134,9 @@ body {
 }
 
 
-/* ===== THEME BUTTON ===== */
+/* =========================
+   КНОПКА ТЕМЫ
+========================= */
 
 .theme-button {
 
@@ -150,7 +177,9 @@ body {
 }
 
 
-/* ===== PAGE ===== */
+/* =========================
+   СТРАНИЦА
+========================= */
 
 .page {
 
@@ -162,7 +191,9 @@ body {
 }
 
 
-/* ===== HEADER ===== */
+/* =========================
+   HEADER
+========================= */
 
 header {
 
@@ -205,7 +236,9 @@ header {
 }
 
 
-/* ===== NAV ===== */
+/* =========================
+   НАВИГАЦИЯ
+========================= */
 
 nav {
 
@@ -255,7 +288,9 @@ nav a:hover {
 }
 
 
-/* ===== SECTIONS ===== */
+/* =========================
+   СЕКЦИИ
+========================= */
 
 section {
 
@@ -294,7 +329,9 @@ h2 {
 }
 
 
-/* ===== CARDS ===== */
+/* =========================
+   КАРТОЧКИ
+========================= */
 
 .cards {
 
@@ -362,7 +399,9 @@ h2 {
 }
 
 
-/* ===== ADMIN ===== */
+/* =========================
+   АДМИНИСТРАЦИЯ
+========================= */
 
 .admin {
 
@@ -388,7 +427,9 @@ h2 {
 }
 
 
-/* ===== POPUP ===== */
+/* =========================
+   ВСПЛЫВАЮЩЕЕ ОКНО
+========================= */
 
 .popup {
 
@@ -469,6 +510,7 @@ h2 {
             scale(1)
             translateY(0);
     }
+
 }
 
 
@@ -569,7 +611,163 @@ h2 {
 }
 
 
-/* ===== FOOTER ===== */
+/* =========================
+   АДМИН-ВХОД
+========================= */
+
+.admin-login {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 20000;
+
+    padding: 20px;
+
+    background:
+        rgba(0,0,0,.35);
+
+    backdrop-filter:
+        blur(15px);
+}
+
+
+.admin-login.active {
+
+    display: flex;
+}
+
+
+.admin-login-box {
+
+    position: relative;
+
+    width:
+        min(400px, 100%);
+
+    padding: 30px;
+
+    text-align: center;
+
+    border-radius: 28px;
+
+    background:
+        var(--popup);
+
+    border:
+        1px solid var(--border);
+
+    box-shadow:
+        0 20px 70px var(--shadow);
+}
+
+
+.admin-login-box h2 {
+
+    color: var(--primary);
+
+    margin-top: 0;
+}
+
+
+.admin-login-box p {
+
+    color: var(--secondary);
+}
+
+
+.admin-login-box input {
+
+    width: 100%;
+
+    padding: 14px;
+
+    margin-top: 10px;
+
+    border: none;
+
+    outline: none;
+
+    border-radius: 15px;
+
+    background: var(--card);
+
+    color: var(--text);
+
+    font-size: 15px;
+}
+
+
+.admin-login-button {
+
+    width: 100%;
+
+    padding: 13px;
+
+    margin-top: 15px;
+
+    border: none;
+
+    border-radius: 18px;
+
+    background: var(--primary);
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 15px;
+}
+
+
+.admin-close {
+
+    position: absolute;
+
+    top: 12px;
+
+    right: 12px;
+
+    width: 35px;
+
+    height: 35px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: var(--card);
+
+    color: var(--text);
+
+    cursor: pointer;
+
+    font-size: 20px;
+}
+
+
+.admin-error {
+
+    display: none;
+
+    margin-top: 12px;
+
+    color: #d65362;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
 
 footer {
 
@@ -583,7 +781,9 @@ footer {
 }
 
 
-/* ===== MOBILE ===== */
+/* =========================
+   МОБИЛЬНАЯ ВЕРСИЯ
+========================= */
 
 @media(max-width:600px) {
 
@@ -631,13 +831,16 @@ footer {
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- ===== THEME BUTTON ===== -->
+<!-- =========================
+     КНОПКА ТЕМЫ
+========================= -->
 
 <button
     class="theme-button"
@@ -653,7 +856,9 @@ footer {
 <div class="page">
 
 
-<!-- ===== HEADER ===== -->
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
@@ -669,7 +874,9 @@ footer {
 
 
 
-<!-- ===== NAV ===== -->
+<!-- =========================
+     НАВИГАЦИЯ
+========================= -->
 
 <nav>
 
@@ -685,11 +892,21 @@ footer {
         Администрация
     </a>
 
+    <a
+        href="#"
+        onclick="openAdminLogin(); return false;">
+
+        ⚙️ Админ
+
+    </a>
+
 </nav>
 
 
 
-<!-- ===== HOME ===== -->
+<!-- =========================
+     ГЛАВНАЯ
+========================= -->
 
 <section id="home">
 
@@ -718,7 +935,9 @@ footer {
 
 
 
-<!-- ===== POSTS ===== -->
+<!-- =========================
+     ЗАПИСИ
+========================= -->
 
 <section id="posts">
 
@@ -730,7 +949,7 @@ footer {
     <div class="cards">
 
 
-        <!-- RULES -->
+        <!-- ПРАВИЛА -->
 
         <div
             class="card"
@@ -748,7 +967,7 @@ footer {
 
 
 
-        <!-- NEWS -->
+        <!-- НОВОСТИ -->
 
         <div
             class="card"
@@ -766,7 +985,7 @@ footer {
 
 
 
-        <!-- BOTS -->
+        <!-- БОТЫ -->
 
         <div
             class="card"
@@ -784,7 +1003,7 @@ footer {
 
 
 
-        <!-- SKINS -->
+        <!-- СКИНЫ -->
 
         <div
             class="card"
@@ -807,7 +1026,9 @@ footer {
 
 
 
-<!-- ===== ADMINS ===== -->
+<!-- =========================
+     АДМИНИСТРАЦИЯ
+========================= -->
 
 <section id="admins">
 
@@ -873,7 +1094,9 @@ footer {
 
 
 
-<!-- ===== POPUP ===== -->
+<!-- =========================
+     ОКНО КАРТОЧЕК
+========================= -->
 
 <div
     class="popup"
@@ -915,362 +1138,18 @@ footer {
 
 
 
-<script>
+<!-- =========================
+     АДМИН-ВХОД
+========================= -->
 
+<div
+    id="adminLogin"
+    class="admin-login">
 
-/* ===== THEME ===== */
 
-function setTheme(isDark) {
+    <div class="admin-login-box">
 
-    document.body.classList.toggle(
-        "dark",
-        isDark
-    );
 
-
-    const button =
-        document.getElementById(
-            "themeButton"
-        );
-
-
-    button.textContent =
-        isDark ? "☀️" : "🌙";
-
-
-    localStorage.setItem(
-        "siteTheme",
-        isDark ? "dark" : "light"
-    );
-
-}
-
-
-function toggleTheme() {
-
-    const isDark =
-        document.body.classList.contains(
-            "dark"
-        );
-
-    setTheme(!isDark);
-
-}
-
-
-const savedTheme =
-    localStorage.getItem(
-        "siteTheme"
-    );
-
-
-setTheme(
-    savedTheme === "dark"
-);
-
-
-
-/* ===== POPUP ===== */
-
-const popup =
-    document.getElementById(
-        "popup"
-    );
-
-
-const popupTitle =
-    document.getElementById(
-        "popupTitle"
-    );
-
-
-const popupContent =
-    document.getElementById(
-        "popupContent"
-    );
-
-
-
-function openPopup(type) {
-
-
-    if (type === "rules") {
-
-        popupTitle.textContent =
-            "📜 Правила канала";
-
-
-        popupContent.innerHTML = `
-
-        <div class="rules">
-
-            <h4>1. Уважение</h4>
-
-            <p>
-            <span class="rule-number">01.</span>
-            Относитесь уважительно ко всем участникам
-            канала. Оскорбления, унижение и намеренная
-            провокация других пользователей не приветствуются.
-            </p>
-
-
-            <h4>2. Запрещённый контент</h4>
-
-            <p>
-            <span class="rule-number">02.</span>
-            Не публикуйте материалы, которые нарушают
-            правила Telegram, Pony Town или действующее
-            законодательство.
-            </p>
-
-
-            <h4>3. Спам</h4>
-
-            <p>
-            <span class="rule-number">03.</span>
-            Не отправляйте большое количество одинаковых
-            сообщений, рекламы или бессмысленных сообщений.
-            </p>
-
-
-            <h4>4. Реклама</h4>
-
-            <p>
-            <span class="rule-number">04.</span>
-            Реклама сторонних каналов, чатов, ботов
-            и проектов разрешена только с согласия
-            администрации.
-            </p>
-
-
-            <h4>5. Конфликты</h4>
-
-            <p>
-            <span class="rule-number">05.</span>
-            Не устраивайте публичные конфликты.
-            Если возникла проблема, обратитесь
-            к администрации.
-            </p>
-
-
-            <h4>6. Обсуждения</h4>
-
-            <p>
-            <span class="rule-number">06.</span>
-            Старайтесь придерживаться темы канала
-            и не превращать обсуждения в бессмысленные
-            споры.
-            </p>
-
-
-            <h4>7. Боты</h4>
-
-            <p>
-            <span class="rule-number">07.</span>
-            Используйте команды ботов по назначению.
-            Не пытайтесь намеренно мешать их работе.
-            </p>
-
-
-            <h4>8. Администрация</h4>
-
-            <p>
-            <span class="rule-number">08.</span>
-            Решения администрации необходимо уважать.
-            Если вы считаете решение ошибочным,
-            спокойно обратитесь к администрации.
-            </p>
-
-
-            <h4>9. Личные данные</h4>
-
-            <p>
-            <span class="rule-number">09.</span>
-            Не публикуйте чужие личные данные без разрешения.
-            Также не просите участников раскрывать
-            личную информацию.
-            </p>
-
-
-            <h4>10. Ответственность</h4>
-
-            <p>
-            <span class="rule-number">10.</span>
-            Незнание правил не освобождает от необходимости
-            их соблюдать. За нарушения администрация может
-            выдать предупреждение или применить другие меры.
-            </p>
-
-
-            <h4>11. Изменение правил</h4>
-
-            <p>
-            <span class="rule-number">11.</span>
-            Администрация может изменять и дополнять правила.
-            Обновлённые правила вступают в силу после
-            публикации соответствующего объявления.
-            </p>
-
-
-            <h4>12. Главное правило ♡</h4>
-
-            <p>
-            <span class="rule-number">12.</span>
-            Будьте адекватными, уважайте других участников
-            и получайте удовольствие от общения и контента
-            @cheapponytownskins.
-            </p>
-
-        </div>
-
-        `;
-
-    }
-
-
-
-    if (type === "news") {
-
-        popupTitle.textContent =
-            "📰 Новости";
-
-
-        popupContent.innerHTML = `
-
-        <h4>
-            Новости канала
-        </h4>
-
-        <p>
-            Здесь будут появляться важные новости,
-            обновления, объявления и другая информация
-            для подписчиков @cheapponytownskins.
-        </p>
-
-        <p>
-            Следите за обновлениями, чтобы ничего
-            не пропустить ♡
-        </p>
-
-        `;
-
-    }
-
-
-
-    if (type === "bots") {
-
-        popupTitle.textContent =
-            "🤖 Боты";
-
-
-        popupContent.innerHTML = `
-
-        <h4>
-            Полезные боты
-        </h4>
-
-        <p>
-            В этом разделе можно разместить список ботов,
-            их команды и подробные инструкции.
-        </p>
-
-        <p>
-            Например: команда бота → описание команды →
-            результат использования.
-        </p>
-
-        `;
-
-    }
-
-
-
-    if (type === "skins") {
-
-        popupTitle.textContent =
-            "🎨 Скины";
-
-
-        popupContent.innerHTML = `
-
-        <h4>
-            Информация о скинах
-        </h4>
-
-        <p>
-            Здесь можно размещать коды скинов,
-            подборки, инструкции и другую информацию
-            по Pony Town.
-        </p>
-
-        <p>
-            Каждый материал можно оформить отдельной
-            записью.
-        </p>
-
-        `;
-
-    }
-
-
-    popup.classList.add(
-        "active"
-    );
-
-
-    document.body.style.overflow =
-        "hidden";
-
-}
-
-
-
-function closePopup() {
-
-    popup.classList.remove(
-        "active"
-    );
-
-
-    document.body.style.overflow =
-        "";
-
-}
-
-
-
-function closeOutside(event) {
-
-    if (
-        event.target === popup
-    ) {
-
-        closePopup();
-
-    }
-
-}
-
-
-
-document.addEventListener(
-    "keydown",
-    function(event) {
-
-        if (
-            event.key === "Escape"
-        ) {
-
-            closePopup();
-
-        }
-
-    }
-);
-
-</script>
-
-
-</body>
-    </html>
+        <button
+            class="admin-close"
+            onclick="closeAdminLogin
