@@ -1,688 +1,25 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
 
 <title>@cheapponytownskins</title>
 
-<style>
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-:root {
-
-    --bg1: #ffdbea;
-    --bg2: #dff6ff;
-    --bg3: #eadfff;
-    --bg4: #ffe0ee;
-    --bg5: #d8f5ff;
-
-    --text: #5f5362;
-    --primary: #d17fa2;
-    --secondary: #8f8192;
-
-    --glass: rgba(255,255,255,.62);
-    --card: rgba(255,255,255,.72);
-    --popup: rgba(255,255,255,.94);
-
-    --border: rgba(255,255,255,.8);
-    --shadow: rgba(160,120,160,.15);
-}
-
-body.dark {
-
-    --bg1: #130708;
-    --bg2: #21090d;
-    --bg3: #2d0b10;
-    --bg4: #180608;
-    --bg5: #090909;
-
-    --text: #dedede;
-    --primary: #d65362;
-    --secondary: #aaa;
-
-    --glass: rgba(25,25,25,.82);
-    --card: rgba(75,75,75,.88);
-    --popup: rgba(28,28,28,.97);
-
-    --border: rgba(120,120,120,.35);
-    --shadow: rgba(0,0,0,.5);
-}
-
-body {
-
-    margin: 0;
-
-    min-height: 100vh;
-
-    font-family: Arial, sans-serif;
-
-    color: var(--text);
-
-    background:
-        linear-gradient(
-            120deg,
-            var(--bg1),
-            var(--bg2),
-            var(--bg3),
-            var(--bg4),
-            var(--bg5)
-        );
-
-    background-size: 500% 500%;
-
-    animation: backgroundAnimation 18s ease infinite;
-
-    transition: .4s;
-}
-
-@keyframes backgroundAnimation {
-
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-
-/* =========================
-   КНОПКА ТЕМЫ
-========================= */
-
-#themeButton {
-
-    position: fixed;
-
-    top: 18px;
-    right: 18px;
-
-    z-index: 10000;
-
-    width: 48px;
-    height: 48px;
-
-    border: 1px solid var(--border);
-
-    border-radius: 50%;
-
-    background: var(--glass);
-
-    color: var(--text);
-
-    font-size: 21px;
-
-    cursor: pointer;
-
-    backdrop-filter: blur(15px);
-
-    box-shadow:
-        0 8px 25px var(--shadow);
-
-    transition: .3s;
-}
-
-#themeButton:hover {
-
-    transform: scale(1.08);
-}
-
-
-/* =========================
-   СТРАНИЦА
-========================= */
-
-.page {
-
-    width: min(1000px, 92%);
-
-    margin: auto;
-
-    padding: 25px 0 50px;
-}
-
-
-/* =========================
-   HEADER
-========================= */
-
-header {
-
-    text-align: center;
-
-    padding: 35px 20px;
-
-    margin-bottom: 20px;
-
-    background: var(--glass);
-
-    border: 1px solid var(--border);
-
-    border-radius: 30px;
-
-    box-shadow:
-        0 10px 35px var(--shadow);
-
-    backdrop-filter: blur(15px);
-}
-
-.logo {
-
-    font-size: 32px;
-
-    font-weight: bold;
-
-    color: var(--primary);
-
-    margin-bottom: 8px;
-}
-
-.subtitle {
-
-    color: var(--secondary);
-
-    font-size: 15px;
-}
-
-
-/* =========================
-   НАВИГАЦИЯ
-========================= */
-
-nav {
-
-    display: flex;
-
-    justify-content: center;
-
-    flex-wrap: wrap;
-
-    gap: 10px;
-
-    margin: 20px 0;
-}
-
-nav a {
-
-    text-decoration: none;
-
-    color: var(--text);
-
-    background: var(--glass);
-
-    padding: 12px 20px;
-
-    border-radius: 20px;
-
-    box-shadow:
-        0 5px 15px var(--shadow);
-
-    backdrop-filter: blur(10px);
-
-    transition: .25s;
-}
-
-nav a:hover {
-
-    transform: translateY(-3px);
-
-    color: var(--primary);
-}
-
-
-/* =========================
-   СЕКЦИИ
-========================= */
-
-section {
-
-    margin-top: 25px;
-
-    padding: 30px;
-
-    background: var(--glass);
-
-    border: 1px solid var(--border);
-
-    border-radius: 30px;
-
-    box-shadow:
-        0 10px 35px var(--shadow);
-
-    backdrop-filter: blur(15px);
-}
-
-h2 {
-
-    margin-top: 0;
-
-    color: var(--primary);
-}
-
-.welcome {
-
-    text-align: center;
-
-    font-size: 18px;
-
-    line-height: 1.7;
-}
-
-
-/* =========================
-   КАРТОЧКИ
-========================= */
-
-.cards {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(220px, 1fr)
-        );
-
-    gap: 15px;
-}
-
-.card {
-
-    padding: 22px;
-
-    background: var(--card);
-
-    border-radius: 22px;
-
-    cursor: pointer;
-
-    transition: .3s;
-
-    box-shadow:
-        0 5px 18px var(--shadow);
-}
-
-.card:hover {
-
-    transform: translateY(-5px);
-
-    box-shadow:
-        0 12px 28px var(--shadow);
-}
-
-.card h3 {
-
-    margin-top: 0;
-
-    color: var(--primary);
-}
-
-.card::after {
-
-    content: "Нажмите, чтобы открыть";
-
-    display: block;
-
-    margin-top: 15px;
-
-    color: var(--secondary);
-
-    font-size: 12px;
-}
-
-
-/* =========================
-   АДМИНИСТРАЦИЯ
-========================= */
-
-.admin {
-
-    text-align: center;
-}
-
-.admin-name {
-
-    font-size: 20px;
-
-    font-weight: bold;
-
-    color: var(--primary);
-}
-
-.position {
-
-    margin-top: 5px;
-
-    color: var(--secondary);
-}
-
-
-/* =========================
-   ОКНО КАРТОЧЕК
-========================= */
-
-.popup {
-
-    position: fixed;
-
-    inset: 0;
-
-    display: none;
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding: 20px;
-
-    z-index: 9000;
-
-    background: rgba(0,0,0,.3);
-
-    backdrop-filter: blur(12px);
-}
-
-.popup.active {
-
-    display: flex;
-}
-
-.popup-window {
-
-    width: min(750px,100%);
-
-    max-height: 85vh;
-
-    overflow: hidden;
-
-    background: var(--popup);
-
-    border: 1px solid var(--border);
-
-    border-radius: 30px;
-
-    box-shadow:
-        0 20px 70px var(--shadow);
-}
-
-.popup-header {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    padding: 20px 25px;
-
-    border-bottom:
-        1px solid var(--border);
-}
-
-.popup-title {
-
-    margin: 0;
-
-    color: var(--primary);
-}
-
-.close {
-
-    width: 38px;
-
-    height: 38px;
-
-    border: 0;
-
-    border-radius: 50%;
-
-    background: var(--card);
-
-    color: var(--text);
-
-    font-size: 20px;
-
-    cursor: pointer;
-}
-
-.popup-content {
-
-    padding: 25px;
-
-    overflow-y: auto;
-
-    max-height:
-        calc(85vh - 80px);
-
-    line-height: 1.7;
-}
-
-.rules h4 {
-
-    color: var(--primary);
-
-    margin-bottom: 5px;
-}
-
-.rule-number {
-
-    color: var(--primary);
-
-    font-weight: bold;
-}
-
-
-/* =========================
-   АДМИНСКОЕ ОКНО
-========================= */
-
-#adminLogin {
-
-    position: fixed;
-
-    inset: 0;
-
-    display: none;
-
-    align-items: center;
-
-    justify-content: center;
-
-    z-index: 15000;
-
-    background: rgba(0,0,0,.4);
-
-    backdrop-filter: blur(15px);
-
-    padding: 20px;
-}
-
-#adminLogin.active {
-
-    display: flex;
-}
-
-.admin-box {
-
-    width: min(400px,100%);
-
-    padding: 30px;
-
-    text-align: center;
-
-    background: var(--popup);
-
-    border: 1px solid var(--border);
-
-    border-radius: 28px;
-
-    box-shadow:
-        0 20px 70px var(--shadow);
-
-    position: relative;
-}
-
-.admin-box h2 {
-
-    margin-top: 0;
-}
-
-.admin-box input {
-
-    width: 100%;
-
-    padding: 14px;
-
-    border: 0;
-
-    outline: 0;
-
-    border-radius: 15px;
-
-    background: var(--card);
-
-    color: var(--text);
-
-    margin-top: 10px;
-
-    font-size: 15px;
-}
-
-.admin-button {
-
-    width: 100%;
-
-    padding: 14px;
-
-    border: 0;
-
-    border-radius: 18px;
-
-    background: var(--primary);
-
-    color: white;
-
-    cursor: pointer;
-
-    margin-top: 15px;
-
-    font-size: 15px;
-}
-
-.admin-close {
-
-    position: absolute;
-
-    top: 12px;
-
-    right: 12px;
-
-    width: 35px;
-
-    height: 35px;
-
-    border: 0;
-
-    border-radius: 50%;
-
-    background: var(--card);
-
-    color: var(--text);
-
-    cursor: pointer;
-
-    font-size: 20px;
-}
-
-#error {
-
-    display: none;
-
-    color: #d65362;
-
-    margin-top: 12px;
-
-    font-size: 14px;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-
-    text-align: center;
-
-    padding: 30px 10px 0;
-
-    color: var(--secondary);
-
-    font-size: 13px;
-}
-
-
-/* =========================
-   МОБИЛЬНАЯ ВЕРСИЯ
-========================= */
-
-@media(max-width:600px) {
-
-    .page {
-        width: 94%;
-    }
-
-    .logo {
-        font-size: 25px;
-    }
-
-    section {
-        padding: 22px;
-        border-radius: 24px;
-    }
-
-    nav a {
-        padding: 10px 15px;
-    }
-
-    #themeButton {
-
-        top: 12px;
-        right: 12px;
-
-        width: 44px;
-        height: 44px;
-    }
-
-    .popup {
-        padding: 10px;
-    }
-
-}
-
-</style>
+<link
+    rel="stylesheet"
+    href="style.css">
 
 </head>
 
 
 <body>
 
-
-<!-- КНОПКА ТЕМЫ -->
 
 <button
     id="themeButton"
@@ -697,219 +34,91 @@ footer {
 <div class="page">
 
 
-<!-- HEADER -->
-
 <header>
 
-    <div class="logo">
-        @cheapponytownskins
-    </div>
+<div
+    class="logo"
+    id="siteName">
+</div>
 
-    <div class="subtitle">
-        личное пространство канала ♡
-    </div>
+<div
+    class="subtitle"
+    id="subtitle">
+</div>
 
 </header>
 
 
 
-<!-- НАВИГАЦИЯ -->
-
 <nav>
 
-    <a href="#home">
-        Главное
-    </a>
+<a href="#home">
+Главное
+</a>
 
-    <a href="#posts">
-        Записи
-    </a>
+<a href="#posts">
+Записи
+</a>
 
-    <a href="#admins">
-        Администрация
-    </a>
+<a href="#admins">
+Администрация
+</a>
 
-    <a
-        href="#"
-        id="adminLink">
-
-        ⚙️ Админ
-
-    </a>
+<a href="admin.html">
+⚙️ Админ
+</a>
 
 </nav>
 
 
 
-<!-- ГЛАВНАЯ -->
-
 <section id="home">
 
-    <h2>
-        Главное ♡
-    </h2>
+<h2>
+Главное ♡
+</h2>
 
-    <div class="welcome">
-
-        Добро пожаловать на официальный сайт
-        <b>@cheapponytownskins</b>!
-
-        <br><br>
-
-        Здесь будут собраны полезная информация,
-        новости, правила, инструкции и другие
-        материалы нашего канала.
-
-        <br><br>
-
-        ✦ Создано с любовью ✦
-
-    </div>
+<div
+    class="welcome"
+    id="welcome">
+</div>
 
 </section>
 
 
-
-<!-- ЗАПИСИ -->
 
 <section id="posts">
 
-    <h2>
-        Записи 📖
-    </h2>
+<h2>
+Записи 📖
+</h2>
 
-
-    <div class="cards">
-
-
-        <div
-            class="card"
-            data-popup="rules">
-
-            <h3>
-                📜 Правила
-            </h3>
-
-            <p>
-                Основные правила канала.
-            </p>
-
-        </div>
-
-
-
-        <div
-            class="card"
-            data-popup="news">
-
-            <h3>
-                📰 Новости
-            </h3>
-
-            <p>
-                Новости и важные объявления.
-            </p>
-
-        </div>
-
-
-
-        <div
-            class="card"
-            data-popup="bots">
-
-            <h3>
-                🤖 Боты
-            </h3>
-
-            <p>
-                Полезные боты и инструкции.
-            </p>
-
-        </div>
-
-
-
-        <div
-            class="card"
-            data-popup="skins">
-
-            <h3>
-                🎨 Скины
-            </h3>
-
-            <p>
-                Информация о скинах.
-            </p>
-
-        </div>
-
-
-    </div>
+<div
+    class="cards"
+    id="cards">
+</div>
 
 </section>
 
 
-
-<!-- АДМИНИСТРАЦИЯ -->
 
 <section id="admins">
 
-    <h2>
-        Администрация ♡
-    </h2>
+<h2>
+Администрация ♡
+</h2>
 
-
-    <div class="cards">
-
-
-        <div class="card admin">
-
-            <div class="admin-name">
-                Имя администратора
-            </div>
-
-            <div class="position">
-                Владелец
-            </div>
-
-            <p>
-                Здесь можно написать информацию
-                об этом человеке.
-            </p>
-
-        </div>
-
-
-
-        <div class="card admin">
-
-            <div class="admin-name">
-                Имя администратора
-            </div>
-
-            <div class="position">
-                Администратор
-            </div>
-
-            <p>
-                Здесь можно написать должность
-                и обязанности.
-            </p>
-
-        </div>
-
-
-    </div>
+<div
+    class="cards"
+    id="adminsList">
+</div>
 
 </section>
 
 
 
-<footer>
-
-    @cheapponytownskins · 2026 ♡
-
+<footer
+    id="footer">
 </footer>
 
 
@@ -917,107 +126,195 @@ footer {
 
 
 
-<!-- ОКНО КАРТОЧЕК -->
-
 <div
     id="popup"
     class="popup">
 
-    <div class="popup-window">
+<div class="popup-window">
 
 
-        <div class="popup-header">
+<div class="popup-header">
 
-            <h3
-                id="popupTitle"
-                class="popup-title">
-            </h3>
+<h3
+    id="popupTitle"
+    class="popup-title">
+</h3>
 
-            <button
-                id="closePopup"
-                class="close"
-                type="button">
+<button
+    id="closePopup"
+    class="close">
 
-                ×
-
-            </button>
-
-        </div>
-
-
-        <div
-            id="popupContent"
-            class="popup-content">
-        </div>
-
-
-    </div>
+×
+    
+</button>
 
 </div>
 
-
-
-<!-- ОКНО АДМИН-ПАРОЛЯ -->
 
 <div
-    id="adminLogin">
+    id="popupContent"
+    class="popup-content">
+</div>
 
-
-    <div class="admin-box">
-
-
-        <button
-            id="adminClose"
-            class="admin-close"
-            type="button">
-
-            ×
-
-        </button>
-
-
-        <h2>
-            🔐 Вход в админ-панель
-        </h2>
-
-
-        <p>
-            Введите пароль администратора
-        </p>
-
-
-        <input
-            id="adminPassword"
-            type="password"
-            placeholder="Пароль">
-
-
-        <button
-            id="adminEnter"
-            class="admin-button"
-            type="button">
-
-            Войти
-
-        </button>
-
-
-        <div id="error">
-            Неверный пароль
-        </div>
-
-
-    </div>
 
 </div>
 
+</div>
+
+
+
+<script src="data.js"></script>
 
 
 <script>
 
-/* =========================================
-   ТЕМА
-========================================= */
+const siteName =
+    document.getElementById("siteName");
+
+const subtitle =
+    document.getElementById("subtitle");
+
+const welcome =
+    document.getElementById("welcome");
+
+const cards =
+    document.getElementById("cards");
+
+const adminsList =
+    document.getElementById("adminsList");
+
+const footer =
+    document.getElementById("footer");
+
+
+siteName.innerHTML =
+    SITE_DATA.siteName;
+
+subtitle.innerHTML =
+    SITE_DATA.subtitle;
+
+welcome.innerHTML =
+    SITE_DATA.welcome;
+
+footer.innerHTML =
+    SITE_DATA.footer;
+
+
+
+/* КАРТОЧКИ */
+
+SITE_DATA.cards.forEach(function(card) {
+
+    const element =
+        document.createElement("div");
+
+    element.className =
+        "card";
+
+    element.innerHTML = `
+
+        <h3>
+            ${card.icon} ${card.title}
+        </h3>
+
+        <p>
+            ${card.description}
+        </p>
+
+    `;
+
+    element.addEventListener(
+        "click",
+        function() {
+
+            document.getElementById(
+                "popupTitle"
+            ).textContent =
+                card.icon + " " + card.title;
+
+            document.getElementById(
+                "popupContent"
+            ).innerHTML =
+                card.text;
+
+            document.getElementById(
+                "popup"
+            ).classList.add("active");
+
+        }
+    );
+
+    cards.appendChild(element);
+
+});
+
+
+
+/* АДМИНИСТРАТОРЫ */
+
+SITE_DATA.admins.forEach(function(admin) {
+
+    const element =
+        document.createElement("div");
+
+    element.className =
+        "card admin";
+
+    element.innerHTML = `
+
+        <div class="admin-name">
+            ${admin.name}
+        </div>
+
+        <div class="position">
+            ${admin.position}
+        </div>
+
+        <p>
+            ${admin.description}
+        </p>
+
+    `;
+
+    adminsList.appendChild(element);
+
+});
+
+
+
+/* ЗАКРЫТИЕ */
+
+document.getElementById(
+    "closePopup"
+).onclick = function() {
+
+    document.getElementById(
+        "popup"
+    ).classList.remove("active");
+
+};
+
+
+
+document.getElementById(
+    "popup"
+).onclick = function(event) {
+
+    if (
+        event.target.id === "popup"
+    ) {
+
+        event.currentTarget.classList.remove(
+            "active"
+        );
+
+    }
+
+};
+
+
+
+/* ТЕМА */
 
 const themeButton =
     document.getElementById(
@@ -1056,8 +353,7 @@ function applyTheme() {
 }
 
 
-themeButton.addEventListener(
-    "click",
+themeButton.onclick =
     function() {
 
         const isDark =
@@ -1065,468 +361,22 @@ themeButton.addEventListener(
                 "dark"
             );
 
-
         localStorage.setItem(
             "siteTheme",
-            isDark ? "light" : "dark"
+            isDark
+                ? "light"
+                : "dark"
         );
-
 
         applyTheme();
 
-    }
-);
+    };
 
 
 applyTheme();
-
-
-
-/* =========================================
-   КАРТОЧКИ
-========================================= */
-
-const popup =
-    document.getElementById(
-        "popup"
-    );
-
-const popupTitle =
-    document.getElementById(
-        "popupTitle"
-    );
-
-const popupContent =
-    document.getElementById(
-        "popupContent"
-    );
-
-const closePopupButton =
-    document.getElementById(
-        "closePopup"
-    );
-
-
-const popupData = {
-
-    rules: {
-
-        title: "📜 Правила канала",
-
-        content: `
-
-        <div class="rules">
-
-        <h4>1. Уважение</h4>
-
-        <p>
-        <span class="rule-number">01.</span>
-        Относитесь уважительно ко всем участникам
-        канала. Оскорбления, унижение и провокации
-        не приветствуются.
-        </p>
-
-
-        <h4>2. Запрещённый контент</h4>
-
-        <p>
-        <span class="rule-number">02.</span>
-        Не публикуйте материалы, которые нарушают
-        правила Telegram, Pony Town или законодательство.
-        </p>
-
-
-        <h4>3. Спам</h4>
-
-        <p>
-        <span class="rule-number">03.</span>
-        Не отправляйте большое количество одинаковых
-        сообщений или бессмысленных сообщений.
-        </p>
-
-
-        <h4>4. Реклама</h4>
-
-        <p>
-        <span class="rule-number">04.</span>
-        Реклама сторонних проектов разрешена
-        только с согласия администрации.
-        </p>
-
-
-        <h4>5. Конфликты</h4>
-
-        <p>
-        <span class="rule-number">05.</span>
-        Не устраивайте публичные конфликты.
-        При проблемах обратитесь к администрации.
-        </p>
-
-
-        <h4>6. Обсуждения</h4>
-
-        <p>
-        <span class="rule-number">06.</span>
-        Старайтесь придерживаться темы канала
-        и уважать мнение других участников.
-        </p>
-
-
-        <h4>7. Боты</h4>
-
-        <p>
-        <span class="rule-number">07.</span>
-        Используйте ботов по назначению.
-        </p>
-
-
-        <h4>8. Администрация</h4>
-
-        <p>
-        <span class="rule-number">08.</span>
-        Решения администрации необходимо уважать.
-        </p>
-
-
-        <h4>9. Личные данные</h4>
-
-        <p>
-        <span class="rule-number">09.</span>
-        Не публикуйте чужие личные данные без разрешения.
-        </p>
-
-
-        <h4>10. Главное правило ♡</h4>
-
-        <p>
-        <span class="rule-number">10.</span>
-        Будьте адекватными, уважайте других участников
-        и получайте удовольствие от общения.
-        </p>
-
-        </div>
-
-        `
-    },
-
-
-    news: {
-
-        title: "📰 Новости",
-
-        content: `
-
-        <h4>
-            Новости канала
-        </h4>
-
-        <p>
-            Здесь будут появляться важные новости,
-            обновления и объявления.
-        </p>
-
-        <p>
-            Следите за обновлениями ♡
-        </p>
-
-        `
-    },
-
-
-    bots: {
-
-        title: "🤖 Боты",
-
-        content: `
-
-        <h4>
-            Полезные боты
-        </h4>
-
-        <p>
-            Здесь можно разместить список ботов,
-            команды и инструкции.
-        </p>
-
-        `
-    },
-
-
-    skins: {
-
-        title: "🎨 Скины",
-
-        content: `
-
-        <h4>
-            Информация о скинах
-        </h4>
-
-        <p>
-            Здесь можно размещать коды скинов,
-            подборки и инструкции по Pony Town.
-        </p>
-
-        `
-    }
-
-};
-
-
-document
-    .querySelectorAll(
-        ".card[data-popup]"
-    )
-    .forEach(
-        function(card) {
-
-            card.addEventListener(
-                "click",
-                function() {
-
-                    const type =
-                        card.dataset.popup;
-
-
-                    popupTitle.textContent =
-                        popupData[type].title;
-
-
-                    popupContent.innerHTML =
-                        popupData[type].content;
-
-
-                    popup.classList.add(
-                        "active"
-                    );
-
-
-                    document.body.style.overflow =
-                        "hidden";
-
-                }
-            );
-
-        }
-    );
-
-
-function closePopup() {
-
-    popup.classList.remove(
-        "active"
-    );
-
-    document.body.style.overflow =
-        "";
-
-}
-
-
-closePopupButton.addEventListener(
-    "click",
-    closePopup
-);
-
-
-popup.addEventListener(
-    "click",
-    function(event) {
-
-        if (
-            event.target === popup
-        ) {
-
-            closePopup();
-
-        }
-
-    }
-);
-
-
-
-/* =========================================
-   АДМИН-ПАНЕЛЬ
-========================================= */
-
-const adminLink =
-    document.getElementById(
-        "adminLink"
-    );
-
-const adminLogin =
-    document.getElementById(
-        "adminLogin"
-    );
-
-const adminPassword =
-    document.getElementById(
-        "adminPassword"
-    );
-
-const adminEnter =
-    document.getElementById(
-        "adminEnter"
-    );
-
-const adminClose =
-    document.getElementById(
-        "adminClose"
-    );
-
-const error =
-    document.getElementById(
-        "error"
-    );
-
-
-/* Открываем окно пароля */
-
-adminLink.addEventListener(
-    "click",
-    function(event) {
-
-        event.preventDefault();
-
-        adminLogin.classList.add(
-            "active"
-        );
-
-        error.style.display =
-            "none";
-
-        adminPassword.value =
-            "";
-
-        setTimeout(
-            function() {
-
-                adminPassword.focus();
-
-            },
-            100
-        );
-
-    }
-);
-
-
-/* Закрываем окно */
-
-adminClose.addEventListener(
-    "click",
-    function() {
-
-        adminLogin.classList.remove(
-            "active"
-        );
-
-    }
-);
-
-
-/* Проверяем пароль */
-
-function checkAdminPassword() {
-
-    const password =
-        adminPassword.value;
-
-
-    if (
-        password ===
-        "PonyTownAdmin2026"
-    ) {
-
-        window.location.href =
-            "admin.html";
-
-    } else {
-
-        error.style.display =
-            "block";
-
-        adminPassword.value =
-            "";
-
-        adminPassword.focus();
-
-    }
-
-}
-
-
-/* Кнопка входа */
-
-adminEnter.addEventListener(
-    "click",
-    checkAdminPassword
-);
-
-
-/* Enter */
-
-adminPassword.addEventListener(
-    "keydown",
-    function(event) {
-
-        if (
-            event.key === "Enter"
-        ) {
-
-            checkAdminPassword();
-
-        }
-
-    }
-);
-
-
-/* Клик по фону */
-
-adminLogin.addEventListener(
-    "click",
-    function(event) {
-
-        if (
-            event.target ===
-            adminLogin
-        ) {
-
-            adminLogin.classList.remove(
-                "active"
-            );
-
-        }
-
-    }
-);
-
-
-/* Escape */
-
-document.addEventListener(
-    "keydown",
-    function(event) {
-
-        if (
-            event.key === "Escape"
-        ) {
-
-            adminLogin.classList.remove(
-                "active"
-            );
-
-            closePopup();
-
-        }
-
-    }
-);
 
 </script>
 
 
 </body>
-    </html>
+</html>
