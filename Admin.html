@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Админ-панель</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #5f5362;
+
+    background: linear-gradient(
+        120deg,
+        #ffdbea,
+        #dff6ff,
+        #eadfff,
+        #ffe0ee,
+        #d8f5ff
+    );
+
+    background-size: 500% 500%;
+    animation: bg 18s ease infinite;
+}
+
+@keyframes bg {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    width: min(900px, 94%);
+    margin: auto;
+    padding: 25px 0 50px;
+}
+
+header {
+    background: rgba(255,255,255,.65);
+    backdrop-filter: blur(15px);
+    border-radius: 30px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 10px 35px rgba(160,120,160,.15);
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+    color: #d17fa2;
+}
+
+header p {
+    margin-bottom: 0;
+    color: #8f8192;
+}
+
+.panel {
+    background: rgba(255,255,255,.65);
+    backdrop-filter: blur(15px);
+    border-radius: 30px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 35px rgba(160,120,160,.13);
+}
+
+.panel h2 {
+    margin-top: 0;
+    color: #d17fa2;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    border: 1px solid rgba(210,170,200,.5);
+    border-radius: 15px;
+    padding: 13px;
+    font-size: 15px;
+    font-family: inherit;
+    background: rgba(255,255,255,.8);
+    color: #5f5362;
+    outline: none;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #d98aad;
+    box-shadow: 0 0 0 3px rgba(217,138,173,.15);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 15px;
+}
+
+.card-editor {
+    background: rgba(255,255,255,.55);
+    padding: 18px;
+    border-radius: 22px;
+}
+
+.card-editor h3 {
+    margin-top: 0;
+    color: #d47fa5;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+button {
+    border: none;
+    border-radius: 18px;
+    padding: 13px 20px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition: .2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+.save {
+    background: #d98aad;
+    color: white;
+}
+
+.reset {
+    background: #eee1eb;
+    color: #6d5c6c;
+}
+
+.preview {
+    background: #dff2ff;
+    color: #5c7180;
+}
+
+.status {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 15px;
+    background: rgba(255,255,255,.6);
+    text-align: center;
+    display: none;
+}
+
+.color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+    gap: 15px;
+}
+
+.color-box {
+    background: rgba(255,255,255,.55);
+    padding: 15px;
+    border-radius: 18px;
+}
+
+.color-box input {
+    height: 50px;
+    padding: 4px;
+}
+
+small {
+    color: #8f8192;
+}
+
+@media(max-width:600px) {
+    .container {
+        width: 94%;
+    }
+
+    .panel {
+        padding: 20px;
+        border-radius: 24px;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+    <h1>⚙️ Админ-панель</h1>
+    <p>Управление сайтом @cheapponytownskins</p>
+</header>
+
+
+<!-- ОСНОВНЫЕ ДАННЫЕ -->
+
+<div class="panel">
+
+<h2>🏠 Основная информация</h2>
+
+<label>Название сайта</label>
+<input id="siteName">
+
+<label>Подзаголовок</label>
+<input id="subtitle">
+
+<label>Заголовок главного раздела</label>
+<input id="homeTitle">
+
+<label>Текст главного раздела</label>
+<textarea id="homeText"></textarea>
+
+<label>Текст футера</label>
+<input id="footer">
+
+</div>
+
+
+<!-- МЕНЮ -->
+
+<div class="panel">
+
+<h2>🧭 Меню</h2>
+
+<div class="grid">
+
+<div>
+<label>Кнопка 1</label>
+<input id="nav1Text">
+
+<label>Ссылка кнопки 1</label>
+<input id="nav1Link">
+</div>
+
+<div>
+<label>Кнопка 2</label>
+<input id="nav2Text">
+
+<label>Ссылка кнопки 2</label>
+<input id="nav2Link">
+</div>
+
+<div>
+<label>Кнопка 3</label>
+<input id="nav3Text">
+
+<label>Ссылка кнопки 3</label>
+<input id="nav3Link">
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ЗАПИСИ -->
+
+<div class="panel">
+
+<h2>📖 Записи</h2>
+
+<div class="grid">
+
+<div class="card-editor">
+
+<h3>Карточка 1</h3>
+
+<label>Заголовок</label>
+<input id="card1Title">
+
+<label>Текст</label>
+<textarea id="card1Text"></textarea>
+
+</div>
+
+
+<div class="card-editor">
+
+<h3>Карточка 2</h3>
+
+<label>Заголовок</label>
+<input id="card2Title">
+
+<label>Текст</label>
+<textarea id="card2Text"></textarea>
+
+</div>
+
+
+<div class="card-editor">
+
+<h3>Карточка 3</h3>
+
+<label>Заголовок</label>
+<input id="card3Title">
+
+<label>Текст</label>
+<textarea id="card3Text"></textarea>
+
+</div>
+
+
+<div class="card-editor">
+
+<h3>Карточка 4</h3>
+
+<label>Заголовок</label>
+<input id="card4Title">
+
+<label>Текст</label>
+<textarea id="card4Text"></textarea>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- АДМИНИ -->
+
+<div class="panel">
+
+<h2>👥 Администрация</h2>
+
+<div class="grid">
+
+<div class="card-editor">
+
+<h3>Администратор 1</h3>
+
+<label>Имя</label>
+<input id="admin1Name">
+
+<label>Должность</label>
+<input id="admin1Position">
+
+<label>Описание</label>
+<textarea id="admin1Description"></textarea>
+
+</div>
+
+
+<div class="card-editor">
+
+<h3>Администратор 2</h3>
+
+<label>Имя</label>
+<input id="admin2Name">
+
+<label>Должность</label>
+<input id="admin2Position">
+
+<label>Описание</label>
+<textarea id="admin2Description"></textarea>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ЦВЕТА -->
+
+<div class="panel">
+
+<h2>🎨 Цвета</h2>
+
+<div class="color-grid">
+
+<div class="color-box">
+
+<label>Основной цвет</label>
+<input type="color" id="primaryColor">
+
+<small>Заголовки и акценты</small>
+
+</div>
+
+
+<div class="color-box">
+
+<label>Цвет текста</label>
+<input type="color" id="textColor">
+
+<small>Основной текст</small>
+
+</div>
+
+
+<div class="color-box">
+
+<label>Цвет подзаголовков</label>
+<input type="color" id="secondaryColor">
+
+<small>Дополнительный текст</small>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- УПРАВЛЕНИЕ -->
+
+<div class="panel">
+
+<h2>💾 Управление</h2>
+
+<div class="buttons">
+
+<button class="save" onclick="saveSettings()">
+💾 Сохранить
+</button>
+
+<button class="reset" onclick="resetSettings()">
+↩️ Сбросить
+</button>
+
+<button class="preview" onclick="openSite()">
+👁️ Открыть сайт
+</button>
+
+</div>
+
+<div class="status" id="status"></div>
+
+</div>
+
+</div>
+
+
+<script>
+
+const defaultSettings = {
+
+siteName: "@cheapponytownskins",
+
+subtitle: "личное пространство канала ♡",
+
+homeTitle: "Главное ♡",
+
+homeText:
+`Добро пожаловать на официальный сайт @cheapponytownskins!
+
+Здесь будут собраны полезная информация,
+новости, правила, инструкции и другие материалы
+нашего канала.
+
+✦ Создано с любовью ✦`,
+
+footer: "@cheapponytownskins · 2026 ♡",
+
+nav1Text: "Главное",
+nav1Link: "#home",
+
+nav2Text: "Записи",
+nav2Link: "#posts",
+
+nav3Text: "Администрация",
+nav3Link: "#admins",
+
+
+card1Title: "📜 Правила",
+card1Text:
+"Здесь будут находиться правила канала и другая важная информация.",
+
+card2Title: "📰 Новости",
+card2Text:
+"Здесь можно публиковать новости, объявления и обновления.",
+
+card3Title: "🤖 Боты",
+card3Text:
+"Здесь будут инструкции по использованию ботов и полезные команды.",
+
+card4Title: "🎨 Скины",
+card4Text:
+"Здесь можно разместить инструкции, советы и информацию о скинах.",
+
+
+admin1Name: "Имя администратора",
+admin1Position: "Владелец",
+admin1Description:
+"Здесь можно написать информацию об этом человеке.",
+
+admin2Name: "Имя администратора",
+admin2Position: "Администратор",
+admin2Description:
+"Здесь можно написать должность и обязанности.",
+
+
+primaryColor: "#d17fa2",
+textColor: "#5f5362",
+secondaryColor: "#8f8192"
+
+};
+
+
+function getSettings() {
+
+    const saved = localStorage.getItem("siteSettings");
+
+    if (!saved) {
+        return {...defaultSettings};
+    }
+
+    return {
+        ...defaultSettings,
+        ...JSON.parse(saved)
+    };
+
+}
+
+
+function loadSettings() {
+
+    const settings = getSettings();
+
+    Object.keys(settings).forEach(key => {
+
+        const element = document.getElementById(key);
+
+        if (element) {
+            element.value = settings[key];
+        }
+
+    });
+
+}
+
+
+function saveSettings() {
+
+    const settings = {};
+
+    Object.keys(defaultSettings).forEach(key => {
+
+        const element = document.getElementById(key);
+
+        if (element) {
+            settings[key] = element.value;
+        }
+
+    });
+
+    localStorage.setItem(
+        "siteSettings",
+        JSON.stringify(settings)
+    );
+
+    showStatus("✅ Настройки сохранены в этом браузере!");
+
+}
+
+
+function resetSettings() {
+
+    if (!confirm("Сбросить все настройки?")) {
+        return;
+    }
+
+    localStorage.removeItem("siteSettings");
+
+    loadSettings();
+
+    showStatus("↩️ Настройки сброшены.");
+
+}
+
+
+function showStatus(text) {
+
+    const status = document.getElementById("status");
+
+    status.textContent = text;
+    status.style.display = "block";
+
+    setTimeout(() => {
+        status.style.display = "none";
+    }, 3000);
+
+}
+
+
+function openSite() {
+
+    window.open("index.html", "_blank");
+
+}
+
+
+loadSettings();
+
+</script>
+
+</body>
+  </html>
