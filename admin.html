@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Админ-панель — @cheapponytownskins</title>
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+<title>Админ-панель</title>
 
 <style>
 
@@ -35,11 +39,11 @@ body {
 
     background-size: 500% 500%;
 
-    animation: backgroundAnimation 18s ease infinite;
+    animation: bg 18s ease infinite;
 
 }
 
-@keyframes backgroundAnimation {
+@keyframes bg {
 
     0% {
         background-position: 0% 50%;
@@ -55,6 +59,157 @@ body {
 
 }
 
+
+/* =========================
+   ЭКРАН ВХОДА
+========================= */
+
+#loginScreen {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffdbea,
+            #dff6ff,
+            #eadfff
+        );
+
+    z-index: 99999;
+
+}
+
+
+.loginBox {
+
+    width: min(420px, 100%);
+
+    padding: 35px;
+
+    text-align: center;
+
+    background:
+        rgba(255,255,255,.75);
+
+    border:
+        1px solid
+        rgba(255,255,255,.9);
+
+    border-radius: 30px;
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 20px 60px
+        rgba(150,120,160,.2);
+
+}
+
+
+.loginBox h1 {
+
+    margin-top: 0;
+
+    color: #d17fa2;
+
+}
+
+
+.loginBox p {
+
+    color: #8f8192;
+
+}
+
+
+#password {
+
+    width: 100%;
+
+    padding: 15px;
+
+    border: 1px solid #ead6e2;
+
+    border-radius: 16px;
+
+    outline: none;
+
+    font-size: 16px;
+
+    margin-top: 10px;
+
+}
+
+
+#loginButton {
+
+    width: 100%;
+
+    margin-top: 15px;
+
+    padding: 14px;
+
+    border: 0;
+
+    border-radius: 17px;
+
+    background: #d17fa2;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+}
+
+
+#loginButton:hover {
+
+    opacity: .85;
+
+}
+
+
+#error {
+
+    display: none;
+
+    margin-top: 15px;
+
+    padding: 12px;
+
+    border-radius: 14px;
+
+    background: #ffe0e0;
+
+    color: #b33d4d;
+
+}
+
+
+/* =========================
+   АДМИНКА
+========================= */
+
+#adminPanel {
+
+    display: none;
+
+}
+
+
 .container {
 
     width: min(1000px, 94%);
@@ -65,11 +220,12 @@ body {
 
 }
 
+
 header {
 
-    text-align: center;
-
     padding: 30px;
+
+    text-align: center;
 
     background:
         rgba(255,255,255,.65);
@@ -79,23 +235,18 @@ header {
     backdrop-filter: blur(15px);
 
     box-shadow:
-        0 10px 35px rgba(160,120,160,.15);
+        0 10px 35px
+        rgba(160,120,160,.15);
 
 }
 
-header h1 {
 
-    margin: 0;
+header h1 {
 
     color: #d17fa2;
 
 }
 
-header p {
-
-    color: #8f8192;
-
-}
 
 .panel {
 
@@ -110,16 +261,15 @@ header p {
 
     backdrop-filter: blur(15px);
 
-    box-shadow:
-        0 10px 35px rgba(160,120,160,.15);
-
 }
+
 
 h2 {
 
     color: #d17fa2;
 
 }
+
 
 label {
 
@@ -133,79 +283,71 @@ label {
 
 }
 
+
 input,
-textarea,
-select {
+textarea {
 
     width: 100%;
 
     padding: 13px;
 
-    border: 1px solid
-        rgba(210,180,200,.5);
+    border: 1px solid #ead6e2;
 
     border-radius: 15px;
 
     outline: none;
 
-    background:
-        rgba(255,255,255,.75);
-
-    color: #5f5362;
-
     font-family: Arial, sans-serif;
 
 }
 
+
 textarea {
 
-    min-height: 140px;
+    min-height: 130px;
 
     resize: vertical;
 
 }
 
+
+.cardEditor {
+
+    padding: 20px;
+
+    margin-top: 20px;
+
+    background:
+        rgba(255,255,255,.55);
+
+    border-radius: 22px;
+
+}
+
+
 button {
 
-    border: none;
+    border: 0;
+
+    border-radius: 17px;
 
     padding: 13px 20px;
 
-    border-radius: 18px;
-
     cursor: pointer;
 
-    font-size: 15px;
-
-    transition: .25s;
-
 }
 
-button:hover {
 
-    transform: translateY(-2px);
+.logout {
 
-}
-
-.save {
-
-    margin-top: 25px;
-
-    background: #d17fa2;
+    background: #d65362;
 
     color: white;
 
-}
-
-.preview {
-
-    margin-top: 10px;
-
-    background: #ddd;
-
-    color: #555;
+    margin-top: 20px;
 
 }
+
 
 .back {
 
@@ -213,19 +355,10 @@ button:hover {
 
     color: #876b7d;
 
-    margin-top: 10px;
+    margin-top: 20px;
 
 }
 
-.danger {
-
-    background: #d65362;
-
-    color: white;
-
-    margin-top: 10px;
-
-}
 
 .status {
 
@@ -243,43 +376,6 @@ button:hover {
 
 }
 
-.card-editor {
-
-    padding: 20px;
-
-    margin-top: 20px;
-
-    background:
-        rgba(255,255,255,.55);
-
-    border-radius: 22px;
-
-}
-
-.card-editor h3 {
-
-    margin-top: 0;
-
-    color: #d17fa2;
-
-}
-
-.info {
-
-    padding: 15px;
-
-    margin-top: 20px;
-
-    background:
-        rgba(255,255,255,.55);
-
-    border-radius: 18px;
-
-    color: #777;
-
-    line-height: 1.6;
-
-}
 
 @media(max-width:600px) {
 
@@ -305,17 +401,61 @@ button:hover {
 <body>
 
 
+<!-- =========================
+     ВХОД
+========================= -->
+
+<div id="loginScreen">
+
+    <div class="loginBox">
+
+        <h1>🔐 Админ-панель</h1>
+
+        <p>
+            @cheapponytownskins
+        </p>
+
+        <input
+            id="password"
+            type="password"
+            placeholder="Введите пароль"
+            autocomplete="off"
+        >
+
+        <button
+            id="loginButton">
+
+            Войти
+
+        </button>
+
+        <div id="error">
+            Неверный пароль
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     ПАНЕЛЬ
+========================= -->
+
+<div id="adminPanel">
+
 <div class="container">
 
 
 <header>
 
 <h1>
-⚙️ Админ-панель
+⚙️ Управление сайтом
 </h1>
 
 <p>
-Управление сайтом @cheapponytownskins
+@cheapponytownskins
 </p>
 
 </header>
@@ -335,10 +475,9 @@ button:hover {
 </label>
 
 <input
-    id="siteTitle"
-    type="text"
-    value="@cheapponytownskins">
-
+    id="siteName"
+    value="@cheapponytownskins"
+>
 
 
 <label>
@@ -347,17 +486,16 @@ button:hover {
 
 <input
     id="subtitle"
-    type="text"
-    value="личное пространство канала ♡">
-
+    value="личное пространство канала ♡"
+>
 
 
 <label>
-Приветственный текст
+Главный текст
 </label>
 
 <textarea
-    id="welcomeText">Добро пожаловать на официальный сайт @cheapponytownskins!
+    id="welcome">Добро пожаловать на официальный сайт @cheapponytownskins!
 
 Здесь будут собраны полезная информация, новости, правила, инструкции и другие материалы нашего канала.
 
@@ -371,7 +509,7 @@ button:hover {
 
 
 
-<div class="card-editor">
+<div class="cardEditor">
 
 <h3>
 📜 Правила
@@ -383,44 +521,30 @@ button:hover {
 
 <input
     id="rulesTitle"
-    value="📜 Правила">
-
+    value="Правила"
+>
 
 <label>
-Краткое описание
+Описание
 </label>
 
 <input
     id="rulesDescription"
-    value="Основные правила канала.">
-
+    value="Основные правила канала."
+>
 
 <label>
 Полный текст
 </label>
 
 <textarea
-    id="rulesText">Здесь будут находиться полные правила канала.
-
-1. Уважайте участников.
-
-2. Не спамьте.
-
-3. Не публикуйте запрещённый контент.
-
-4. Не рекламируйте сторонние проекты без разрешения администрации.
-
-5. При возникновении конфликтов обращайтесь к администрации.
-
-6. Соблюдайте правила Telegram и Pony Town.
-
-♡ Спасибо за понимание!</textarea>
+    id="rulesText">Здесь будут находиться полные правила канала.</textarea>
 
 </div>
 
 
 
-<div class="card-editor">
+<div class="cardEditor">
 
 <h3>
 📰 Новости
@@ -432,8 +556,8 @@ button:hover {
 
 <input
     id="newsTitle"
-    value="📰 Новости">
-
+    value="Новости"
+>
 
 <label>
 Описание
@@ -441,21 +565,21 @@ button:hover {
 
 <input
     id="newsDescription"
-    value="Новости и важные объявления.">
-
+    value="Новости и важные объявления."
+>
 
 <label>
-Текст
+Полный текст
 </label>
 
 <textarea
-    id="newsText">Здесь будут появляться новости, обновления и важные объявления канала.</textarea>
+    id="newsText">Здесь будут новости и объявления.</textarea>
 
 </div>
 
 
 
-<div class="card-editor">
+<div class="cardEditor">
 
 <h3>
 🤖 Боты
@@ -467,8 +591,8 @@ button:hover {
 
 <input
     id="botsTitle"
-    value="🤖 Боты">
-
+    value="Боты"
+>
 
 <label>
 Описание
@@ -476,21 +600,21 @@ button:hover {
 
 <input
     id="botsDescription"
-    value="Полезные боты и инструкции.">
-
+    value="Полезные боты и инструкции."
+>
 
 <label>
-Текст
+Полный текст
 </label>
 
 <textarea
-    id="botsText">Здесь можно разместить список ботов, команды и инструкции.</textarea>
+    id="botsText">Здесь будут инструкции по ботам.</textarea>
 
 </div>
 
 
 
-<div class="card-editor">
+<div class="cardEditor">
 
 <h3>
 🎨 Скины
@@ -502,8 +626,8 @@ button:hover {
 
 <input
     id="skinsTitle"
-    value="🎨 Скины">
-
+    value="Скины"
+>
 
 <label>
 Описание
@@ -511,15 +635,15 @@ button:hover {
 
 <input
     id="skinsDescription"
-    value="Информация о скинах.">
-
+    value="Информация о скинах."
+>
 
 <label>
-Текст
+Полный текст
 </label>
 
 <textarea
-    id="skinsText">Здесь можно размещать коды скинов, подборки и инструкции по Pony Town.</textarea>
+    id="skinsText">Здесь можно разместить информацию о скинах.</textarea>
 
 </div>
 
@@ -531,7 +655,7 @@ button:hover {
 
 
 
-<div class="card-editor">
+<div class="cardEditor">
 
 <h3>
 Администратор №1
@@ -543,8 +667,8 @@ button:hover {
 
 <input
     id="admin1Name"
-    value="Имя администратора">
-
+    value="Имя администратора"
+>
 
 <label>
 Должность
@@ -552,21 +676,21 @@ button:hover {
 
 <input
     id="admin1Position"
-    value="Владелец">
-
+    value="Владелец"
+>
 
 <label>
 Описание
 </label>
 
 <textarea
-    id="admin1Text">Здесь можно написать информацию об этом человеке.</textarea>
+    id="admin1Text">Информация об администраторе.</textarea>
 
 </div>
 
 
 
-<div class="card-editor">
+<div class="cardEditor">
 
 <h3>
 Администратор №2
@@ -578,8 +702,8 @@ button:hover {
 
 <input
     id="admin2Name"
-    value="Имя администратора">
-
+    value="Имя администратора"
+>
 
 <label>
 Должность
@@ -587,105 +711,48 @@ button:hover {
 
 <input
     id="admin2Position"
-    value="Администратор">
-
+    value="Администратор"
+>
 
 <label>
 Описание
 </label>
 
 <textarea
-    id="admin2Text">Здесь можно написать должность и обязанности.</textarea>
+    id="admin2Text">Информация об администраторе.</textarea>
 
 </div>
 
-
-
-<h2>
-📝 Дополнительно
-</h2>
-
-
-<label>
-Текст внизу сайта
-</label>
-
-<input
-    id="footerText"
-    value="@cheapponytownskins · 2026 ♡">
-
-
-
-<button
-    class="save"
-    onclick="saveChanges()">
-
-💾 Сохранить изменения
-
-</button>
-
-
-<button
-    class="preview"
-    onclick="previewSite()">
-
-👀 Открыть сайт
-
-</button>
 
 
 <button
     class="back"
     onclick="window.location.href='index.html'">
 
-← Вернуться на сайт
+← На сайт
 
 </button>
 
 
 <button
-    class="danger"
-    onclick="resetChanges()">
+    class="logout"
+    onclick="logout()">
 
-♻️ Сбросить изменения
+🚪 Выйти
 
 </button>
-
 
 
 <div
     id="status"
     class="status">
 
-Изменения сохранены в этом браузере!
+Вы вошли в админ-панель.
 
 </div>
 
 
-
-<div class="info">
-
-<b>Как это работает:</b>
-
-<br><br>
-
-Эта панель сохраняет настройки
-в памяти браузера через LocalStorage.
-
-<br><br>
-
-Поэтому изменения будут видны
-на этом устройстве и в этом браузере.
-
-<br><br>
-
-Чтобы сделать настоящее сохранение
-для всех посетителей сайта через GitHub,
-позже подключим отдельную систему
-публикации изменений.
-
 </div>
-
 
 </div>
 
@@ -695,222 +762,224 @@ button:hover {
 
 <script>
 
-/* ==================================
-   СОХРАНЕНИЕ
-================================== */
+/*
+=========================================
+АДРЕС БЕЗ СЛЭША В КОНЦЕ
+=========================================
+*/
 
-function saveChanges() {
-
-    const fields = [
-
-        "siteTitle",
-        "subtitle",
-        "welcomeText",
-
-        "rulesTitle",
-        "rulesDescription",
-        "rulesText",
-
-        "newsTitle",
-        "newsDescription",
-        "newsText",
-
-        "botsTitle",
-        "botsDescription",
-        "botsText",
-
-        "skinsTitle",
-        "skinsDescription",
-        "skinsText",
-
-        "admin1Name",
-        "admin1Position",
-        "admin1Text",
-
-        "admin2Name",
-        "admin2Position",
-        "admin2Text",
-
-        "footerText"
-
-    ];
+const WORKER_URL =
+    "https://cheapponytown-admin.chupacapra228.workers.dev";
 
 
-    fields.forEach(function(id) {
+/*
+=========================================
+ЭЛЕМЕНТЫ
+=========================================
+*/
 
-        const element =
-            document.getElementById(id);
-
-        localStorage.setItem(
-            "site_" + id,
-            element.value
-        );
-
-    });
-
-
-    const status =
-        document.getElementById("status");
-
-    status.style.display = "block";
-
-
-    setTimeout(function() {
-
-        status.style.display = "none";
-
-    }, 3000);
-
-}
-
-
-/* ==================================
-   ЗАГРУЗКА
-================================== */
-
-function loadChanges() {
-
-    const fields = [
-
-        "siteTitle",
-        "subtitle",
-        "welcomeText",
-
-        "rulesTitle",
-        "rulesDescription",
-        "rulesText",
-
-        "newsTitle",
-        "newsDescription",
-        "newsText",
-
-        "botsTitle",
-        "botsDescription",
-        "botsText",
-
-        "skinsTitle",
-        "skinsDescription",
-        "skinsText",
-
-        "admin1Name",
-        "admin1Position",
-        "admin1Text",
-
-        "admin2Name",
-        "admin2Position",
-        "admin2Text",
-
-        "footerText"
-
-    ];
-
-
-    fields.forEach(function(id) {
-
-        const saved =
-            localStorage.getItem(
-                "site_" + id
-            );
-
-
-        if (saved !== null) {
-
-            document.getElementById(id).value =
-                saved;
-
-        }
-
-    });
-
-}
-
-
-/* ==================================
-   ОТКРЫТЬ САЙТ
-================================== */
-
-function previewSite() {
-
-    window.open(
-        "index.html",
-        "_blank"
+const loginScreen =
+    document.getElementById(
+        "loginScreen"
     );
 
-}
+const adminPanel =
+    document.getElementById(
+        "adminPanel"
+    );
+
+const passwordInput =
+    document.getElementById(
+        "password"
+    );
+
+const loginButton =
+    document.getElementById(
+        "loginButton"
+    );
+
+const errorBox =
+    document.getElementById(
+        "error"
+    );
 
 
-/* ==================================
-   СБРОС
-================================== */
+/*
+=========================================
+ПРОВЕРКА ПАРОЛЯ
+=========================================
+*/
 
-function resetChanges() {
+async function login() {
 
-    const answer =
-        confirm(
-            "Сбросить все сохранённые изменения?"
-        );
+    const password =
+        passwordInput.value;
 
 
-    if (!answer) {
+    if (!password) {
+
+        errorBox.textContent =
+            "Введите пароль.";
+
+        errorBox.style.display =
+            "block";
 
         return;
 
     }
 
 
-    const fields = [
+    loginButton.disabled = true;
 
-        "siteTitle",
-        "subtitle",
-        "welcomeText",
+    loginButton.textContent =
+        "Проверка...";
 
-        "rulesTitle",
-        "rulesDescription",
-        "rulesText",
-
-        "newsTitle",
-        "newsDescription",
-        "newsText",
-
-        "botsTitle",
-        "botsDescription",
-        "botsText",
-
-        "skinsTitle",
-        "skinsDescription",
-        "skinsText",
-
-        "admin1Name",
-        "admin1Position",
-        "admin1Text",
-
-        "admin2Name",
-        "admin2Position",
-        "admin2Text",
-
-        "footerText"
-
-    ];
+    errorBox.style.display =
+        "none";
 
 
-    fields.forEach(function(id) {
+    try {
 
-        localStorage.removeItem(
-            "site_" + id
-        );
+        const response =
+            await fetch(
+                WORKER_URL +
+                "/api/login",
+                {
 
-    });
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        password: password
+                    })
+
+                }
+            );
 
 
-    location.reload();
+        const result =
+            await response.json();
+
+
+        if (
+            response.ok &&
+            result.success
+        ) {
+
+            loginScreen.style.display =
+                "none";
+
+            adminPanel.style.display =
+                "block";
+
+        } else {
+
+            errorBox.textContent =
+                result.message ||
+                "Неверный пароль.";
+
+            errorBox.style.display =
+                "block";
+
+        }
+
+
+    } catch (error) {
+
+        errorBox.textContent =
+            "Не удалось подключиться к серверу.";
+
+        errorBox.style.display =
+            "block";
+
+    }
+
+
+    loginButton.disabled =
+        false;
+
+    loginButton.textContent =
+        "Войти";
 
 }
 
 
-loadChanges();
+/*
+=========================================
+КНОПКА ВХОДА
+=========================================
+*/
+
+loginButton.addEventListener(
+    "click",
+    login
+);
+
+
+/*
+=========================================
+ENTER
+=========================================
+*/
+
+passwordInput.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Enter"
+        ) {
+
+            login();
+
+        }
+
+    }
+);
+
+
+/*
+=========================================
+ВЫХОД
+=========================================
+*/
+
+function logout() {
+
+    adminPanel.style.display =
+        "none";
+
+    loginScreen.style.display =
+        "flex";
+
+    passwordInput.value =
+        "";
+
+    errorBox.style.display =
+        "none";
+
+}
+
+
+/*
+=========================================
+ЗАЩИТА ОТ ПРОСТОГО ОБХОДА
+=========================================
+*/
+
+adminPanel.style.display =
+    "none";
+
+loginScreen.style.display =
+    "flex";
 
 </script>
 
 
 </body>
+
     </html>
