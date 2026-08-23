@@ -3,40 +3,349 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой личный сайт</title>
+
+    <title>@cheapponytownskins</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
-            background: #111;
-            color: white;
+            min-height: 100vh;
             font-family: Arial, sans-serif;
-            padding: 40px 20px;
+            color: #5f5362;
+
+            background: linear-gradient(
+                120deg,
+                #ffdbea,
+                #dff6ff,
+                #eadfff,
+                #ffe0ee,
+                #d8f5ff
+            );
+
+            background-size: 500% 500%;
+            animation: waterfall 18s ease infinite;
         }
 
-        .container {
-            max-width: 800px;
+        @keyframes waterfall {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .page {
+            width: min(1000px, 92%);
             margin: auto;
+            padding: 25px 0 50px;
         }
 
-        h1 {
-            font-size: 40px;
+        header {
+            text-align: center;
+            padding: 35px 20px;
+            margin-bottom: 20px;
+
+            background: rgba(255, 255, 255, 0.55);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 30px;
+
+            box-shadow:
+                0 10px 35px rgba(160, 120, 160, 0.15);
+
+            backdrop-filter: blur(15px);
         }
 
-        p {
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #d98aad;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #8f8192;
+            font-size: 15px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #876b7d;
+
+            background: rgba(255, 255, 255, 0.65);
+
+            padding: 12px 20px;
+            border-radius: 20px;
+
+            transition: 0.25s;
+            box-shadow: 0 5px 15px rgba(150, 120, 150, 0.1);
+        }
+
+        nav a:hover {
+            transform: translateY(-3px);
+            background: white;
+            color: #d47fa5;
+        }
+
+        section {
+            margin-top: 25px;
+            padding: 30px;
+
+            background: rgba(255, 255, 255, 0.62);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 30px;
+
+            box-shadow:
+                0 10px 35px rgba(160, 120, 160, 0.13);
+
+            backdrop-filter: blur(15px);
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #d17fa2;
+        }
+
+        .welcome {
+            text-align: center;
             font-size: 18px;
-            line-height: 1.6;
+            line-height: 1.7;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .card {
+            padding: 22px;
+
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 22px;
+
+            transition: 0.25s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(180, 130, 170, 0.15);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #d47fa5;
+        }
+
+        .admin {
+            text-align: center;
+        }
+
+        .admin-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #d17fa2;
+        }
+
+        .position {
+            margin-top: 5px;
+            color: #8f8192;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 10px 0;
+            color: #8f8192;
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            .page {
+                width: 94%;
+            }
+
+            .logo {
+                font-size: 25px;
+            }
+
+            section {
+                padding: 22px;
+                border-radius: 24px;
+            }
+
+            nav a {
+                padding: 10px 15px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <h1>Мой личный сайт</h1>
 
-        <p>
-            Здесь я могу писать всё, что захочу.
-        </p>
-    </div>
+<div class="page">
+
+    <header>
+        <div class="logo">@cheapponytownskins</div>
+
+        <div class="subtitle">
+            личное пространство канала ♡
+        </div>
+    </header>
+
+
+    <nav>
+        <a href="#home">Главное</a>
+        <a href="#posts">Записи</a>
+        <a href="#admins">Администрация</a>
+    </nav>
+
+
+    <section id="home">
+
+        <h2>Главное ♡</h2>
+
+        <div class="welcome">
+
+            Добро пожаловать на официальный сайт
+            <b>@cheapponytownskins</b>!
+
+            <br><br>
+
+            Здесь будут собраны полезная информация,
+            новости, правила, инструкции и другие материалы
+            нашего канала.
+
+            <br><br>
+
+            ✦ Создано с любовью ✦
+
+        </div>
+
+    </section>
+
+
+    <section id="posts">
+
+        <h2>Записи 📖</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>📜 Правила</h3>
+
+                <p>
+                    Здесь будут находиться правила канала
+                    и другая важная информация.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <h3>📰 Новости</h3>
+
+                <p>
+                    Здесь можно публиковать новости,
+                    объявления и обновления.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <h3>🤖 Боты</h3>
+
+                <p>
+                    Здесь будут инструкции по использованию
+                    ботов и полезные команды.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <h3>🎨 Скины</h3>
+
+                <p>
+                    Здесь можно разместить инструкции,
+                    советы и информацию о скинах.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="admins">
+
+        <h2>Администрация ♡</h2>
+
+        <div class="cards">
+
+            <div class="card admin">
+
+                <div class="admin-name">
+                    Имя администратора
+                </div>
+
+                <div class="position">
+                    Владелец
+                </div>
+
+                <p>
+                    Здесь можно написать информацию
+                    об этом человеке.
+                </p>
+
+            </div>
+
+
+            <div class="card admin">
+
+                <div class="admin-name">
+                    Имя администратора
+                </div>
+
+                <div class="position">
+                    Администратор
+                </div>
+
+                <p>
+                    Здесь можно написать должность
+                    и обязанности.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        @cheapponytownskins · 2026 ♡
+    </footer>
+
+</div>
+
 </body>
-</html>
+    </html>
