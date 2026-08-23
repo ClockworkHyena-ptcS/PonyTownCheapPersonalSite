@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Админ-панель</title>
+<title>Админ-панель — @cheapponytownskins</title>
 
 <style>
 
@@ -35,14 +35,11 @@ body {
 
     background-size: 500% 500%;
 
-    animation:
-        bg 18s ease infinite;
+    animation: backgroundAnimation 18s ease infinite;
 
-    padding: 25px;
 }
 
-
-@keyframes bg {
+@keyframes backgroundAnimation {
 
     0% {
         background-position: 0% 50%;
@@ -58,128 +55,115 @@ body {
 
 }
 
-
 .container {
 
-    width: min(900px, 100%);
+    width: min(1000px, 94%);
 
     margin: auto;
-}
 
+    padding: 25px 0 50px;
+
+}
 
 header {
 
-    padding: 30px;
-
     text-align: center;
+
+    padding: 30px;
 
     background:
         rgba(255,255,255,.65);
 
-    border:
-        1px solid rgba(255,255,255,.8);
-
     border-radius: 30px;
 
-    backdrop-filter:
-        blur(15px);
+    backdrop-filter: blur(15px);
 
     box-shadow:
         0 10px 35px rgba(160,120,160,.15);
 
-    margin-bottom: 20px;
 }
 
-
-h1 {
+header h1 {
 
     margin: 0;
 
     color: #d17fa2;
+
 }
 
-
-.subtitle {
-
-    margin-top: 8px;
+header p {
 
     color: #8f8192;
-}
 
+}
 
 .panel {
 
-    padding: 25px;
+    margin-top: 20px;
 
-    margin-bottom: 20px;
+    padding: 25px;
 
     background:
         rgba(255,255,255,.65);
 
-    border:
-        1px solid rgba(255,255,255,.8);
+    border-radius: 30px;
 
-    border-radius: 25px;
-
-    backdrop-filter:
-        blur(15px);
+    backdrop-filter: blur(15px);
 
     box-shadow:
-        0 10px 35px rgba(160,120,160,.13);
+        0 10px 35px rgba(160,120,160,.15);
+
 }
 
-
-.panel h2 {
-
-    margin-top: 0;
+h2 {
 
     color: #d17fa2;
-}
 
+}
 
 label {
 
     display: block;
 
-    margin-top: 15px;
+    margin-top: 18px;
 
-    margin-bottom: 6px;
+    margin-bottom: 7px;
 
     font-weight: bold;
+
 }
 
-
 input,
-textarea {
+textarea,
+select {
 
     width: 100%;
 
-    border: none;
-
-    outline: none;
-
     padding: 13px;
+
+    border: 1px solid
+        rgba(210,180,200,.5);
 
     border-radius: 15px;
 
+    outline: none;
+
     background:
-        rgba(255,255,255,.8);
+        rgba(255,255,255,.75);
 
     color: #5f5362;
 
     font-family: Arial, sans-serif;
 
-    font-size: 15px;
 }
-
 
 textarea {
 
-    min-height: 120px;
+    min-height: 140px;
 
     resize: vertical;
-}
 
+}
 
 button {
 
@@ -187,44 +171,63 @@ button {
 
     padding: 13px 20px;
 
-    margin-top: 15px;
-
     border-radius: 18px;
 
     cursor: pointer;
 
-    background: #d98aad;
-
-    color: white;
-
     font-size: 15px;
 
     transition: .25s;
-}
 
+}
 
 button:hover {
 
-    transform:
-        translateY(-2px);
+    transform: translateY(-2px);
 
-    background: #c96f96;
 }
 
+.save {
+
+    margin-top: 25px;
+
+    background: #d17fa2;
+
+    color: white;
+
+}
+
+.preview {
+
+    margin-top: 10px;
+
+    background: #ddd;
+
+    color: #555;
+
+}
+
+.back {
+
+    background: white;
+
+    color: #876b7d;
+
+    margin-top: 10px;
+
+}
 
 .danger {
 
-    background: #c94d5c;
+    background: #d65362;
+
+    color: white;
+
+    margin-top: 10px;
+
 }
 
-
-.danger:hover {
-
-    background: #b43e4d;
-}
-
-
-.success {
+.status {
 
     display: none;
 
@@ -234,60 +237,62 @@ button:hover {
 
     border-radius: 15px;
 
-    background: rgba(150,220,170,.5);
+    background: #dff7e5;
 
-    color: #386b45;
+    color: #347344;
+
 }
 
-
-.admin-card {
+.card-editor {
 
     padding: 20px;
 
-    margin-top: 15px;
+    margin-top: 20px;
 
     background:
         rgba(255,255,255,.55);
 
-    border-radius: 20px;
+    border-radius: 22px;
+
 }
 
+.card-editor h3 {
 
-hr {
-
-    border: none;
-
-    height: 1px;
-
-    background: rgba(150,120,150,.2);
-
-    margin: 25px 0;
-}
-
-
-.back {
-
-    display: inline-block;
-
-    margin-top: 10px;
+    margin-top: 0;
 
     color: #d17fa2;
 
-    text-decoration: none;
-
-    font-weight: bold;
 }
 
+.info {
+
+    padding: 15px;
+
+    margin-top: 20px;
+
+    background:
+        rgba(255,255,255,.55);
+
+    border-radius: 18px;
+
+    color: #777;
+
+    line-height: 1.6;
+
+}
 
 @media(max-width:600px) {
 
-    body {
-        padding: 12px;
+    .container {
+
+        width: 94%;
+
     }
 
-    header,
     .panel {
+
         padding: 20px;
+
     }
 
 }
@@ -309,25 +314,16 @@ hr {
 ⚙️ Админ-панель
 </h1>
 
-<div class="subtitle">
+<p>
 Управление сайтом @cheapponytownskins
-</div>
-
-<a
-    class="back"
-    href="index.html">
-
-    ← Вернуться на сайт
-
-</a>
+</p>
 
 </header>
 
 
 
-<!-- ===== ОСНОВНАЯ ИНФОРМАЦИЯ ===== -->
-
 <div class="panel">
+
 
 <h2>
 🏠 Главное
@@ -339,9 +335,10 @@ hr {
 </label>
 
 <input
-    id="siteName"
+    id="siteTitle"
     type="text"
-    placeholder="@cheapponytownskins">
+    value="@cheapponytownskins">
+
 
 
 <label>
@@ -351,37 +348,41 @@ hr {
 <input
     id="subtitle"
     type="text"
-    placeholder="личное пространство канала ♡">
+    value="личное пространство канала ♡">
+
 
 
 <label>
-Главный текст
+Приветственный текст
 </label>
 
 <textarea
-    id="welcome">
-</textarea>
+    id="welcomeText">Добро пожаловать на официальный сайт @cheapponytownskins!
+
+Здесь будут собраны полезная информация, новости, правила, инструкции и другие материалы нашего канала.
+
+✦ Создано с любовью ✦</textarea>
 
 
-</div>
-
-
-
-<!-- ===== ПРАВИЛА ===== -->
-
-<div class="panel">
 
 <h2>
-📜 Правила
+📖 Карточки
 </h2>
 
+
+
+<div class="card-editor">
+
+<h3>
+📜 Правила
+</h3>
+
 <label>
-Название карточки
+Название
 </label>
 
 <input
     id="rulesTitle"
-    type="text"
     value="📜 Правила">
 
 
@@ -390,31 +391,40 @@ hr {
 </label>
 
 <input
-    id="rulesShort"
-    type="text"
+    id="rulesDescription"
     value="Основные правила канала.">
 
 
 <label>
-Полный текст правил
+Полный текст
 </label>
 
 <textarea
-    id="rulesText"
-    style="min-height:250px;">
-</textarea>
+    id="rulesText">Здесь будут находиться полные правила канала.
+
+1. Уважайте участников.
+
+2. Не спамьте.
+
+3. Не публикуйте запрещённый контент.
+
+4. Не рекламируйте сторонние проекты без разрешения администрации.
+
+5. При возникновении конфликтов обращайтесь к администрации.
+
+6. Соблюдайте правила Telegram и Pony Town.
+
+♡ Спасибо за понимание!</textarea>
 
 </div>
 
 
 
-<!-- ===== НОВОСТИ ===== -->
+<div class="card-editor">
 
-<div class="panel">
-
-<h2>
+<h3>
 📰 Новости
-</h2>
+</h3>
 
 <label>
 Название
@@ -422,39 +432,34 @@ hr {
 
 <input
     id="newsTitle"
-    type="text"
     value="📰 Новости">
 
 
 <label>
-Краткое описание
+Описание
 </label>
 
 <input
-    id="newsShort"
-    type="text"
+    id="newsDescription"
     value="Новости и важные объявления.">
 
 
 <label>
-Полный текст
+Текст
 </label>
 
 <textarea
-    id="newsText">
-</textarea>
+    id="newsText">Здесь будут появляться новости, обновления и важные объявления канала.</textarea>
 
 </div>
 
 
 
-<!-- ===== БОТЫ ===== -->
+<div class="card-editor">
 
-<div class="panel">
-
-<h2>
+<h3>
 🤖 Боты
-</h2>
+</h3>
 
 <label>
 Название
@@ -462,39 +467,34 @@ hr {
 
 <input
     id="botsTitle"
-    type="text"
     value="🤖 Боты">
 
 
 <label>
-Краткое описание
+Описание
 </label>
 
 <input
-    id="botsShort"
-    type="text"
+    id="botsDescription"
     value="Полезные боты и инструкции.">
 
 
 <label>
-Полный текст
+Текст
 </label>
 
 <textarea
-    id="botsText">
-</textarea>
+    id="botsText">Здесь можно разместить список ботов, команды и инструкции.</textarea>
 
 </div>
 
 
 
-<!-- ===== СКИНЫ ===== -->
+<div class="card-editor">
 
-<div class="panel">
-
-<h2>
+<h3>
 🎨 Скины
-</h2>
+</h3>
 
 <label>
 Название
@@ -502,47 +502,40 @@ hr {
 
 <input
     id="skinsTitle"
-    type="text"
     value="🎨 Скины">
 
 
 <label>
-Краткое описание
+Описание
 </label>
 
 <input
-    id="skinsShort"
-    type="text"
+    id="skinsDescription"
     value="Информация о скинах.">
 
 
 <label>
-Полный текст
+Текст
 </label>
 
 <textarea
-    id="skinsText">
-</textarea>
+    id="skinsText">Здесь можно размещать коды скинов, подборки и инструкции по Pony Town.</textarea>
 
 </div>
 
 
 
-<!-- ===== АДМИНИСТРАТОРЫ ===== -->
-
-<div class="panel">
-
 <h2>
-👑 Администрация
+👥 Администрация
 </h2>
 
 
-<div class="admin-card">
+
+<div class="card-editor">
 
 <h3>
 Администратор №1
 </h3>
-
 
 <label>
 Имя
@@ -550,7 +543,6 @@ hr {
 
 <input
     id="admin1Name"
-    type="text"
     value="Имя администратора">
 
 
@@ -560,7 +552,6 @@ hr {
 
 <input
     id="admin1Position"
-    type="text"
     value="Владелец">
 
 
@@ -569,18 +560,17 @@ hr {
 </label>
 
 <textarea
-    id="admin1Description"></textarea>
+    id="admin1Text">Здесь можно написать информацию об этом человеке.</textarea>
 
 </div>
 
 
 
-<div class="admin-card">
+<div class="card-editor">
 
 <h3>
 Администратор №2
 </h3>
-
 
 <label>
 Имя
@@ -588,7 +578,6 @@ hr {
 
 <input
     id="admin2Name"
-    type="text"
     value="Имя администратора">
 
 
@@ -598,7 +587,6 @@ hr {
 
 <input
     id="admin2Position"
-    type="text"
     value="Администратор">
 
 
@@ -607,54 +595,99 @@ hr {
 </label>
 
 <textarea
-    id="admin2Description"></textarea>
+    id="admin2Text">Здесь можно написать должность и обязанности.</textarea>
 
 </div>
 
-</div>
 
-
-
-<!-- ===== СОХРАНЕНИЕ ===== -->
-
-<div class="panel">
 
 <h2>
-💾 Сохранение
+📝 Дополнительно
 </h2>
 
-<p>
-После изменения информации нажми кнопку ниже.
-</p>
+
+<label>
+Текст внизу сайта
+</label>
+
+<input
+    id="footerText"
+    value="@cheapponytownskins · 2026 ♡">
+
 
 
 <button
-    onclick="saveData()">
+    class="save"
+    onclick="saveChanges()">
 
-    💾 Сохранить изменения
+💾 Сохранить изменения
+
+</button>
+
+
+<button
+    class="preview"
+    onclick="previewSite()">
+
+👀 Открыть сайт
+
+</button>
+
+
+<button
+    class="back"
+    onclick="window.location.href='index.html'">
+
+← Вернуться на сайт
 
 </button>
 
 
 <button
     class="danger"
-    onclick="resetData()">
+    onclick="resetChanges()">
 
-    🗑 Сбросить настройки
+♻️ Сбросить изменения
 
 </button>
 
 
+
 <div
-    class="success"
-    id="success">
+    id="status"
+    class="status">
 
-    ✅ Изменения сохранены!
-
-</div>
+Изменения сохранены в этом браузере!
 
 </div>
 
+
+
+<div class="info">
+
+<b>Как это работает:</b>
+
+<br><br>
+
+Эта панель сохраняет настройки
+в памяти браузера через LocalStorage.
+
+<br><br>
+
+Поэтому изменения будут видны
+на этом устройстве и в этом браузере.
+
+<br><br>
+
+Чтобы сделать настоящее сохранение
+для всех посетителей сайта через GitHub,
+позже подключим отдельную систему
+публикации изменений.
+
+</div>
+
+
+</div>
 
 </div>
 
@@ -662,44 +695,115 @@ hr {
 
 <script>
 
+/* ==================================
+   СОХРАНЕНИЕ
+================================== */
 
-const fields = [
+function saveChanges() {
 
-    "siteName",
-    "subtitle",
-    "welcome",
+    const fields = [
 
-    "rulesTitle",
-    "rulesShort",
-    "rulesText",
+        "siteTitle",
+        "subtitle",
+        "welcomeText",
 
-    "newsTitle",
-    "newsShort",
-    "newsText",
+        "rulesTitle",
+        "rulesDescription",
+        "rulesText",
 
-    "botsTitle",
-    "botsShort",
-    "botsText",
+        "newsTitle",
+        "newsDescription",
+        "newsText",
 
-    "skinsTitle",
-    "skinsShort",
-    "skinsText",
+        "botsTitle",
+        "botsDescription",
+        "botsText",
 
-    "admin1Name",
-    "admin1Position",
-    "admin1Description",
+        "skinsTitle",
+        "skinsDescription",
+        "skinsText",
 
-    "admin2Name",
-    "admin2Position",
-    "admin2Description"
+        "admin1Name",
+        "admin1Position",
+        "admin1Text",
 
-];
+        "admin2Name",
+        "admin2Position",
+        "admin2Text",
+
+        "footerText"
+
+    ];
 
 
+    fields.forEach(function(id) {
 
-/* ===== ЗАГРУЗКА ===== */
+        const element =
+            document.getElementById(id);
 
-function loadData() {
+        localStorage.setItem(
+            "site_" + id,
+            element.value
+        );
+
+    });
+
+
+    const status =
+        document.getElementById("status");
+
+    status.style.display = "block";
+
+
+    setTimeout(function() {
+
+        status.style.display = "none";
+
+    }, 3000);
+
+}
+
+
+/* ==================================
+   ЗАГРУЗКА
+================================== */
+
+function loadChanges() {
+
+    const fields = [
+
+        "siteTitle",
+        "subtitle",
+        "welcomeText",
+
+        "rulesTitle",
+        "rulesDescription",
+        "rulesText",
+
+        "newsTitle",
+        "newsDescription",
+        "newsText",
+
+        "botsTitle",
+        "botsDescription",
+        "botsText",
+
+        "skinsTitle",
+        "skinsDescription",
+        "skinsText",
+
+        "admin1Name",
+        "admin1Position",
+        "admin1Text",
+
+        "admin2Name",
+        "admin2Position",
+        "admin2Text",
+
+        "footerText"
+
+    ];
+
 
     fields.forEach(function(id) {
 
@@ -707,6 +811,7 @@ function loadData() {
             localStorage.getItem(
                 "site_" + id
             );
+
 
         if (saved !== null) {
 
@@ -720,58 +825,72 @@ function loadData() {
 }
 
 
+/* ==================================
+   ОТКРЫТЬ САЙТ
+================================== */
 
-/* ===== СОХРАНЕНИЕ ===== */
+function previewSite() {
 
-function saveData() {
-
-    fields.forEach(function(id) {
-
-        const value =
-            document.getElementById(id).value;
-
-        localStorage.setItem(
-            "site_" + id,
-            value
-        );
-
-    });
-
-
-    const success =
-        document.getElementById(
-            "success"
-        );
-
-
-    success.style.display =
-        "block";
-
-
-    setTimeout(function() {
-
-        success.style.display =
-            "none";
-
-    }, 2500);
+    window.open(
+        "index.html",
+        "_blank"
+    );
 
 }
 
 
+/* ==================================
+   СБРОС
+================================== */
 
-/* ===== СБРОС ===== */
-
-function resetData() {
+function resetChanges() {
 
     const answer =
         confirm(
-            "Точно удалить все сохранённые настройки?"
+            "Сбросить все сохранённые изменения?"
         );
 
 
     if (!answer) {
+
         return;
+
     }
+
+
+    const fields = [
+
+        "siteTitle",
+        "subtitle",
+        "welcomeText",
+
+        "rulesTitle",
+        "rulesDescription",
+        "rulesText",
+
+        "newsTitle",
+        "newsDescription",
+        "newsText",
+
+        "botsTitle",
+        "botsDescription",
+        "botsText",
+
+        "skinsTitle",
+        "skinsDescription",
+        "skinsText",
+
+        "admin1Name",
+        "admin1Position",
+        "admin1Text",
+
+        "admin2Name",
+        "admin2Position",
+        "admin2Text",
+
+        "footerText"
+
+    ];
 
 
     fields.forEach(function(id) {
@@ -788,7 +907,7 @@ function resetData() {
 }
 
 
-loadData();
+loadChanges();
 
 </script>
 
