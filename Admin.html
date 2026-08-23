@@ -7,6 +7,7 @@
 <title>Админ-панель</title>
 
 <style>
+
 * {
     box-sizing: border-box;
 }
@@ -14,40 +15,31 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    background:
+        linear-gradient(
+            120deg,
+            #ffdbea,
+            #dff6ff,
+            #eadfff,
+            #ffe0ee
+        );
+
+    min-height: 100vh;
     color: #5f5362;
-
-    background: linear-gradient(
-        120deg,
-        #ffdbea,
-        #dff6ff,
-        #eadfff,
-        #ffe0ee,
-        #d8f5ff
-    );
-
-    background-size: 500% 500%;
-    animation: bg 18s ease infinite;
-}
-
-@keyframes bg {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
 }
 
 .container {
-    width: min(900px, 94%);
+    width: min(1000px, 94%);
     margin: auto;
-    padding: 25px 0 50px;
+    padding: 20px 0 50px;
 }
 
 header {
-    background: rgba(255,255,255,.65);
+    background: rgba(255,255,255,.7);
     backdrop-filter: blur(15px);
-    border-radius: 30px;
     padding: 25px;
+    border-radius: 25px;
     text-align: center;
-    box-shadow: 0 10px 35px rgba(160,120,160,.15);
     margin-bottom: 20px;
 }
 
@@ -57,43 +49,38 @@ header h1 {
 }
 
 header p {
-    margin-bottom: 0;
     color: #8f8192;
 }
 
 .panel {
-    background: rgba(255,255,255,.65);
+    background: rgba(255,255,255,.7);
     backdrop-filter: blur(15px);
-    border-radius: 30px;
     padding: 25px;
+    border-radius: 25px;
     margin-bottom: 20px;
-    box-shadow: 0 10px 35px rgba(160,120,160,.13);
 }
 
 .panel h2 {
-    margin-top: 0;
     color: #d17fa2;
+    margin-top: 0;
 }
 
 label {
     display: block;
     margin-top: 15px;
-    margin-bottom: 7px;
+    margin-bottom: 6px;
     font-weight: bold;
 }
 
 input,
-textarea,
-select {
+textarea {
     width: 100%;
-    border: 1px solid rgba(210,170,200,.5);
-    border-radius: 15px;
     padding: 13px;
+    border-radius: 14px;
+    border: 1px solid #e2cbd9;
+    background: white;
     font-size: 15px;
-    font-family: inherit;
-    background: rgba(255,255,255,.8);
     color: #5f5362;
-    outline: none;
 }
 
 textarea {
@@ -101,48 +88,28 @@ textarea {
     resize: vertical;
 }
 
-input:focus,
-textarea:focus {
-    border-color: #d98aad;
-    box-shadow: 0 0 0 3px rgba(217,138,173,.15);
-}
-
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-template-columns:
+        repeat(auto-fit, minmax(230px, 1fr));
+
     gap: 15px;
 }
 
-.card-editor {
+.editor-card {
     background: rgba(255,255,255,.55);
     padding: 18px;
-    border-radius: 22px;
-}
-
-.card-editor h3 {
-    margin-top: 0;
-    color: #d47fa5;
-}
-
-.buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 20px;
+    border-radius: 20px;
 }
 
 button {
     border: none;
+    padding: 14px 20px;
     border-radius: 18px;
-    padding: 13px 20px;
     cursor: pointer;
     font-size: 15px;
     font-weight: bold;
-    transition: .2s;
-}
-
-button:hover {
-    transform: translateY(-2px);
+    margin: 5px;
 }
 
 .save {
@@ -150,60 +117,47 @@ button:hover {
     color: white;
 }
 
-.reset {
-    background: #eee1eb;
-    color: #6d5c6c;
-}
-
 .preview {
-    background: #dff2ff;
-    color: #5c7180;
+    background: #dff3ff;
+    color: #557080;
 }
 
-.status {
+.download {
+    background: #d9f5df;
+    color: #54735c;
+}
+
+.reset {
+    background: #eee;
+    color: #666;
+}
+
+#message {
     margin-top: 15px;
     padding: 12px;
     border-radius: 15px;
-    background: rgba(255,255,255,.6);
-    text-align: center;
+    background: rgba(255,255,255,.8);
     display: none;
 }
 
-.color-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
-    gap: 15px;
+.preview-box {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 20px;
 }
 
-.color-box {
-    background: rgba(255,255,255,.55);
-    padding: 15px;
-    border-radius: 18px;
+iframe {
+    width: 100%;
+    height: 650px;
+    border: none;
 }
 
-.color-box input {
+.color {
     height: 50px;
-    padding: 4px;
+    padding: 3px;
 }
 
-small {
-    color: #8f8192;
-}
-
-@media(max-width:600px) {
-    .container {
-        width: 94%;
-    }
-
-    .panel {
-        padding: 20px;
-        border-radius: 24px;
-    }
-
-    button {
-        width: 100%;
-    }
-}
 </style>
 </head>
 
@@ -212,16 +166,21 @@ small {
 <div class="container">
 
 <header>
-    <h1>⚙️ Админ-панель</h1>
-    <p>Управление сайтом @cheapponytownskins</p>
+
+<h1>⚙️ Админ-панель</h1>
+
+<p>
+Редактор сайта @cheapponytownskins
+</p>
+
 </header>
 
 
-<!-- ОСНОВНЫЕ ДАННЫЕ -->
+<!-- ОСНОВНОЕ -->
 
 <div class="panel">
 
-<h2>🏠 Основная информация</h2>
+<h2>🏠 Основное</h2>
 
 <label>Название сайта</label>
 <input id="siteName">
@@ -235,7 +194,7 @@ small {
 <label>Текст главного раздела</label>
 <textarea id="homeText"></textarea>
 
-<label>Текст футера</label>
+<label>Текст внизу сайта</label>
 <input id="footer">
 
 </div>
@@ -250,35 +209,32 @@ small {
 <div class="grid">
 
 <div>
+
 <label>Кнопка 1</label>
-<input id="nav1Text">
+<input id="nav1">
 
-<label>Ссылка кнопки 1</label>
-<input id="nav1Link">
 </div>
 
 <div>
+
 <label>Кнопка 2</label>
-<input id="nav2Text">
+<input id="nav2">
 
-<label>Ссылка кнопки 2</label>
-<input id="nav2Link">
 </div>
 
 <div>
+
 <label>Кнопка 3</label>
-<input id="nav3Text">
-
-<label>Ссылка кнопки 3</label>
-<input id="nav3Link">
-</div>
+<input id="nav3">
 
 </div>
 
 </div>
 
+</div>
 
-<!-- ЗАПИСИ -->
+
+<!-- КАРТОЧКИ -->
 
 <div class="panel">
 
@@ -286,53 +242,53 @@ small {
 
 <div class="grid">
 
-<div class="card-editor">
+<div class="editor-card">
 
 <h3>Карточка 1</h3>
 
-<label>Заголовок</label>
+<label>Название</label>
 <input id="card1Title">
 
-<label>Текст</label>
+<label>Описание</label>
 <textarea id="card1Text"></textarea>
 
 </div>
 
 
-<div class="card-editor">
+<div class="editor-card">
 
 <h3>Карточка 2</h3>
 
-<label>Заголовок</label>
+<label>Название</label>
 <input id="card2Title">
 
-<label>Текст</label>
+<label>Описание</label>
 <textarea id="card2Text"></textarea>
 
 </div>
 
 
-<div class="card-editor">
+<div class="editor-card">
 
 <h3>Карточка 3</h3>
 
-<label>Заголовок</label>
+<label>Название</label>
 <input id="card3Title">
 
-<label>Текст</label>
+<label>Описание</label>
 <textarea id="card3Text"></textarea>
 
 </div>
 
 
-<div class="card-editor">
+<div class="editor-card">
 
 <h3>Карточка 4</h3>
 
-<label>Заголовок</label>
+<label>Название</label>
 <input id="card4Title">
 
-<label>Текст</label>
+<label>Описание</label>
 <textarea id="card4Text"></textarea>
 
 </div>
@@ -342,7 +298,7 @@ small {
 </div>
 
 
-<!-- АДМИНИ -->
+<!-- АДМИНЫ -->
 
 <div class="panel">
 
@@ -350,7 +306,7 @@ small {
 
 <div class="grid">
 
-<div class="card-editor">
+<div class="editor-card">
 
 <h3>Администратор 1</h3>
 
@@ -361,12 +317,12 @@ small {
 <input id="admin1Position">
 
 <label>Описание</label>
-<textarea id="admin1Description"></textarea>
+<textarea id="admin1Text"></textarea>
 
 </div>
 
 
-<div class="card-editor">
+<div class="editor-card">
 
 <h3>Администратор 2</h3>
 
@@ -377,7 +333,7 @@ small {
 <input id="admin2Position">
 
 <label>Описание</label>
-<textarea id="admin2Description"></textarea>
+<textarea id="admin2Text"></textarea>
 
 </div>
 
@@ -392,34 +348,40 @@ small {
 
 <h2>🎨 Цвета</h2>
 
-<div class="color-grid">
+<div class="grid">
 
-<div class="color-box">
+<div>
 
 <label>Основной цвет</label>
-<input type="color" id="primaryColor">
 
-<small>Заголовки и акценты</small>
+<input
+type="color"
+class="color"
+id="primaryColor">
 
 </div>
 
 
-<div class="color-box">
+<div>
 
 <label>Цвет текста</label>
-<input type="color" id="textColor">
 
-<small>Основной текст</small>
+<input
+type="color"
+class="color"
+id="textColor">
 
 </div>
 
 
-<div class="color-box">
+<div>
 
-<label>Цвет подзаголовков</label>
-<input type="color" id="secondaryColor">
+<label>Дополнительный цвет</label>
 
-<small>Дополнительный текст</small>
+<input
+type="color"
+class="color"
+id="secondaryColor">
 
 </div>
 
@@ -434,105 +396,170 @@ small {
 
 <h2>💾 Управление</h2>
 
-<div class="buttons">
+<button
+class="save"
+onclick="saveSettings()">
 
-<button class="save" onclick="saveSettings()">
-💾 Сохранить
+💾 Сохранить настройки
+
 </button>
 
-<button class="reset" onclick="resetSettings()">
+
+<button
+class="preview"
+onclick="updatePreview()">
+
+👁️ Обновить предпросмотр
+
+</button>
+
+
+<button
+class="download"
+onclick="downloadHTML()">
+
+📥 Получить готовый index.html
+
+</button>
+
+
+<button
+class="reset"
+onclick="resetSettings()">
+
 ↩️ Сбросить
+
 </button>
 
-<button class="preview" onclick="openSite()">
-👁️ Открыть сайт
-</button>
+
+<div id="message"></div>
 
 </div>
 
-<div class="status" id="status"></div>
+
+<!-- ПРЕДПРОСМОТР -->
+
+<div class="panel">
+
+<h2>👁️ Предпросмотр</h2>
+
+<div class="preview-box">
+
+<iframe id="preview"></iframe>
 
 </div>
+
+</div>
+
 
 </div>
 
 
 <script>
 
-const defaultSettings = {
 
-siteName: "@cheapponytownskins",
+const defaults = {
 
-subtitle: "личное пространство канала ♡",
+siteName:
+"@cheapponytownskins",
 
-homeTitle: "Главное ♡",
+subtitle:
+"личное пространство канала ♡",
+
+homeTitle:
+"Главное ♡",
 
 homeText:
-`Добро пожаловать на официальный сайт @cheapponytownskins!
+"Добро пожаловать на официальный сайт @cheapponytownskins!\n\nЗдесь будут собраны полезная информация, новости, правила, инструкции и другие материалы нашего канала.\n\n✦ Создано с любовью ✦",
 
-Здесь будут собраны полезная информация,
-новости, правила, инструкции и другие материалы
-нашего канала.
+footer:
+"@cheapponytownskins · 2026 ♡",
 
-✦ Создано с любовью ✦`,
+nav1:
+"Главное",
 
-footer: "@cheapponytownskins · 2026 ♡",
+nav2:
+"Записи",
 
-nav1Text: "Главное",
-nav1Link: "#home",
-
-nav2Text: "Записи",
-nav2Link: "#posts",
-
-nav3Text: "Администрация",
-nav3Link: "#admins",
+nav3:
+"Администрация",
 
 
-card1Title: "📜 Правила",
+card1Title:
+"📜 Правила",
+
 card1Text:
 "Здесь будут находиться правила канала и другая важная информация.",
 
-card2Title: "📰 Новости",
+
+card2Title:
+"📰 Новости",
+
 card2Text:
 "Здесь можно публиковать новости, объявления и обновления.",
 
-card3Title: "🤖 Боты",
+
+card3Title:
+"🤖 Боты",
+
 card3Text:
 "Здесь будут инструкции по использованию ботов и полезные команды.",
 
-card4Title: "🎨 Скины",
+
+card4Title:
+"🎨 Скины",
+
 card4Text:
 "Здесь можно разместить инструкции, советы и информацию о скинах.",
 
 
-admin1Name: "Имя администратора",
-admin1Position: "Владелец",
-admin1Description:
+admin1Name:
+"Имя администратора",
+
+admin1Position:
+"Владелец",
+
+admin1Text:
 "Здесь можно написать информацию об этом человеке.",
 
-admin2Name: "Имя администратора",
-admin2Position: "Администратор",
-admin2Description:
+
+admin2Name:
+"Имя администратора",
+
+admin2Position:
+"Администратор",
+
+admin2Text:
 "Здесь можно написать должность и обязанности.",
 
 
-primaryColor: "#d17fa2",
-textColor: "#5f5362",
-secondaryColor: "#8f8192"
+primaryColor:
+"#d17fa2",
+
+textColor:
+"#5f5362",
+
+secondaryColor:
+"#8f8192"
 
 };
 
 
 function getSettings() {
 
-    const saved = localStorage.getItem("siteSettings");
+    const saved =
+        localStorage.getItem("adminSettings");
 
     if (!saved) {
-        return {...defaultSettings};
+
+        return {
+            ...defaults
+        };
+
     }
 
     return {
-        ...defaultSettings,
+        ...defaults,
         ...JSON.parse(saved)
     };
 
@@ -541,84 +568,637 @@ function getSettings() {
 
 function loadSettings() {
 
-    const settings = getSettings();
+    const settings =
+        getSettings();
 
     Object.keys(settings).forEach(key => {
 
-        const element = document.getElementById(key);
+        const element =
+            document.getElementById(key);
 
         if (element) {
-            element.value = settings[key];
+
+            element.value =
+                settings[key];
+
         }
 
     });
+
+}
+
+
+function getCurrentSettings() {
+
+    const settings = {};
+
+    Object.keys(defaults).forEach(key => {
+
+        const element =
+            document.getElementById(key);
+
+        if (element) {
+
+            settings[key] =
+                element.value;
+
+        }
+
+    });
+
+    return settings;
 
 }
 
 
 function saveSettings() {
 
-    const settings = {};
-
-    Object.keys(defaultSettings).forEach(key => {
-
-        const element = document.getElementById(key);
-
-        if (element) {
-            settings[key] = element.value;
-        }
-
-    });
+    const settings =
+        getCurrentSettings();
 
     localStorage.setItem(
-        "siteSettings",
+        "adminSettings",
         JSON.stringify(settings)
     );
 
-    showStatus("✅ Настройки сохранены в этом браузере!");
+    updatePreview();
+
+    showMessage(
+        "✅ Настройки сохранены!"
+    );
 
 }
 
 
 function resetSettings() {
 
-    if (!confirm("Сбросить все настройки?")) {
+    if (
+        !confirm(
+            "Сбросить все изменения?"
+        )
+    ) {
         return;
     }
 
-    localStorage.removeItem("siteSettings");
+    localStorage.removeItem(
+        "adminSettings"
+    );
 
     loadSettings();
 
-    showStatus("↩️ Настройки сброшены.");
+    updatePreview();
+
+    showMessage(
+        "↩️ Настройки сброшены."
+    );
 
 }
 
 
-function showStatus(text) {
+function showMessage(text) {
 
-    const status = document.getElementById("status");
+    const box =
+        document.getElementById("message");
 
-    status.textContent = text;
-    status.style.display = "block";
+    box.textContent =
+        text;
+
+    box.style.display =
+        "block";
 
     setTimeout(() => {
-        status.style.display = "none";
+
+        box.style.display =
+            "none";
+
     }, 3000);
 
 }
 
 
-function openSite() {
+function escapeHTML(text) {
 
-    window.open("index.html", "_blank");
+    return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+
+}
+
+
+function generateHTML(settings) {
+
+return `<!DOCTYPE html>
+
+<html lang="ru">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>${escapeHTML(settings.siteName)}</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    font-family: Arial, sans-serif;
+
+    color: ${settings.textColor};
+
+    background:
+
+    linear-gradient(
+        120deg,
+        #ffdbea,
+        #dff6ff,
+        #eadfff,
+        #ffe0ee,
+        #d8f5ff
+    );
+
+    background-size: 500% 500%;
+
+    animation:
+    waterfall 18s ease infinite;
+
+}
+
+@keyframes waterfall {
+
+0% {
+    background-position: 0% 50%;
+}
+
+50% {
+    background-position: 100% 50%;
+}
+
+100% {
+    background-position: 0% 50%;
+}
+
+}
+
+.page {
+
+    width:
+    min(1000px, 92%);
+
+    margin: auto;
+
+    padding:
+    25px 0 50px;
+
+}
+
+header {
+
+    text-align: center;
+
+    padding: 35px 20px;
+
+    margin-bottom: 20px;
+
+    background:
+    rgba(255,255,255,.55);
+
+    border:
+    1px solid
+    rgba(255,255,255,.8);
+
+    border-radius: 30px;
+
+    box-shadow:
+    0 10px 35px
+    rgba(160,120,160,.15);
+
+    backdrop-filter:
+    blur(15px);
+
+}
+
+.logo {
+
+    font-size: 32px;
+
+    font-weight: bold;
+
+    color:
+    ${settings.primaryColor};
+
+    margin-bottom: 8px;
+
+}
+
+.subtitle {
+
+    color:
+    ${settings.secondaryColor};
+
+}
+
+nav {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin: 20px 0;
+
+}
+
+nav a {
+
+    text-decoration: none;
+
+    color: #876b7d;
+
+    background:
+    rgba(255,255,255,.65);
+
+    padding:
+    12px 20px;
+
+    border-radius: 20px;
+
+}
+
+section {
+
+    margin-top: 25px;
+
+    padding: 30px;
+
+    background:
+    rgba(255,255,255,.62);
+
+    border-radius: 30px;
+
+    backdrop-filter:
+    blur(15px);
+
+}
+
+h2 {
+
+    color:
+    ${settings.primaryColor};
+
+}
+
+.welcome {
+
+    text-align: center;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+}
+
+.cards {
+
+    display: grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap: 15px;
+
+}
+
+.card {
+
+    padding: 22px;
+
+    background:
+    rgba(255,255,255,.7);
+
+    border-radius: 22px;
+
+}
+
+.card h3 {
+
+    color:
+    ${settings.primaryColor};
+
+}
+
+.admin {
+
+    text-align: center;
+
+}
+
+.admin-name {
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    color:
+    ${settings.primaryColor};
+
+}
+
+.position {
+
+    color:
+    ${settings.secondaryColor};
+
+}
+
+footer {
+
+    text-align: center;
+
+    padding: 30px 10px 0;
+
+    color:
+    ${settings.secondaryColor};
+
+    font-size: 13px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="page">
+
+<header>
+
+<div class="logo">
+${escapeHTML(settings.siteName)}
+</div>
+
+<div class="subtitle">
+${escapeHTML(settings.subtitle)}
+</div>
+
+</header>
+
+
+<nav>
+
+<a href="#home">
+${escapeHTML(settings.nav1)}
+</a>
+
+<a href="#posts">
+${escapeHTML(settings.nav2)}
+</a>
+
+<a href="#admins">
+${escapeHTML(settings.nav3)}
+</a>
+
+</nav>
+
+
+<section id="home">
+
+<h2>
+${escapeHTML(settings.homeTitle)}
+</h2>
+
+<div class="welcome">
+
+${escapeHTML(settings.homeText)
+.replace(/\n/g,"<br>")}
+
+</div>
+
+</section>
+
+
+<section id="posts">
+
+<h2>
+Записи 📖
+</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>
+${escapeHTML(settings.card1Title)}
+</h3>
+
+<p>
+${escapeHTML(settings.card1Text)}
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+${escapeHTML(settings.card2Title)}
+</h3>
+
+<p>
+${escapeHTML(settings.card2Text)}
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+${escapeHTML(settings.card3Title)}
+</h3>
+
+<p>
+${escapeHTML(settings.card3Text)}
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+${escapeHTML(settings.card4Title)}
+</h3>
+
+<p>
+${escapeHTML(settings.card4Text)}
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="admins">
+
+<h2>
+Администрация ♡
+</h2>
+
+<div class="cards">
+
+<div class="card admin">
+
+<div class="admin-name">
+
+${escapeHTML(settings.admin1Name)}
+
+</div>
+
+<div class="position">
+
+${escapeHTML(settings.admin1Position)}
+
+</div>
+
+<p>
+
+${escapeHTML(settings.admin1Text)}
+
+</p>
+
+</div>
+
+
+<div class="card admin">
+
+<div class="admin-name">
+
+${escapeHTML(settings.admin2Name)}
+
+</div>
+
+<div class="position">
+
+${escapeHTML(settings.admin2Position)}
+
+</div>
+
+<p>
+
+${escapeHTML(settings.admin2Text)}
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+${escapeHTML(settings.footer)}
+
+</footer>
+
+</div>
+
+</body>
+
+</html>`;
+
+}
+
+
+function updatePreview() {
+
+    const settings =
+        getCurrentSettings();
+
+    const html =
+        generateHTML(settings);
+
+    const frame =
+        document.getElementById(
+            "preview"
+        );
+
+    frame.srcdoc =
+        html;
+
+}
+
+
+function downloadHTML() {
+
+    const settings =
+        getCurrentSettings();
+
+    const html =
+        generateHTML(settings);
+
+    const blob =
+        new Blob(
+            [html],
+            {
+                type:
+                "text/html"
+            }
+        );
+
+    const url =
+        URL.createObjectURL(blob);
+
+    const link =
+        document.createElement("a");
+
+    link.href =
+        url;
+
+    link.download =
+        "index.html";
+
+    link.click();
+
+    URL.revokeObjectURL(url);
+
+    showMessage(
+        "📥 Готовый index.html создан!"
+    );
 
 }
 
 
 loadSettings();
 
+updatePreview();
+
 </script>
 
 </body>
-  </html>
+    </html>
