@@ -2,23 +2,39 @@
 <html lang="ru">
 
 <head>
+    <meta charset="UTF-8">
 
-<meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0">
+    <title>@cheapponytownskins</title>
 
-<title>@cheapponytownskins</title>
-
-<link
-    rel="stylesheet"
-    href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<!-- =========================
+     НАСТРОЙКИ
+========================= -->
+
+<script>
+
+    /*
+    =====================================
+    🔐 ПАРОЛЬ ВЛАДЕЛЬЦА
+
+    МЕНЯЙ ТОЛЬКО ТЕКСТ МЕЖДУ КАВЫЧКАМИ
+    =====================================
+    */
+
+    const ADMIN_PASSWORD = "Clockworkhyena0909";
+
+</script>
+
+
+<!-- Кнопка темы -->
 
 <button
     id="themeButton"
@@ -32,441 +48,554 @@
 <div class="page">
 
 
-<header>
+    <!-- =========================
+         ШАПКА
+    ========================== -->
 
-<div
-    id="siteName"
-    class="logo">
+    <header>
+
+        <div class="logo">
+            @cheapponytownskins
+        </div>
+
+        <div class="subtitle">
+            личное пространство канала ♡
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         НАВИГАЦИЯ
+    ========================== -->
+
+    <nav>
+
+        <a href="#home">
+            Главное
+        </a>
+
+        <a href="#posts">
+            Записи
+        </a>
+
+        <a href="#admins">
+            Администрация
+        </a>
+
+    </nav>
+
+
+    <!-- =========================
+         ГЛАВНОЕ
+    ========================== -->
+
+    <section id="home">
+
+        <h2>
+            Главное ♡
+        </h2>
+
+        <div class="welcome">
+
+            Добро пожаловать на официальный сайт
+            <b>@cheapponytownskins</b>!
+
+            <br><br>
+
+            Здесь будут собраны полезная информация,
+            новости, правила, инструкции и другие материалы
+            нашего канала.
+
+            <br><br>
+
+            ✦ Создано с любовью ✦
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ЗАПИСИ
+    ========================== -->
+
+    <section id="posts">
+
+        <h2>
+            Записи 📖
+        </h2>
+
+        <div class="cards">
+
+
+            <!-- ПРАВИЛА -->
+
+            <div
+                class="card"
+                onclick="openCard(
+                    '📜 Правила',
+                    `
+                    <h3>📜 Правила канала</h3>
+
+                    <p>
+                    <b>1. Уважение</b>
+                    </p>
+
+                    <p>
+                    Относитесь уважительно ко всем
+                    участникам.
+                    </p>
+
+                    <p>
+                    <b>2. Спам</b>
+                    </p>
+
+                    <p>
+                    Не отправляйте большое количество
+                    одинаковых сообщений.
+                    </p>
+
+                    <p>
+                    <b>3. Реклама</b>
+                    </p>
+
+                    <p>
+                    Реклама сторонних проектов разрешена
+                    только с разрешения администрации.
+                    </p>
+
+                    <p>
+                    <b>4. Конфликты</b>
+                    </p>
+
+                    <p>
+                    Не устраивайте публичные конфликты.
+                    </p>
+
+                    <p>
+                    <b>5. Главное правило ♡</b>
+                    </p>
+
+                    <p>
+                    Уважайте других участников.
+                    </p>
+                    `
+                )">
+
+                <h3>
+                    📜 Правила
+                </h3>
+
+                <p>
+                    Основные правила канала.
+                </p>
+
+            </div>
+
+
+            <!-- НОВОСТИ -->
+
+            <div
+                class="card"
+                onclick="openCard(
+                    '📰 Новости',
+                    `
+                    <h3>📰 Новости</h3>
+
+                    <p>
+                    Здесь будут появляться новости,
+                    обновления и важные объявления.
+                    </p>
+
+                    <p>
+                    Следите за обновлениями канала ♡
+                    </p>
+                    `
+                )">
+
+                <h3>
+                    📰 Новости
+                </h3>
+
+                <p>
+                    Новости и важные объявления.
+                </p>
+
+            </div>
+
+
+            <!-- БОТЫ -->
+
+            <div
+                class="card"
+                onclick="openCard(
+                    '🤖 Боты',
+                    `
+                    <h3>🤖 Боты</h3>
+
+                    <p>
+                    Здесь можно разместить список ботов,
+                    команды и инструкции.
+                    </p>
+                    `
+                )">
+
+                <h3>
+                    🤖 Боты
+                </h3>
+
+                <p>
+                    Полезные боты и инструкции.
+                </p>
+
+            </div>
+
+
+            <!-- СКИНЫ -->
+
+            <div
+                class="card"
+                onclick="openCard(
+                    '🎨 Скины',
+                    `
+                    <h3>🎨 Скины</h3>
+
+                    <p>
+                    Здесь можно размещать коды скинов,
+                    подборки и инструкции по Pony Town.
+                    </p>
+                    `
+                )">
+
+                <h3>
+                    🎨 Скины
+                </h3>
+
+                <p>
+                    Информация о скинах.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         АДМИНИСТРАЦИЯ
+    ========================== -->
+
+    <section id="admins">
+
+        <h2>
+            Администрация ♡
+        </h2>
+
+        <div class="cards">
+
+
+            <!-- ВЛАДЕЛЕЦ -->
+
+            <div
+                class="card owner-card"
+                onclick="openOwner()">
+
+                <h3>
+                    ♡ О владельце
+                </h3>
+
+                <p>
+                    Информация о владельце канала.
+                </p>
+
+            </div>
+
+
+            <!-- АДМИН -->
+
+            <div class="card admin">
+
+                <div class="admin-name">
+                    Имя администратора
+                </div>
+
+                <div class="position">
+                    Администратор
+                </div>
+
+                <p>
+                    Здесь можно написать информацию
+                    об этом человеке.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        @cheapponytownskins · 2026 ♡
+
+    </footer>
+
+
 </div>
 
-<div
-    id="subtitle"
-    class="subtitle">
-</div>
 
-</header>
-
-
-<nav>
-
-<a href="#home">
-Главное
-</a>
-
-<a href="#posts">
-Записи
-</a>
-
-<a href="#admins">
-Администрация
-</a>
-
-</nav>
-
-
-<section id="home">
-
-<h2>
-Главное ♡
-</h2>
+<!-- =========================
+     ОКНО КАРТОЧКИ
+========================= -->
 
 <div
-    id="welcome"
-    class="welcome">
-</div>
-
-</section>
-
-
-<section id="posts">
-
-<h2>
-Записи 📖
-</h2>
-
-<div
-    id="cards"
-    class="cards">
-</div>
-
-</section>
-
-
-<section id="admins">
-
-<h2>
-Администрация ♡
-</h2>
-
-<div
-    id="adminsList"
-    class="cards">
-</div>
-
-</section>
-
-
-<footer id="footer">
-</footer>
-
-
-</div>
-
-
-<!-- ОСНОВНОЕ ОКНО -->
-
-<div
-    id="popup"
+    id="cardPopup"
     class="popup">
 
-<div class="popup-window">
+    <div class="popup-window">
 
-<div class="popup-header">
+        <div class="popup-header">
 
-<h3
-    id="popupTitle"
-    class="popup-title">
-</h3>
+            <h3
+                id="cardTitle"
+                class="popup-title">
+            </h3>
 
-<button
-    id="closePopup"
-    class="close">
+            <button
+                class="close"
+                onclick="closeCard()">
 
-×
+                ×
 
-</button>
+            </button>
+
+        </div>
+
+
+        <div
+            id="cardContent"
+            class="popup-content">
+        </div>
+
+    </div>
 
 </div>
 
+
+<!-- =========================
+     ОКНО ВЛАДЕЛЬЦА
+========================= -->
 
 <div
-    id="popupContent"
-    class="popup-content">
-</div>
-
-</div>
-
-</div>
-
-
-<!-- ПАРОЛЬ -->
-
-<div
-    id="passwordPopup"
+    id="ownerPopup"
     class="popup">
 
-<div class="popup-window">
+    <div class="popup-window">
 
-<div class="popup-header">
+        <div class="popup-header">
 
-<h3 class="popup-title">
-♡
-</h3>
+            <h3 class="popup-title">
+                ♡ О владельце
+            </h3>
 
-<button
-    id="closePassword"
-    class="close">
+            <button
+                class="close"
+                onclick="closeOwner()">
 
-×
+                ×
 
-</button>
+            </button>
+
+        </div>
+
+
+        <div class="popup-content">
+
+            <h3>
+                ♡ Владелец канала
+            </h3>
+
+            <p>
+                @cheapponytownskins
+            </p>
+
+            <p>
+                Здесь можно написать информацию
+                о владельце канала.
+            </p>
+
+            <p>
+                Например, историю создания канала,
+                интересы, контакты и другую информацию.
+            </p>
+
+            <p>
+                Спасибо, что заглянули на сайт ♡
+            </p>
+
+
+            <!-- СЕКРЕТНОЕ СЕРДЦЕ -->
+
+            <button
+                id="secretHeart"
+                class="secret-heart"
+                onclick="openLogin()">
+
+                🤍
+
+            </button>
+
+        </div>
+
+    </div>
 
 </div>
 
 
-<div class="password-box">
-
-<h3>
-Секретный вход
-</h3>
-
-<p>
-Введите пароль владельца.
-</p>
-
-<input
-    id="ownerPassword"
-    type="password"
-    placeholder="Пароль"
-    autocomplete="off">
-
-<br>
-
-<button
-    id="loginOwner">
-
-Войти
-
-</button>
+<!-- =========================
+     ОКНО ПАРОЛЯ
+========================= -->
 
 <div
-    id="passwordError"
-    class="password-error">
+    id="loginPopup"
+    class="popup">
 
-Неверный пароль.
+    <div class="popup-window">
+
+        <div class="popup-header">
+
+            <h3 class="popup-title">
+                ♡
+            </h3>
+
+            <button
+                class="close"
+                onclick="closeLogin()">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <div class="password-box">
+
+            <h3>
+                Секретный вход
+            </h3>
+
+            <p>
+                Введите пароль владельца.
+            </p>
+
+
+            <input
+                id="passwordInput"
+                type="password"
+                placeholder="Пароль"
+                autocomplete="off">
+
+
+            <button
+                onclick="checkPassword()">
+
+                Войти
+
+            </button>
+
+
+            <div
+                id="passwordError"
+                class="password-error">
+
+                Неверный пароль.
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 
-</div>
-
-</div>
-
-</div>
-
-
-<script src="data.js"></script>
 
 
 <script>
 
-const siteName =
-    document.getElementById("siteName");
+/* =========================
+   КАРТОЧКИ
+========================= */
 
-const subtitle =
-    document.getElementById("subtitle");
-
-const welcome =
-    document.getElementById("welcome");
-
-const cards =
-    document.getElementById("cards");
-
-const adminsList =
-    document.getElementById("adminsList");
-
-const footer =
-    document.getElementById("footer");
-
-
-
-siteName.innerHTML =
-    SITE_DATA.siteName;
-
-subtitle.innerHTML =
-    SITE_DATA.subtitle;
-
-welcome.innerHTML =
-    SITE_DATA.welcome;
-
-footer.innerHTML =
-    SITE_DATA.footer;
-
-
-
-/* КАРТОЧКИ */
-
-SITE_DATA.cards.forEach(function(card) {
-
-    const element =
-        document.createElement("div");
-
-    element.className =
-        "card";
-
-    element.innerHTML = `
-
-        <h3>
-            ${card.icon} ${card.title}
-        </h3>
-
-        <p>
-            ${card.description}
-        </p>
-
-    `;
-
-    element.onclick = function() {
-
-        openPopup(
-            card.icon + " " + card.title,
-            card.text
-        );
-
-    };
-
-    cards.appendChild(element);
-
-});
-
-
-
-/* ВЛАДЕЛЕЦ */
-
-const ownerCard =
-    document.createElement("div");
-
-ownerCard.className =
-    "card owner-card";
-
-ownerCard.innerHTML = `
-
-    <h3>
-        ♡ ${SITE_DATA.owner.title}
-    </h3>
-
-    <p>
-        Узнать больше о владельце.
-    </p>
-
-`;
-
-ownerCard.onclick = function() {
-
-    openOwner();
-
-};
-
-adminsList.prepend(ownerCard);
-
-
-
-/* АДМИНЫ */
-
-SITE_DATA.admins.forEach(function(admin) {
-
-    const element =
-        document.createElement("div");
-
-    element.className =
-        "card admin";
-
-    element.innerHTML = `
-
-        <div class="admin-name">
-            ${admin.name}
-        </div>
-
-        <div class="position">
-            ${admin.position}
-        </div>
-
-        <p>
-            ${admin.description}
-        </p>
-
-    `;
-
-    adminsList.appendChild(element);
-
-});
-
-
-
-/* POPUP */
-
-function openPopup(title, content) {
+function openCard(title, content) {
 
     document.getElementById(
-        "popupTitle"
+        "cardTitle"
     ).textContent = title;
 
     document.getElementById(
-        "popupContent"
+        "cardContent"
     ).innerHTML = content;
 
     document.getElementById(
-        "popup"
+        "cardPopup"
     ).classList.add("active");
 
 }
 
 
+/* =========================
+   ЗАКРЫТЬ КАРТОЧКУ
+========================= */
 
-/* ВЛАДЕЛЕЦ */
+function closeCard() {
+
+    document.getElementById(
+        "cardPopup"
+    ).classList.remove("active");
+
+}
+
+
+/* =========================
+   ВЛАДЕЛЕЦ
+========================= */
 
 function openOwner() {
 
-    const content = `
-
-        ${SITE_DATA.owner.text}
-
-        <button
-            class="secret-heart"
-            id="secretHeart">
-
-            ${
-                document.body.classList.contains("dark")
-                ? "❤️"
-                : "🤍"
-            }
-
-        </button>
-
-    `;
-
-    openPopup(
-        SITE_DATA.owner.title,
-        content
-    );
-
-
-    setTimeout(function() {
-
-        const heart =
-            document.getElementById(
-                "secretHeart"
-            );
-
-        if (heart) {
-
-            heart.onclick =
-                function(event) {
-
-                    event.stopPropagation();
-
-                    openPassword();
-
-                };
-
-        }
-
-    }, 10);
+    document.getElementById(
+        "ownerPopup"
+    ).classList.add("active");
 
 }
 
 
-
-/* ЗАКРЫТИЕ */
-
-document.getElementById(
-    "closePopup"
-).onclick = function() {
+function closeOwner() {
 
     document.getElementById(
-        "popup"
+        "ownerPopup"
     ).classList.remove("active");
 
-};
+}
 
 
+/* =========================
+   ПАРОЛЬ
+========================= */
 
-document.getElementById(
-    "popup"
-).onclick = function(event) {
-
-    if (
-        event.target.id === "popup"
-    ) {
-
-        event.currentTarget
-            .classList.remove("active");
-
-    }
-
-};
-
-
-
-/* ПАРОЛЬ */
-
-function openPassword() {
+function openLogin() {
 
     document.getElementById(
-        "passwordPopup"
+        "loginPopup"
     ).classList.add("active");
 
     document.getElementById(
-        "ownerPassword"
+        "passwordInput"
     ).value = "";
 
     document.getElementById(
@@ -476,53 +605,38 @@ function openPassword() {
 }
 
 
-
-document.getElementById(
-    "closePassword"
-).onclick = function() {
+function closeLogin() {
 
     document.getElementById(
-        "passwordPopup"
+        "loginPopup"
     ).classList.remove("active");
 
-};
+}
 
 
+/* =========================
+   ПРОВЕРКА ПАРОЛЯ
+========================= */
 
-/*
-=================================
-ПАРОЛЬ
-=================================
+function checkPassword() {
 
-ВАЖНО:
-это не серверная защита.
-Поменяй значение ниже.
-*/
-
-const OWNER_PASSWORD =
-    "cheapponytownskins689hyenaN23";
-
-
-
-document.getElementById(
-    "loginOwner"
-).onclick = function() {
-
-    const password =
+    const enteredPassword =
         document.getElementById(
-            "ownerPassword"
+            "passwordInput"
         ).value;
 
 
     if (
-        password ===
-        OWNER_PASSWORD
+        enteredPassword ===
+        ADMIN_PASSWORD
     ) {
 
         window.location.href =
             "admin.html";
 
-    } else {
+    }
+
+    else {
 
         document.getElementById(
             "passwordError"
@@ -531,14 +645,13 @@ document.getElementById(
 
     }
 
-};
-
+}
 
 
 /* ENTER */
 
 document.getElementById(
-    "ownerPassword"
+    "passwordInput"
 ).addEventListener(
     "keydown",
     function(event) {
@@ -547,9 +660,7 @@ document.getElementById(
             event.key === "Enter"
         ) {
 
-            document.getElementById(
-                "loginOwner"
-            ).click();
+            checkPassword();
 
         }
 
@@ -557,8 +668,9 @@ document.getElementById(
 );
 
 
-
-/* ТЕМА */
+/* =========================
+   ТЕМА
+========================= */
 
 const themeButton =
     document.getElementById(
@@ -568,13 +680,15 @@ const themeButton =
 
 function applyTheme() {
 
-    const theme =
+    const savedTheme =
         localStorage.getItem(
             "siteTheme"
         );
 
 
-    if (theme === "dark") {
+    if (
+        savedTheme === "dark"
+    ) {
 
         document.body.classList.add(
             "dark"
@@ -583,7 +697,9 @@ function applyTheme() {
         themeButton.textContent =
             "☀️";
 
-    } else {
+    }
+
+    else {
 
         document.body.classList.remove(
             "dark"
@@ -600,34 +716,33 @@ function applyTheme() {
 themeButton.onclick =
     function() {
 
-        const isDark =
+        const dark =
             document.body.classList.contains(
                 "dark"
             );
 
+
         localStorage.setItem(
             "siteTheme",
-            isDark
+            dark
                 ? "light"
                 : "dark"
         );
 
+
         applyTheme();
 
-        /*
-         * Если окно владельца открыто,
-         * обновляем сердечко.
-         */
 
         const heart =
             document.getElementById(
                 "secretHeart"
             );
 
+
         if (heart) {
 
             heart.textContent =
-                isDark
+                dark
                     ? "🤍"
                     : "❤️";
 
@@ -640,5 +755,7 @@ applyTheme();
 
 </script>
 
+
 </body>
+
     </html>
