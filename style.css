@@ -28,27 +28,28 @@ html {
 
 body.dark {
 
-    --bg1: #130708;
-    --bg2: #21090d;
-    --bg3: #2d0b10;
-    --bg4: #180608;
-    --bg5: #090909;
+    --bg1: #100405;
+    --bg2: #21080b;
+    --bg3: #300b10;
+    --bg4: #180507;
+    --bg5: #080808;
 
     --text: #dedede;
-    --primary: #d65362;
+    --primary: #df5362;
     --secondary: #aaa;
 
     --glass: rgba(25,25,25,.82);
-    --card: rgba(75,75,75,.88);
+    --card: rgba(72,72,72,.88);
     --popup: rgba(28,28,28,.97);
 
-    --border: rgba(120,120,120,.35);
+    --border: rgba(130,130,130,.3);
     --shadow: rgba(0,0,0,.5);
 }
 
 body {
 
     margin: 0;
+
     min-height: 100vh;
 
     font-family: Arial, sans-serif;
@@ -67,12 +68,14 @@ body {
 
     background-size: 500% 500%;
 
-    animation: backgroundAnimation 18s ease infinite;
+    animation: waterfall 18s ease infinite;
 
-    transition: .4s;
+    transition:
+        background .4s,
+        color .4s;
 }
 
-@keyframes backgroundAnimation {
+@keyframes waterfall {
 
     0% {
         background-position: 0% 50%;
@@ -110,7 +113,8 @@ header {
 
     border-radius: 30px;
 
-    box-shadow: 0 10px 35px var(--shadow);
+    box-shadow:
+        0 10px 35px var(--shadow);
 
     backdrop-filter: blur(15px);
 }
@@ -158,7 +162,8 @@ nav a {
 
     border-radius: 20px;
 
-    box-shadow: 0 5px 15px var(--shadow);
+    box-shadow:
+        0 5px 15px var(--shadow);
 
     backdrop-filter: blur(10px);
 
@@ -184,7 +189,8 @@ section {
 
     border-radius: 30px;
 
-    box-shadow: 0 10px 35px var(--shadow);
+    box-shadow:
+        0 10px 35px var(--shadow);
 
     backdrop-filter: blur(15px);
 }
@@ -220,6 +226,8 @@ h2 {
 
 .card {
 
+    position: relative;
+
     padding: 22px;
 
     background: var(--card);
@@ -230,14 +238,16 @@ h2 {
 
     transition: .3s;
 
-    box-shadow: 0 5px 18px var(--shadow);
+    box-shadow:
+        0 5px 18px var(--shadow);
 }
 
 .card:hover {
 
     transform: translateY(-5px);
 
-    box-shadow: 0 12px 28px var(--shadow);
+    box-shadow:
+        0 12px 28px var(--shadow);
 }
 
 .card h3 {
@@ -258,6 +268,12 @@ h2 {
     color: var(--secondary);
 
     font-size: 12px;
+}
+
+.owner-card {
+
+    border: 1px solid
+        rgba(255,255,255,.5);
 }
 
 .admin {
@@ -281,16 +297,31 @@ h2 {
     color: var(--secondary);
 }
 
+footer {
+
+    text-align: center;
+
+    padding: 30px 10px 0;
+
+    color: var(--secondary);
+
+    font-size: 13px;
+}
+
+/* ТЕМА */
+
 #themeButton {
 
     position: fixed;
 
     top: 18px;
+
     right: 18px;
 
     z-index: 10000;
 
     width: 48px;
+
     height: 48px;
 
     border: 1px solid var(--border);
@@ -307,8 +338,11 @@ h2 {
 
     backdrop-filter: blur(15px);
 
-    box-shadow: 0 8px 25px var(--shadow);
+    box-shadow:
+        0 8px 25px var(--shadow);
 }
+
+/* POPUP */
 
 .popup {
 
@@ -326,7 +360,8 @@ h2 {
 
     z-index: 9000;
 
-    background: rgba(0,0,0,.3);
+    background:
+        rgba(0,0,0,.3);
 
     backdrop-filter: blur(12px);
 }
@@ -338,6 +373,8 @@ h2 {
 
 .popup-window {
 
+    position: relative;
+
     width: min(750px,100%);
 
     max-height: 85vh;
@@ -348,7 +385,8 @@ h2 {
 
     border-radius: 30px;
 
-    box-shadow: 0 20px 70px var(--shadow);
+    box-shadow:
+        0 20px 70px var(--shadow);
 }
 
 .popup-header {
@@ -361,7 +399,8 @@ h2 {
 
     padding: 20px 25px;
 
-    border-bottom: 1px solid var(--border);
+    border-bottom:
+        1px solid var(--border);
 }
 
 .popup-title {
@@ -374,6 +413,7 @@ h2 {
 .close {
 
     width: 38px;
+
     height: 38px;
 
     border: 0;
@@ -395,20 +435,110 @@ h2 {
 
     overflow-y: auto;
 
-    max-height: calc(85vh - 80px);
+    max-height:
+        calc(85vh - 80px);
 
     line-height: 1.7;
 }
 
-footer {
+/* СЕКРЕТНОЕ СЕРДЦЕ */
+
+.secret-heart {
+
+    position: absolute;
+
+    left: 18px;
+
+    bottom: 16px;
+
+    width: 42px;
+
+    height: 42px;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    opacity: .42;
+
+    cursor: pointer;
+
+    font-size: 22px;
+
+    transition: .3s;
+
+    z-index: 10;
+}
+
+.secret-heart:hover {
+
+    opacity: .9;
+
+    transform: scale(1.15);
+}
+
+/* ОКНО ПАРОЛЯ */
+
+.password-box {
 
     text-align: center;
 
-    padding: 30px 10px 0;
+    padding: 30px;
+}
 
-    color: var(--secondary);
+.password-box h3 {
 
-    font-size: 13px;
+    color: var(--primary);
+}
+
+.password-box input {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 15px;
+
+    background: var(--card);
+
+    color: var(--text);
+
+    outline: none;
+
+    font-size: 16px;
+}
+
+.password-box button {
+
+    margin-top: 15px;
+
+    padding: 13px 25px;
+
+    border: 0;
+
+    border-radius: 16px;
+
+    background: var(--primary);
+
+    color: white;
+
+    cursor: pointer;
+}
+
+.password-error {
+
+    display: none;
+
+    margin-top: 12px;
+
+    color: #d65362;
+
+    font-size: 14px;
 }
 
 @media(max-width:600px) {
@@ -430,4 +560,4 @@ footer {
         padding: 10px 15px;
     }
 
-                   }
+    }
