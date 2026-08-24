@@ -17,7 +17,6 @@
 
 </head>
 
-
 <body>
 
 
@@ -30,24 +29,22 @@
 </button>
 
 
-
 <div class="page">
 
 
 <header>
 
 <div
-    class="logo"
-    id="siteName">
+    id="siteName"
+    class="logo">
 </div>
 
 <div
-    class="subtitle"
-    id="subtitle">
+    id="subtitle"
+    class="subtitle">
 </div>
 
 </header>
-
 
 
 <nav>
@@ -64,12 +61,7 @@
 Администрация
 </a>
 
-<a href="admin.html">
-⚙️ Админ
-</a>
-
 </nav>
-
 
 
 <section id="home">
@@ -79,12 +71,11 @@
 </h2>
 
 <div
-    class="welcome"
-    id="welcome">
+    id="welcome"
+    class="welcome">
 </div>
 
 </section>
-
 
 
 <section id="posts">
@@ -94,12 +85,11 @@
 </h2>
 
 <div
-    class="cards"
-    id="cards">
+    id="cards"
+    class="cards">
 </div>
 
 </section>
-
 
 
 <section id="admins">
@@ -109,29 +99,27 @@
 </h2>
 
 <div
-    class="cards"
-    id="adminsList">
+    id="adminsList"
+    class="cards">
 </div>
 
 </section>
 
 
-
-<footer
-    id="footer">
+<footer id="footer">
 </footer>
 
 
 </div>
 
 
+<!-- ОСНОВНОЕ ОКНО -->
 
 <div
     id="popup"
     class="popup">
 
 <div class="popup-window">
-
 
 <div class="popup-header">
 
@@ -145,7 +133,7 @@
     class="close">
 
 ×
-    
+
 </button>
 
 </div>
@@ -156,11 +144,74 @@
     class="popup-content">
 </div>
 
+</div>
+
+</div>
+
+
+<!-- ПАРОЛЬ -->
+
+<div
+    id="passwordPopup"
+    class="popup">
+
+<div class="popup-window">
+
+<div class="popup-header">
+
+<h3 class="popup-title">
+♡
+</h3>
+
+<button
+    id="closePassword"
+    class="close">
+
+×
+
+</button>
+
+</div>
+
+
+<div class="password-box">
+
+<h3>
+Секретный вход
+</h3>
+
+<p>
+Введите пароль владельца.
+</p>
+
+<input
+    id="ownerPassword"
+    type="password"
+    placeholder="Пароль"
+    autocomplete="off">
+
+<br>
+
+<button
+    id="loginOwner">
+
+Войти
+
+</button>
+
+<div
+    id="passwordError"
+    class="password-error">
+
+Неверный пароль.
 
 </div>
 
 </div>
 
+</div>
+
+</div>
 
 
 <script src="data.js"></script>
@@ -185,6 +236,7 @@ const adminsList =
 
 const footer =
     document.getElementById("footer");
+
 
 
 siteName.innerHTML =
@@ -223,26 +275,14 @@ SITE_DATA.cards.forEach(function(card) {
 
     `;
 
-    element.addEventListener(
-        "click",
-        function() {
+    element.onclick = function() {
 
-            document.getElementById(
-                "popupTitle"
-            ).textContent =
-                card.icon + " " + card.title;
+        openPopup(
+            card.icon + " " + card.title,
+            card.text
+        );
 
-            document.getElementById(
-                "popupContent"
-            ).innerHTML =
-                card.text;
-
-            document.getElementById(
-                "popup"
-            ).classList.add("active");
-
-        }
-    );
+    };
 
     cards.appendChild(element);
 
@@ -250,7 +290,37 @@ SITE_DATA.cards.forEach(function(card) {
 
 
 
-/* АДМИНИСТРАТОРЫ */
+/* ВЛАДЕЛЕЦ */
+
+const ownerCard =
+    document.createElement("div");
+
+ownerCard.className =
+    "card owner-card";
+
+ownerCard.innerHTML = `
+
+    <h3>
+        ♡ ${SITE_DATA.owner.title}
+    </h3>
+
+    <p>
+        Узнать больше о владельце.
+    </p>
+
+`;
+
+ownerCard.onclick = function() {
+
+    openOwner();
+
+};
+
+adminsList.prepend(ownerCard);
+
+
+
+/* АДМИНЫ */
 
 SITE_DATA.admins.forEach(function(admin) {
 
@@ -282,6 +352,80 @@ SITE_DATA.admins.forEach(function(admin) {
 
 
 
+/* POPUP */
+
+function openPopup(title, content) {
+
+    document.getElementById(
+        "popupTitle"
+    ).textContent = title;
+
+    document.getElementById(
+        "popupContent"
+    ).innerHTML = content;
+
+    document.getElementById(
+        "popup"
+    ).classList.add("active");
+
+}
+
+
+
+/* ВЛАДЕЛЕЦ */
+
+function openOwner() {
+
+    const content = `
+
+        ${SITE_DATA.owner.text}
+
+        <button
+            class="secret-heart"
+            id="secretHeart">
+
+            ${
+                document.body.classList.contains("dark")
+                ? "❤️"
+                : "🤍"
+            }
+
+        </button>
+
+    `;
+
+    openPopup(
+        SITE_DATA.owner.title,
+        content
+    );
+
+
+    setTimeout(function() {
+
+        const heart =
+            document.getElementById(
+                "secretHeart"
+            );
+
+        if (heart) {
+
+            heart.onclick =
+                function(event) {
+
+                    event.stopPropagation();
+
+                    openPassword();
+
+                };
+
+        }
+
+    }, 10);
+
+}
+
+
+
 /* ЗАКРЫТИЕ */
 
 document.getElementById(
@@ -304,13 +448,113 @@ document.getElementById(
         event.target.id === "popup"
     ) {
 
-        event.currentTarget.classList.remove(
-            "active"
-        );
+        event.currentTarget
+            .classList.remove("active");
 
     }
 
 };
+
+
+
+/* ПАРОЛЬ */
+
+function openPassword() {
+
+    document.getElementById(
+        "passwordPopup"
+    ).classList.add("active");
+
+    document.getElementById(
+        "ownerPassword"
+    ).value = "";
+
+    document.getElementById(
+        "passwordError"
+    ).style.display = "none";
+
+}
+
+
+
+document.getElementById(
+    "closePassword"
+).onclick = function() {
+
+    document.getElementById(
+        "passwordPopup"
+    ).classList.remove("active");
+
+};
+
+
+
+/*
+=================================
+ПАРОЛЬ
+=================================
+
+ВАЖНО:
+это не серверная защита.
+Поменяй значение ниже.
+*/
+
+const OWNER_PASSWORD =
+    "Clockworkhyena0909";
+
+
+
+document.getElementById(
+    "loginOwner"
+).onclick = function() {
+
+    const password =
+        document.getElementById(
+            "ownerPassword"
+        ).value;
+
+
+    if (
+        password ===
+        OWNER_PASSWORD
+    ) {
+
+        window.location.href =
+            "admin.html";
+
+    } else {
+
+        document.getElementById(
+            "passwordError"
+        ).style.display =
+            "block";
+
+    }
+
+};
+
+
+
+/* ENTER */
+
+document.getElementById(
+    "ownerPassword"
+).addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Enter"
+        ) {
+
+            document.getElementById(
+                "loginOwner"
+            ).click();
+
+        }
+
+    }
+);
 
 
 
@@ -370,6 +614,25 @@ themeButton.onclick =
 
         applyTheme();
 
+        /*
+         * Если окно владельца открыто,
+         * обновляем сердечко.
+         */
+
+        const heart =
+            document.getElementById(
+                "secretHeart"
+            );
+
+        if (heart) {
+
+            heart.textContent =
+                isDark
+                    ? "🤍"
+                    : "❤️";
+
+        }
+
     };
 
 
@@ -377,6 +640,5 @@ applyTheme();
 
 </script>
 
-
 </body>
-</html>
+    </html>
